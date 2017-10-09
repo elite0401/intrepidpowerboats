@@ -1,0 +1,74 @@
+{% load i18n %}
+<ol class="progress-list left-progress-list">
+    <!-- Hull Tab! -->
+    <li class="text-uppercase left-item" data-activate-item="hull" id="hull-tab">
+        <a href="#" class="link-collapse">{% trans "hull" %}</a>
+        <table class="table list">
+            <tbody>
+            <tr>
+                <td class="text-uppercase">{% trans "hull color" %}</td>
+                <td><span class="sample" id="boatHullSample" data-color="#00ffff"></span></td>
+                <td><a data-boat-key="boatHull" href="#" class="color-close button close gray"></a></td>
+            </tr>
+            <tr>
+                <td class="text-uppercase">{% trans "boot stripe" %}</td>
+                <td><span class="sample" id="boatBootStripeSample" data-color="#00ffff"></span></td>
+                <td><a data-boat-key="boatBootStripe" href="#" class="color-close button close gray"></a></td>
+            </tr>
+            <tr>
+                <td class="text-uppercase">{% trans "boot stripe accent" %}</td>
+                <td><span class="sample" id="boatBootStripeAccentSample" data-color="#00ffff"></span></td>
+                <td><a data-boat-key="boatBootStripeAccent" href="#" class="color-close button close gray"></a></td>
+            </tr>
+            {% if boat.sheer_stripe %}
+                <tr>
+                    <td class="text-uppercase">{% trans "sheer stripe" %}</td>
+                    <td><span class="sample" id="boatSheerStripeSample" data-color="#00ffff"></span></td>
+                    <td><a data-boat-key="boatSheerStripe" href="#" class="color-close button close gray"></a></td>
+                </tr>
+            {% endif %}
+            {% if boat.sheer_stripe_accent %}
+                <tr>
+                    <td class="text-uppercase">{% trans "sheer stripe accent" %}</td>
+                    <td><span class="sample" id="boatSheerStripeAccentSample" data-color="#00ffff"></span></td>
+                    <td><a data-boat-key="boatSheerStripeAccent" href="#" class="color-close button close gray"></a></td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </li>
+    <!-- Motor Tab! -->
+    <li class="text-uppercase left-item" data-activate-item="motor" id="motor-tab">
+        <a href="#" class="link-collapse">{% trans "motor" %}</a>
+        <table class="table list">
+            <tbody>
+            <tr class="motor-row">
+                <td class="text-uppercase title"></td>
+                <td><span class="chosen-option" data-default-text="{% trans "(select a motor)" %}">{% trans "(select a motor)" %}</span></td>
+                <td><a data-boat-key="boatMotor" href="#" class="button close gray motor-close"></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+    <!-- Other Features Tab! -->
+    <li class="text-uppercase left-item" data-activate-item="features" id="features-tab">
+        <a href="#" class="link-collapse">{% trans "other features" %}</a>
+        <table class="table list">
+            <tbody>
+            {% for feature in features %}
+                <tr class="feature-row feature-{{ feature.pk }}">
+                    <td class="text-uppercase">{{ feature.get_kind_display }}</td>
+                    <td><span class="chosen-option"></span></td>
+                    <td><a href="#" data-boat-key="boat{{ feature.template_display_kind }}"
+                           class="button close gray feature-close"></a></td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td class="text-uppercase">{% trans "logo" %}</td>
+                <td><span class="sample" id="boatLogoSample" data-color="#00ffff"></span></td>
+                <td><a data-boat-key="boatLogo" href="#" class="button close gray color-close"></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ol>

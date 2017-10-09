@@ -1,0 +1,97 @@
+{% load i18n staticfiles cms_tags thumbnail %}
+
+<div role="tabpanel" class="tab-pane fade {% if is_about %}in active{% endif %}" id="about">
+  <div class="header-image">
+    <div class="exterior-gallery">
+      <ul class="exterior-bxslider">
+        {% for photo in boat.about.exterior_gallery %}
+          <li><img src="{{ photo.image.url }}" class="img-responsive"></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="interior-gallery" hidden="hidden">
+      <ul class="interior-bxslider">
+        {% for photo in boat.about.interior_gallery %}
+          <li><img src="{{ photo.image|thumbnail_url:'mobile' }}" class="img-responsive"></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="cabin-gallery" hidden="hidden">
+      <ul class="cabin-bxslider">
+        {% for photo in boat.about.cabin_gallery %}
+          <li><img src="{{ photo.image.url }}" class="img-responsive"></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="main-content wide">
+      {% if not boat.about %}
+        {% render_model_add boat_models.about %}
+      {% else %}
+        {% render_model_add boat_models.about_image %}
+      {% endif %}
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="set-selector">
+            <a href="" class="button primary active exterior-selector">EXTERIOR</a>
+            <a href="" class="button primary interior-selector">COCKPIT</a>
+              {% if boat.about.cabin_gallery %}
+            <a href="" class="button primary cabin-selector">CABIN</a>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="exterior-gallery">
+        <div class="swipeable-container carousel-inner">
+          <div id="exterior-pager" class="boat-model-pager bx-pager">
+            {% with gallery=boat.about.exterior_gallery carousel_id="exterior-carousel" %}
+              {% include 'boats/detail/partials/thumbnails_carousel.html' %}
+            {% endwith %}
+          </div>
+        </div>
+      </div>
+
+      <div class="interior-gallery" hidden="hidden">
+        <div class="swipeable-container carousel-inner">
+          <div id="interior-pager" class="boat-model-pager bx-pager">
+            {% with gallery=boat.about.interior_gallery carousel_id="interior-carousel" %}
+              {% include 'boats/detail/partials/thumbnails_carousel.html' %}
+            {% endwith %}
+          </div>
+        </div>
+      </div>
+
+      <div class="cabin-gallery" hidden="hidden">
+        <div class="swipeable-container carousel-inner">
+          <div id="cabin-pager" class="boat-model-pager bx-pager">
+            {% with gallery=boat.about.cabin_gallery carousel_id="cabin-carousel" %}
+              {% include 'boats/detail/partials/thumbnails_carousel.html'  %}
+            {% endwith %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          {% render_model_block boat.about %}
+            <h3>{{ instance.title }}</h3>
+            {{ instance.description|safe }}
+          {% endrender_model_block %}
+        </div>
+
+        {% page_url 'contact' as contact_page %}
+        <div class="col-sm-12">
+          <div class="text-center text-uppercase mt4">
+            <a href="{% if contact_page %}{{ contact_page }}{% else %}#{% endif %}"
+               class="button primary stroked">
+              {% trans "contact a sales representative" %}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

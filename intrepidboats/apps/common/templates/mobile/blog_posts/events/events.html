@@ -1,0 +1,47 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load static i18n el_pagination_tags sekizai_tags %}
+
+{% if site_metadata.events_description %}
+    {% block meta_description %}
+        {{ site_metadata.events_description }}
+    {% endblock %}
+{% endif %}
+
+{% if site_metadata.events_og_title %}
+    {% block meta_og_title %}
+        {{ site_metadata.events_og_title }}
+    {% endblock %}
+{% endif %}
+
+{% if site_metadata.events_og_description %}
+    {% block meta_og_description %}
+        {{ site_metadata.events_og_description }}
+    {% endblock %}
+{% endif %}
+
+{% block body_classes %}page events{% endblock body_classes %}
+{% block section %}Events - {% endblock %}
+
+{% block content %}
+
+    <!-- Main page -->
+    <div class="main">
+        <header class="text-center section-nav">
+            <h1>{% trans "events" %}</h1>
+            <div class="gradient"></div>
+        </header>
+    </div>
+
+    <div class="main">
+        <div class="main-content">
+            {% include page_template %}
+        </div>
+    </div>
+    <!-- ./Main page -->
+    {% addtoblock "js" %}
+        {% block js %}{% endblock %}
+        <script src="{% static "common/js/blog_posts.js" %}"></script>
+        <script src="{{ STATIC_URL }}el-pagination/js/el-pagination.js"></script>
+        <script>$.endlessPaginate();</script>
+    {% endaddtoblock %}
+{% endblock content %}

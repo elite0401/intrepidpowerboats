@@ -1,0 +1,35 @@
+{% load thumbnail static %}
+
+<div class="gallery-thumb thumb-{{ media.id }}" data-media-id="{{ media.id }}">
+  {% if media.media_type == "picture" %}
+      <div style="position:relative;">
+          <a href="#gallery-{{ media.id }}">
+              <img class="gallery-item" src="{{ media.image|thumbnail_url:'owners-gallery' }}"
+                   data-full-image="{{ media.image.url }}"
+                   data-url="{{ view.request.build_absolute_uri }}#gallery-{{ media.id }}"
+                   data-picture="{{ view.request.scheme }}://{{ view.request.get_host }}{{ media.image.url }}"
+                   data-description="{{ media.comment }}" data-caption="{{ current_site }}"
+                   data-username="{{ request.user.first_name }} {{ request.user.last_name }}">
+          </a>
+      </div>
+
+  {% elif media.media_type == "video" and media.video_id %}
+
+    <div class="img-container">
+        <a class="btn-play"></a>
+        <a href="#gallery-{{ media.id }}">
+            <img class="gallery-item video-thumb-{{ media.video_id }}" data-full-video="{{ media.video_external_url }}"
+                 data-video-id="{{ media.video_id }}"
+                 src="{% if media.thumbnail %}
+                 {{ media.thumbnail|thumbnail_url:'owners-gallery' }}
+                 {% else %}
+                 {% static "common/images/default_thumbnail_400px.jpg" %}
+                 {% endif %}"
+                 data-url="{{ view.request.build_absolute_uri }}#gallery-{{ media.id }}"
+                 data-picture="{{ view.request.scheme }}://{{ view.request.get_host }}{% if media.thumbnail %}{{ media.thumbnail.url }}{% else %}{% static "common/images/default_thumbnail_400px.jpg" %}{% endif %}"
+                 data-description="{{ media.comment }}" data-caption="{{ current_site }}"
+                 data-username="{{ request.user.first_name }} {{ request.user.last_name }}">
+        </a>
+    </div>
+  {% endif %}
+</div>

@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<h1>{% trans "Your built boat!" %}</h1>
+<div>
+    <div>
+        <p>
+            Hello<br>
+            The user {{ name }} has built a boat.<br>
+            Contact info:<br>
+        </p>
+        <ul>
+            <li><strong>Phone:</strong> {{ phone }}</li>
+            <li><strong>Email:</strong> {{ email }}</li>
+            <li><strong>Built boat:</strong> <a href="http://{{ site }}{{ admin_url }}"></a>{% trans "see boat" %}</li>
+        </ul>
+    </div>
+    <img src="http://{{ site }}{{ image_url }}" alt="">
+</div>

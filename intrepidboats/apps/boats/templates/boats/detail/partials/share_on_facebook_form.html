@@ -1,0 +1,6 @@
+{% load i18n %}
+
+<form action="{% url "boats:built_boat_share" group_pk=boat.model_group.pk slug=boat.slug %}" method="post" id="shareOnFacebook">
+    {% csrf_token %}
+    <button type="submit" class="button primary pull-right">{% trans "SHARE" %}</button>
+</form>

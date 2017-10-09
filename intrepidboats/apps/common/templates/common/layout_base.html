@@ -1,0 +1,203 @@
+{% load staticfiles bootstrap3 js_reverse sekizai_tags cms_tags compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+  {% block section %}{% endblock %}
+      {% block site_name %}
+          {% if cms_metadata %}
+              {{ cms_metadata.page_title }}
+          {% else %}
+              {{ site_metadata.page_title }}
+          {% endif %}
+      {% endblock %}
+  </title>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NMMJXB7');</script>
+  <!-- End Google Tag Manager -->
+    <link rel=icon href="{% static 'common/images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/0316EE6CDCAC33FE6.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/45606C37682908D93.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/03BB971C7BE03AB56.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/46EEF59B77A132E1B.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/989184D605F4FA17E.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/0D558A9A19A6E1ACA.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/47B899376535B1977.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/9D9E8432D79862DB0.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/0E7F356CBD31BD88A.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/484AF1BF9CF2F8829.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/9E37F29123B0C5EF7.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/A294BFF1405356DF2.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/17A40D6D3EFA9203F.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/54B24632BF5EC264C.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/B9FAA4103FFA48B7E.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/5708DEB491CFDBF92.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/CE21D04428F88BA09.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/23C03E1D3F5EE9185.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/6711B935CDC37B537.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/CE7AE3C19A9491C36.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/2430DC4D237E5BA6A.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/D43322431AC50F55E.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/26F6CD9381106697E.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/6DD68B515DB7C1BBF.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/DF6B61CD2DCC11ED1.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/6F1BF1DAC1D3E8001.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/E52558A3D327838A8.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/2A649102226A8B77D.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/71B912DAC210A5D4F.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/F6A0B3D7DCEA06FD9.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/33C44A41650992235.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/7678B0A43F8ABFCD6.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/F6E6A749B51ECAD48.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/35A4F6089E98ABAD5.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/7CB520F9FD6C5AB39.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/F6F095FB53DAEA0A7.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/379EFD6E1841BE188.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/7CE550B4573DEA3B8.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/3F149ADEE415F366E.css' %}">
+    <link rel="stylesheet" href="{% static 'common/fonts/569380/802BB31D556641C9D.css' %}">
+    <!--build:css css/styles.min.css-->
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.1.2/jquery.bxslider.css"/>
+  {% render_block "cdn_css" %}
+  <!--endbuild-->
+
+  {% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %} {# Used by Django-CMS #}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- for Google -->
+    <meta name="description"
+          content="
+          {% block meta_description %}
+              {% if cms_metadata %}
+                  {{ cms_metadata.description }}
+              {% else %}
+                  {{ site_metadata.description }}
+              {% endif %}
+          {% endblock %}"/>
+    <!-- for Facebook -->
+    <meta property="og:title"
+          content="
+          {% block meta_og_title %}
+              {% if cms_metadata %}
+                  {{ cms_metadata.og_title }}
+              {% else %}
+                  {{ site_metadata.og_title }}
+              {% endif %}
+          {% endblock %}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+    {% if site_metadata.og_image or cms_metadata.og_image %}
+    <meta property="og:image"
+          content="
+          {{ request.scheme }}://
+          {{ request.META.HTTP_HOST }}
+          {% block meta_og_image %}
+              {% if cms_metadata.og_image %}
+                  {{ cms_metadata.og_image.url }}
+              {% else %}
+                  {{ site_metadata.og_image.url }}
+              {% endif %}
+          {% endblock %}"/>
+    {% endif %}
+    <meta property="og:description"
+          content="
+          {% block meta_og_description %}
+              {% if cms_metadata %}
+                  {{ cms_metadata.og_description }}
+              {% else %}
+                  {{ site_metadata.og_description }}
+              {% endif %}
+          {% endblock %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body class="{% block body_classes %} {% endblock body_classes %}">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMMJXB7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{% block pre_body %}
+{% endblock pre_body %}
+
+{% cms_toolbar %}
+
+{% block site %}
+{% endblock site %}
+
+<!--build:js js/main.min.js -->
+<!-- endbuild -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+{% block bootstrap3 %}{% bootstrap_javascript %}{% endblock bootstrap3 %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+{% render_block "cdn_js" %}
+
+{% compress js %}
+  <!-- Leave this outside "js" block. This ensures these files add loaded before any other js file -->
+  <script>
+      window.fbAsyncInit = function () {
+          FB.init({
+              appId: '{{ settings.FACEBOOK_APP_ID }}',
+              xfbml: true,
+              version: 'v2.8'
+          });
+          FB.AppEvents.logPageView();
+      };
+      (function (d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {
+              return;
+          }
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script type="text/javascript" charset="utf-8">{% js_reverse_inline %}</script>
+  <script src="{% static "js/spin.js" %}"></script>
+  <script src="{% static "js/jquery.spin.js" %}"></script>
+  <script>
+    $('.navbar-toggle').click(function () {
+      $(".sidebar-content").toggleClass("on", $(this).hasClass('collapsed'));
+    });
+  </script>
+
+{% endcompress %}
+
+{% if flavour != "mobile" %}
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+{% endif %}
+
+{% render_block "root_html" %}
+
+{% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %} {# Used by Django-CMS #}
+
+</body>
+
+</html>
+

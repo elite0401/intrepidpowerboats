@@ -1,0 +1,48 @@
+{% load cms_tags static i18n sekizai_tags %}
+
+<div role="tabpanel" class="tab-pane fade tab-testimonials" id="about">
+  <div class="main">
+    <div class="main-content">
+      <div class="text-center pl4 pr4">
+        {% placeholder "About Text" %}
+      </div>
+      <hr />
+      <h3 class="text-uppercase">{% trans "owner privileges" %}</h3>
+
+      <div>
+        {% placeholder "Owner Privileges Image" %}
+        <p>{% placeholder "Owner Privileges Text" %}</p>
+        <div class="text-center">
+          <img src="{% static "difference/images/intrepid-powerboats-green.svg" %}" class="img-responsive img-signature">
+        </div>
+      </div>
+
+      <hr />
+      <h3 class="text-uppercase">{% trans "testimonials" %}</h3>
+      <div class="gradient"></div>
+
+      <ul class="bxslider" id="slider-testimonials">
+        {% placeholder "Testimonials" %}
+      </ul>
+
+      <div class="gradient bottom"></div>
+
+      <div class="row mt2">
+        <div class="col-sm-8">
+          <div class="dropup">
+            <a href="{% url "difference:create_ticket" %}" type="button" class="text-uppercase" id="share-button">
+              {% trans "share your testimonial with us" %}
+            </a>
+            <div class="dropdown-menu form-testimonial">
+              <span class="button close dark close-button" id="close-dropdown"></span>
+              <p class="text-uppercase"><strong>{% trans "Share your testimonial with us" %}</strong></p>
+              <p>{% trans "Let us know what you think of your Intrepid!" %}</p>
+                {% include "difference/shared_testimonials/form.html" %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

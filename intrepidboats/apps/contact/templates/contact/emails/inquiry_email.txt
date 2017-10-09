@@ -1,0 +1,10 @@
+Sender info:
+
+First name: {{ inquiry.first_name }}
+Last name: {{ inquiry.last_name }}
+{% if inquiry.phone_number %}
+Phone number: {{ inquiry.phone_number }}
+{% endif %}
+Email address: {{ inquiry.email }}
+
+{{ inquiry.comments }}

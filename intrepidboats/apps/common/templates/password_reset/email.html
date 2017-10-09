@@ -1,0 +1,9 @@
+{% load i18n %}
+{% autoescape off %}
+    {% trans "Hello " %}{{ user.nick }}
+    {% trans "You told us you forgot your password. If that's the case, here you can get a new one:" %}
+    {% block reset_link %}
+        {{ protocol }}://{{ domain }}{% url 'common:password_reset_confirm' uidb64=uid token=token %}
+    {% endblock %}
+    {% trans "If you didn't mean to change your password you can ignore this email, your password won't change." %}
+{% endautoescape %}

@@ -1,0 +1,14 @@
+{% load i18n %}
+<form method="post" class="form dark step-feedback-form" action="{% url "owners_portal:step_feedback" pk=step.pk %}">
+    {% csrf_token %}
+    <span class="comment-container">
+    <label class="text-uppercase">{% trans "send us any feedback or questions" %}.</label>
+    <textarea placeholder="{% trans "QUESTIONS OR COMMENTS" %}"
+              name="comments"
+              required="required"
+              class="input"></textarea>
+    </span>
+    <div class="pull-right">
+        <button type="submit" class="button primary text-capitalize">{% trans "submit" %}</button>
+    </div>
+</form>

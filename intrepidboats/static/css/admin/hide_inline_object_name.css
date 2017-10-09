@@ -1,0 +1,19 @@
+/*hide tabular inline object name*/
+
+td.original p {
+  visibility: hidden;
+}
+
+.inline-group .tabular tr.has_original td {
+    padding-top: 5px;
+}
+
+/*hide stacked inline object name*/
+
+div.has_original h3 b {
+    visibility: hidden;
+}
+
+div.has_original h3 span.inline_label {
+    visibility: hidden;
+}

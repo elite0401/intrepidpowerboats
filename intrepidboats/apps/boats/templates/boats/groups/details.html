@@ -1,0 +1,42 @@
+{% load i18n %}
+<form action="{% url "boats:compare_boats" pk=object.pk %}" method="get" class="compare-boats">
+
+    <div class="alert alert-danger hidden error-message"
+         role="alert">{% trans "You must first select at least 2 models to compare" %}</div>
+
+    {% if boats %}
+        <div class="col-sm-{% if boats.count == 1 %}10{% else %}5{% endif %} col-sm-offset-2">
+        {% if boats.count > 1 %}<h4>{% trans "compare" %}</h4>{% endif %}
+        {% for boat in boats|slice:"::2" %}
+          <div class="checkbox">
+            <input type="checkbox" value="{{ boat.pk }}" id="{{ boat.pk }}" name="comparing_boats">
+            <label for="{{ boat.pk }}">{{ boat.title }}</label>
+          </div>
+
+          <a href="{% url "boats:boat_detail" group_pk=object.pk slug=boat.slug %}"
+             class="button primary small text-uppercase">{% trans "visit model page" %}</a>
+        {% endfor %}
+    </div>
+        {% if boats.count > 1 %}
+    <div class="col-sm-5">
+        <h4>{% trans "compare" %}</h4>
+        {% for boat in boats|slice:"1::2"%}
+          <div class="checkbox">
+            <input type="checkbox" value="{{ boat.pk }}" id="{{ boat.pk }}" name="comparing_boats">
+            <label for="{{ boat.pk }}">{{ boat.title }}</label>
+          </div>
+
+            <a href="{% url "boats:boat_detail" group_pk=object.pk slug=boat.slug %}"
+               class="button primary small text-uppercase">{% trans "visit model page" %}</a>
+        {% endfor %}
+    </div>
+        {% endif %}
+    {% endif %}
+    <span class="clearfix"></span>
+
+    <div class="text-center mb2 mt2">
+        {% if boats.count > 1 %}
+            <button type="submit" class="button primary text-uppercase">{% trans "compare models" %}</button>
+        {% endif %}
+    </div>
+</form>

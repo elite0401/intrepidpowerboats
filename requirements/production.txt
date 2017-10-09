@@ -1,0 +1,8 @@
+-r base.txt
+
+gunicorn==19.3.0
+psycopg2==2.6.1
+raven==5.0.0
+django-anymail==0.8
+django-cachalot==1.4.1
+python-memcached==1.58

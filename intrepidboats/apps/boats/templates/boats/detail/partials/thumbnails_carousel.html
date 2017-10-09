@@ -1,0 +1,36 @@
+{% load boat_tags cms_tags thumbnail %}
+
+<div id="{{ carousel_id }}" class="carousel slide" data-interval="0">
+    <div class="carousel-inner" role="listbox">
+        {% for gallery in galleries %}
+            <div class="item text-right {% if forloop.first %}active{% endif %}">
+                {% for photo in gallery %}
+                    {% render_model_block photo %}
+                        <a data-slide-index="{{ forloop.counter0|slide_index:forloop.parentloop.counter0 }}" href=""
+                           {% if forloop.first %}class="active"{% endif %}>
+                            <img src="{{ instance.image|thumbnail_url:'pager-item' }}">
+                        </a>
+                    {% endrender_model_block %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <div class="set-selector">
+          <a href="#" class="exterior-selector on">EXTERIOR</a>
+          <a href="#" class="interior-selector">COCKPIT</a>
+                {% if boat.about.cabin_gallery %}
+          <a href="#" class="cabin-selector">CABIN</a>
+            {% endif %}
+        </div>
+    </div>
+    <!-- Indicators -->
+
+  {% if galleries|length > 1 %}
+    <ol class="carousel-indicators">
+      {% for index in galleries|length|get_range %}
+        <li data-target="#{{ carousel_id }}" data-slide-to="{{ index }}"
+            class="bx-pager-link {% if forloop.first %} active {% endif %}"></li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+
+</div>

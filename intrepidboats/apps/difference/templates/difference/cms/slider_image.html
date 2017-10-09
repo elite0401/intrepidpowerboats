@@ -1,0 +1,9 @@
+<li>
+    {% if instance.section_text %}
+        <div class="gradient-dark"></div>
+        <div class="bxslider-text-container">
+            {{ instance.section_text }}
+        </div>
+    {% endif %}
+    <img src="{{ instance.image.url }}" class="img-responsive"/>
+</li>

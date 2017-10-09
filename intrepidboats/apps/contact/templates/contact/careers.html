@@ -1,0 +1,79 @@
+{% extends 'common/desktop_base.html' %}
+{% load cms_tags i18n static sekizai_tags %}
+
+{% block body_classes %}page careers{% endblock body_classes %}
+{% block section %}Employment at Intrepid - {% endblock %}
+{% block content %}
+
+    <div class="main">
+        {% include "common/components/language_navbar.html" %}
+        <header class="text-center section-nav">
+            <h1>{% trans "EMPLOYMENT AT INTREPID" %}</h1>
+            <div class="gradient"></div>
+        </header>
+    </div>
+    <div class="header-image">
+        <img src="{% static "contact/images/header-careers.jpg" %}" class="img-responsive">
+    </div>
+    <div class="main">
+        <div class="main-content">
+            <h2>{% trans "Intrepid powerboats" %}</h2>
+            <p class="clearfix c-mutted mb7">
+                <img src="{% static "contact/images/intrepid-powerboats-green.svg" %}"
+                     class="img-responsive pull-left mr4 logo-intrepid">
+                {% blocktrans %}Interested in working for Intrepid? Check out our job listings below and complete the
+                    form
+                    to send us your information. If you’re a fit, we’ll be in touch!{% endblocktrans %}
+            </p>
+            <h3 class="form-heading">{% trans "EMPLOYMENT AT INTREPID" %}</h3>
+            <div class="form-container-bg form">
+            <form action="{% url "contact:send_resume" %}"
+                  method="post" enctype="multipart/form-data">{% csrf_token %}
+                <p class="mutted">{% trans "* Denotes Required Fields" %}</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input name="first_name" type="text" class="input required"
+                               placeholder="* {% trans "FIRST NAME" %}" required>
+                        <input name="last_name" type="text" class="input required"
+                               placeholder="* {% trans "LAST NAME" %}" required>
+                        <input name="email" type="email" class="input required"
+                               placeholder="* {% trans "EMAIL ADDRESS" %}" required>
+                        <input name="phone_number" type="tel" class="input" placeholder="{% trans "PHONE" %}">
+                        <div class="box js">
+                            <input type="file" name="resume" id="file-1" class="inputfile inputfile-1">
+                            <label for="file-1" class="bevel"> <span>{% trans "ATTACH YOUR RESUME / CV" %}</span></label>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <textarea name="additional_notes" placeholder="{% trans "ADDITIONAL NOTES (OPTIONAL)" %}"
+                                  class="input"></textarea>
+                    </div>
+                </div>
+                <div class="text-right mt1 mb1">
+                    <input type="submit" value="{% trans "SEND" %}" class="button primary w-auto"/>
+                </div>
+            </form>
+            </div>
+            <hr/>
+
+            <div class="jobs-listing">
+                <div class="row">
+
+                    {% placeholder "jobs" %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% addtoblock "js" %}
+        <script src="{% static "js/custom-file-input/custom-file-input.js" %}"></script>
+    {% endaddtoblock %}
+
+    {% addtoblock "css" %}
+        <link rel="stylesheet" href="{% static "css/custom-file-input/component.css" %}">
+    {% endaddtoblock %}
+
+{% endblock content %}
+

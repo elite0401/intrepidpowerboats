@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<h4>{{ article.title }}</h4>
+<p>{{ article.description|striptags|truncatechars:120 }}
+    <a href="{% url 'common:article' article.pk article.title|slugify %}" class="link tt-uppercase">{% trans "read more" %}</a>
+</p>
+<br/>

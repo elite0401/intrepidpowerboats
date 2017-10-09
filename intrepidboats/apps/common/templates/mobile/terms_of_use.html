@@ -1,0 +1,86 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load i18n %}
+{% block section %}Terms and Conditions - {% endblock %}
+{% block content %}
+
+    <div class="main">
+        <header class="text-center section-nav">
+            <h1>{% trans "Terms and Conditions" %}</h1>
+            <div class="gradient"></div>
+        </header>
+    </div>
+
+    <div class="main">
+        <div class="main-content">
+            <div>
+                <p><strong>Privacy Statement</strong></p>
+                <p>Intrepid Powerboats takes our customers’ personal privacy seriously. Please read the following to
+                    learn
+                    more about our Privacy Policy.</p>
+                <p><strong>What this Privacy Policy Covers</strong><br>
+                    This Privacy Policy covers IntrepidPowerboats.com treatment of personally identifiable information
+                    that
+                    it collects when you are on the Intrepid Powerboats’ website and when you use our services. This
+                    policy
+                    also covers our treatment of any personally identifiable information that Intrepid Powerboats and
+                    its
+                    subsidiaries, affiliates and business partners share with us or that we may collect on a related
+                    entity’s or business partner’s website. This Privacy Policy does not apply to the practices of
+                    companies
+                    that Intrepid Powerboats does not own or control, or to people that Intrepid Powerboats does not
+                    employ
+                    or manage.</p>
+                <p><strong>Information Collection</strong><br>
+                    As you browse IntrepidPowerboats.com, personal information - such as your name, address, phone
+                    number or
+                    e-mail address - is not collected. IntrepidPowerboats.com does, however, use “cookies” to collect
+                    information about how our website is used. Information, such as the server your computer is logged
+                    onto,
+                    your browser type (for example, Netscape or Internet Explorer) and the pages you view/request are
+                    automatically collected and tracked in aggregate.</p>
+                <p>In order to provide you with E-NEWS, CONTACT US, EVENT AND TRAINING REGISTRATION and other online
+                    services, we may request that you voluntarily supply us with personal information including your
+                    name,
+                    e-mail address and contact information.</p>
+                <p><strong>Information Use</strong><br>
+                    IntrepidPowerboats.com may use information you have given us to, for example, provide a service,
+                    measure
+                    guest interest in certain new products and inform you about products and services. If you have
+                    provided
+                    your e-mail address to us or to a company we have partnered with to make their products and services
+                    available to you, we may send you e-mail offers. We may also send you e-mail offers if you have
+                    provided
+                    your e-mail address to a third party and have actively chosen or requested, on an opt-in basis, to
+                    receive e-mail offers from other parties.</p>
+                <p>Please note that we DO NOT provide your e-mail address to our business partners. However, we may send
+                    you
+                    offers on behalf of our business partners. When we send e-mails to you, we may be able to identify
+                    information about your e-mail address, such as whether you can read graphic-rich html e-mails. If
+                    your
+                    e-mail address is html-enabled, we may choose to send you graphic-rich html e-mails.</p>
+                <p><strong>Information Sharing and Disclosure</strong><br>
+                    IntrepidPowerboats.com will not sell or rent your personally identifiable information to anyone.
+                    IntrepidPowerboats.com may send personally identifiable information about you to other companies or
+                    people when: <br>
+                    • We have your consent to share the information<br>
+                    • We need to share your information to provide the product or service you have requested<br>
+                    • We need to send the information to companies who work on behalf of COMPANY NAME GOES HERE to
+                    provide a
+                    product or service to you. Unless we tell you differently, these companies do not have any right to
+                    use
+                    the personally identifiable information we provide to them beyond what is necessary to assist us; or
+                    we
+                    respond to subpoenas, court orders or legal process. <br>
+                    <br>
+                    <strong>Changes to this Privacy Policy</strong><br>
+                    IntrepidPowerboats.com may amend this Privacy Policy from time to time. If we make any substantial
+                    changes in the way we use your personal information we will notify you by posting a prominent
+                    announcement on our website.</p>
+            </div>
+
+            <a href="{% url 'common:register' %}"><b>Back to registration</b></a>
+
+        </div>
+    </div>
+
+{% endblock content %}

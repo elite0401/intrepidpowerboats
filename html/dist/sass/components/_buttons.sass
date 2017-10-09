@@ -1,0 +1,85 @@
+.button
+  border: 1px solid transparent
+  padding: 0.5em 1em 0.5em
+  font-family: "Gotham A", "Gotham B"
+  background: $c-secondary
+  color: $c-gray-med
+  display: inline-block
+  &:hover
+    text-decoration: none
+  &.block
+    width: 100%
+    display: block
+  &.small
+    @extend .fs-xxsmall
+    height: auto
+    line-height: 1.2rem
+    @extend .pl1
+    @extend .pr1
+    &.alt
+      @extend .fs-small
+      height: 3.4rem
+      line-height: 3.4rem
+  &.big
+    @extend .fs-medium-alt
+    @extend .w100 !optional
+  &.primary
+    @extend .bg-primary
+    @extend .c-white
+    &:hover
+      background: $c-primary-hover
+      text-decoration: none
+    &:active
+      background: $c-primary-active
+    &.disabled
+      background: $c-primary-inactive
+    &.stroked
+      border-color: $c-primary
+      background: transparent
+      color: $c-gray-darker !important
+      &:hover
+        @extend .c-primary
+  &.secondary
+    @extend .bg-secondary
+    @extend .c-white
+    &:hover
+      background: $c-secondary-hover
+      text-decoration: none
+    &:active
+      background: $c-secondary-active
+    &.disabled
+      background: $c-secondary-inactive
+    &.stroked
+      border-color: $c-secondary
+      @extend .bg-white
+      @extend .c-secondary
+  &.close
+    position: absolute
+    right: 10px
+    top: 10px
+    &.gray
+    color: $c-gray-ligth
+    border-radius: 50%
+    border: 1px solid $c-gray-ligth
+    width: 2rem
+    height: 2rem
+    display: inline-block
+    @extend .fs-small
+    padding: 1px 6px
+    line-height: 15px
+    width: 20px
+    height: 20px
+    display: inline-block
+    &.green
+      background: $c-primary
+      color: white
+      border: 1px solid $c-primary
+      opacity: 1
+
+
+//
+select.button
+  border: none
+  border-radius: none !important
+  height: 40px
+  padding: auto 15px

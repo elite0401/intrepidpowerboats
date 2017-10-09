@@ -1,0 +1,30 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block meta_og_title %}Register - Intrepid Powerboats{% endblock %}
+
+{% block section %}Register - {% endblock %}
+{% block content %}
+
+    <div class="main">
+        <header class="text-center">
+            <h1>OWNER’S PORTAL</h1>
+            <div class="gradient"></div>
+        </header>
+        <div id="registration-success-message" class="login-container form">
+
+            <h3>{% trans "Register to create an owner's portal account" %}</h3>
+
+            <div class="login-container">
+                <h4>Thank you for registering for the Intrepid Owner's
+                    Portal!</h4>
+                <a class="button primary mt2 mb2"
+                   href="{% url 'owners_portal:owners_portal' %}">
+                    GO THERE NOW
+                </a>
+            </div>
+
+        </div>
+    </div>
+{% endblock content %}

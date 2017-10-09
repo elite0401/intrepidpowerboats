@@ -1,0 +1,10 @@
+{% load staticfiles %}
+{% if page_asset.vimeo_video_code %}
+    <li>
+        <video id="myVideo-{{ page_asset.pk }}" autoplay
+               src="{{ page_asset.video_external_url }}">
+        </video>
+    </li>
+{% else %}
+    <li style="background-image: url('{{ page_asset.image.url }}');"></li>
+{% endif %}

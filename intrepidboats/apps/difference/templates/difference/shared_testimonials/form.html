@@ -1,0 +1,36 @@
+{% load sekizai_tags i18n static %}
+
+<div class="error-message-container"></div>
+
+<form class="form dark light-fonts" action="{% url "difference:shared_testimonials" %}" method="post" id="testimonial-upload">
+    {% csrf_token %}
+    <input required="required" type="text" placeholder="{% trans "First name" %}" name="first_name" class="input"/>
+    <input required="required" type="text" placeholder="{% trans "Last name" %}" name="last_name" class="input"/>
+    <input type="text" placeholder="{% trans "Title" %}" name="title" class="input"/>
+    <input required="required" type="email" placeholder="{% trans "Email address" %}" name="email" class="input"/>
+    <div class="spin-target"></div>
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-1 col-sm-offset-2 text-right">
+            <span class="instruction">Select a picture or video to upload</span>
+        </div>
+        <div class="col-xs-5 col-sm-4">
+            <div class="box js">
+              <input required="required" type="file" name="file" id="file" class="inputfile inputfile-white">
+                <label for="file"><span>{% trans "Select" %}</span></label>
+            </div>
+        </div>
+    </div>
+    <textarea required="required" name="message" class="input" placeholder="{% trans "Your testimonial" %}"></textarea>
+    <input type="text" name="ticket-id" id="vimeo-ticket-id" hidden/>
+    <div class="text-right">
+        <button type="submit" class="button primary iblock">{% trans "Submit" %}</button>
+    </div>
+</form>
+
+{% addtoblock "js" %}
+  <script src="{% static "js/custom-file-input/custom-file-input.js" %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+  <link rel="stylesheet" href="{% static "css/custom-file-input/component.css" %}">
+{% endaddtoblock %}

@@ -1,0 +1,133 @@
+{% load i18n %}
+
+<div class="progress-list-options hidden">
+
+    <div class="dropup progress-list-option" id="hull-options">
+
+        <div class="dropdown-menu color-picker-container">
+            <div class="color-picker-menu sub-option-item">
+                <a href="#" class="button close gray close-color-picker"></a>
+                <span class="color-container"></span>
+                <div id="match-color-to" class="pl3">
+                    <div class="radiobutton" id="boatBootStripeRadioButton">
+                      <input type="radio" name="match-color" class="form-control" id="match-boot-stripe">
+                      <label for="match-boot-stripe">Match to Boot Stripe</label>
+                    </div>
+                    <div class="radiobutton" id="boatBootStripeAccentRadioButton">
+                      <input type="radio" name="match-color" class="form-control" id="match-boot-stripe-accent">
+                      <label for="match-boot-stripe-accent">Match to Boot Stripe Accent</label>
+                    </div>
+                    <div class="radiobutton" id="boatSheerStripeRadioButton">
+                      <input type="radio" name="match-color" class="form-control" id="match-sheer-stripe">
+                      <label for="match-sheer-stripe">Match to Sheer Stripe</label>
+                    </div>
+                    <div class="radiobutton" id="boatSheerStripeAccentRadioButton">
+                      <input type="radio" name="match-color" class="form-control" id="match-sheer-stripe-accent">
+                      <label for="match-sheer-stripe-accent">Match to Sheer Stripe Accent</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav internal text-uppercase">
+            <a href="#" id="boatHull" class="button color-select">{% trans "hull color" %}</a>
+            <a href="#" id="boatBootStripe" class="button color-select">{% trans "boot stripe" %}</a>
+            <a href="#" id="boatBootStripeAccent" class="button color-select">
+                {% trans "boot stripe accent" %}
+            </a>
+            {% if boat.sheer_stripe %}
+                <a href="#" id="boatSheerStripe" class="button color-select">{% trans "sheer stripe" %}</a>
+            {% endif %}
+            {% if boat.sheer_stripe_accent %}
+                <a href="#" id="boatSheerStripeAccent" class="button color-select">
+                    {% trans "sheer stripe accent" %}
+                </a>
+            {% endif %}
+            <a href="#" id="boatLogo" data-feature-id="logo" class="button color-select">
+                {% trans "logo" %}
+            </a>
+        </div>
+
+    </div>
+
+    <div class="dropup progress-list-option" id="motor-options">
+
+        <div class="dropdown-menu color-picker-container sub-options hidden">
+
+            <a href="#" class="button close gray close-color-picker"></a>
+
+            {% for motor_selection in motor_selections %}
+                <div class="sub-option-item sub-option-item-{{ motor_selection.motor.id }}">
+                    <div class="row customizable-options">
+                        {% for motor_option in motor_selection.options.all %}
+                            <div class="c-option">
+                                <div class="clickable-item text-uppercase text-center"
+                                     data-motor-title="{{ motor_selection.motor.title }}"
+                                     data-motor-option-title="{{ motor_option.title }}"
+                                     data-motor-image="{{ motor_option.image.url }}">
+                                    <span class="option-text"><span
+                                            class="txt-inner">{{ motor_option.title }}</span></span>
+                                    <div class="motor-rectangle">
+                                        <div class="motor-sub-square"
+                                             style="background: {{ motor_option.color }};"></div>
+                                        <div class="motor-sub-square"
+                                             style="background: {{ motor_option.color2 }};"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="nav internal text-uppercase">
+            {% for motor_selection in motor_selections %}
+                <a href="#" data-model-id="{{ motor_selection.motor.id }}" class="button tab-option">
+                    {{ motor_selection.motor.title }}
+                </a>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="dropup progress-list-option" id="features-options">
+
+        <div class="dropdown-menu color-picker-container sub-options hidden">
+
+            <a href="#" class="button close gray close-color-picker"></a>
+
+            {% for feature in features %}
+                <div class="option-picker-menu">
+                    <form action="#" class="sub-option-item sub-option-item-{{ feature.id }}">
+                        <h4 class="small">{{ feature.title }}</h4>
+                        {% for option in feature.options.all %}
+                            <div class="radiobutton ml3">
+                                <input type="radio" name="boat{{ feature.template_display_kind }}"
+                                        {% if option.default %} data-default="default"{% endif %}
+                                       data-feature-pk="{{ feature.pk }}"
+                                       data-feature-display="{{ option.display_value }}"
+                                       value="{{ option.image.url }}" id="{{ option.image.url }}"/>
+                                <label for="{{ option.image.url }}" class="text-uppercase">{{ option.title }}</label>
+                            </div>
+                        {% endfor %}
+                    </form>
+                </div>
+            {% endfor %}
+
+            <div class="color-picker-menu">
+                <span class="color-container sub-option-item sub-option-item-logo"></span>
+            </div>
+
+        </div>
+
+        <div class="nav internal text-uppercase">
+            {% for feature in features %}
+                <a href="#" id="feature-{{ feature.id }}" data-feature-id="{{ feature.id }}"
+                   class="button feature tab-option">
+                    {{ feature.get_kind_display }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

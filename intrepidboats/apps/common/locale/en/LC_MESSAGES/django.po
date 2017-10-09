@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-24 09:59-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: intrepidboats/apps/common/forms.py:12
+msgid "First name"
+msgstr ""
+
+#: intrepidboats/apps/common/forms.py:13
+msgid "Last name"
+msgstr ""
+
+#: intrepidboats/apps/common/forms.py:14
+msgid "Email address"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:14
+msgid "name"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:15
+msgid "preferred_assets_len"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:18
+msgid "page setting"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:19
+msgid "page settings"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:43
+msgid "page"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:44
+msgid "vimeo video code"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:45
+msgid "image"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:46
+msgid "enabled"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:47
+msgid "is last"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:50
+msgid "page asset"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:51
+msgid "page assets"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:72
+msgid "newsletter subscriber"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:73
+msgid "newsletter subscribers"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:75
+msgid "first name"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:76
+msgid "last name"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:77
+msgid "email"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:84
+#: intrepidboats/apps/common/models.py:95
+msgid "Title"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:85
+#: intrepidboats/apps/common/models.py:96
+msgid "Description"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:86
+#: intrepidboats/apps/common/models.py:97
+msgid "Image"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:87
+#: intrepidboats/apps/common/models.py:98
+msgid "Featured"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:88
+#: intrepidboats/apps/common/models.py:99
+msgid "Created at"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:107
+msgid "Purchased boat info"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:108
+msgid "Details for staff"
+msgstr ""
+
+#: intrepidboats/apps/common/models.py:111
+#: intrepidboats/apps/common/models.py:112
+msgid "Extra user information"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/blog_posts/blog_post_list.html:12
+msgid "Show more"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/blog_posts/events/event_detail.html:15
+#: intrepidboats/apps/common/templates/blog_posts/events/events.html:15
+#: intrepidboats/apps/common/templates/home/index.html:26
+msgid "events"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/blog_posts/events/event_detail.html:31
+#: intrepidboats/apps/common/templates/blog_posts/what_is_new/article_detail.html:31
+msgid "Back to list"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/blog_posts/events/event_item.html:12
+#: intrepidboats/apps/common/templates/blog_posts/what_is_new/article_item.html:12
+msgid "more"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/blog_posts/events/event_sticky.html:5
+#: intrepidboats/apps/common/templates/blog_posts/what_is_new/article_sticky.html:5
+msgid "read more"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/blog_posts/what_is_new/article_detail.html:15
+#: intrepidboats/apps/common/templates/blog_posts/what_is_new/whats_new.html:15
+#: intrepidboats/apps/common/templates/home/index.html:25
+msgid "what's new"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/language_dropdown.html:3
+msgid "language"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/language_dropdown.html:25
+msgid "owner's portal"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:18
+msgid "ALL MODELS"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:28
+msgid "INTREPID DIFFERENCE"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:33
+msgid "OWNER’S PORTAL"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:38
+msgid "GEAR"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:44
+msgid "CONTACT"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:49
+msgid "PRE OWNED"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:56
+#: intrepidboats/apps/common/templates/home/index.html:36
+msgid "models"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:60
+#: intrepidboats/apps/common/templates/home/index.html:41
+msgid "owner's <br/>portal"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/common/components/side_bar.html:64
+#: intrepidboats/apps/common/templates/home/index.html:45
+msgid "gallery"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/home/partials/newsletter.html:5
+msgid "NEWSLETTER SIGN UP"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/home/partials/newsletter.html:10
+msgid ""
+"Stay up to date with all the latest Intrepid information! In our newsletter "
+"you'll\n"
+"      hear from the President of Intrepid, Ken Clinton, as well as other "
+"team members."
+msgstr ""
+
+#: intrepidboats/apps/common/templates/home/partials/newsletter.html:12
+msgid "Please enter your email address below:"
+msgstr ""
+
+#: intrepidboats/apps/common/templates/home/partials/newsletter.html:18
+msgid "Submit"
+msgstr ""

@@ -1,0 +1,75 @@
+// Color
+$c-primary: #01b994
+$c-primary-hover: #019576
+$c-primary-active: #019576
+$c-primary-inactive: #27c4a4
+$c-green: #01b994
+$c-green-ligth: #27c4a4
+$c-bg: #eae8e9
+$c-bg-dark: #d6d0cf
+$c-bg-darker: #c9c2c0
+$c-bg-darkest: #d5d0cd
+$c-bg-popup: #d7d1cf
+$c-secondary: #dfdedc
+$c-secondary-hover: #019576
+$c-secondary-active: #019576
+$c-secondary-inactive: #27c4a4
+$c-alternative: #EA0A3F
+$c-alternative-light: #B7B7B7
+$c-alternative-dark:  #1F1F1F
+$c-white: #FFFFFF
+$c-black: #000000
+$c-gray: #ccc
+$c-gray-med: #666
+$c-gray-dark: #333
+$c-gray-darker: #595859
+$c-gray-tope: #545353
+$c-mutted: #998c8e
+$c-gray-ligth: #9b9b9b
+
+// Font-sizes
+$fs-xxsmall:  1.1rem
+$fs-xsmall:   1.2rem
+$fs-small:    1.3rem
+$fs-normal:   1.4rem
+$fs-normal-alt: 1.6rem
+$fs-medium:   1.8rem
+$fs-medium-alt:   2rem
+$fs-big:      2.2rem
+$fs-xbig:     3rem
+$fs-huge:     3.4rem
+
+// Font Weights
+$fw-light: 300
+$fw-regular: 400
+$fw-semibold: 500
+$fw-bold: 600
+
+// Breakpoints
+$break-small: 320px;
+$break-med: 768px;
+$break-large: 1200px;
+$break-xlarge: 1400px;
+$break-xxlarge: 1920px;
+
+$gotham: 'Gotham A', 'Gotham B'
+
+@mixin respond-to($media)
+  @if $media == handhelds
+    @media only screen and (max-width: $break-small)
+      @content
+  @if $media == smaller-screens
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-med - 1)
+      @content
+  @else if $media == medium-screens
+    @media only screen and (min-width: $break-med + 1) and (max-width: $break-large - 1)
+      @content
+  @else if $media == wide-screens
+    @media only screen and (min-width: $break-large + 1) and (max-width: $break-xlarge - 1)
+      @content
+  @else if $media == extra-wide-screens
+    @media only screen and (min-width: $break-xlarge)
+      @content
+
+
+

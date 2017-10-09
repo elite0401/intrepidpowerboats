@@ -1,0 +1,6 @@
+﻿ForumID,CategoryID,ParentID,Name,Description,SortOrder,LastPosted,LastTopicID,LastMessageID,LastUserID,LastUserName,NumTopics,NumPosts,RemoteURL,Flags,IsLocked,IsHidden,IsNoCount,IsModerated,ThemeURL,PollGroupID,UserID,ImageURL,Styles
+1,1,NULL,General Discussion,Intrepid Owners Forum - General Discussion,2,2016-09-27 16:28:34.513,316,683,1571,NULL,137,364,NULL,12,0,0,1,1,NULL,NULL,NULL,NULL,
+2,1,NULL,"Boating Activities, Rendezvous and Destinations","Boating Activities, Rendezvous and Destinations",10,2015-04-21 16:17:34.967,266,522,453,NULL,7,14,NULL,8,0,0,0,1,NULL,NULL,NULL,NULL,
+3,1,NULL,Forum Rules and Guidelines,Forum Rules and Guidelines,1,2013-01-04 17:16:10.520,157,304,34,NULL,1,2,NULL,12,0,0,1,1,NULL,NULL,NULL,NULL,
+4,1,NULL,Intrepid Lifestyle & Cruising,Intrepid Lifestyle & Cruising,9,2014-07-10 16:10:20.320,209,444,346,NULL,3,19,NULL,8,0,0,0,1,NULL,NULL,NULL,NULL,
+5,1,NULL,Buy/Sell,Looking to buy or sell equipment? Post it here.,11,2016-08-26 13:19:36.717,347,672,430,NULL,33,69,NULL,12,0,0,1,1,NULL,NULL,NULL,NULL,

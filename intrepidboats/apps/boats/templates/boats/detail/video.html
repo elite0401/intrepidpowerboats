@@ -1,0 +1,39 @@
+{% load i18n staticfiles thumbnail %}
+
+<div role="tabpanel" class="tab-pane fade {% if is_video %}in active{% endif %}" id="video">
+    <div class="loading-spinner"><img src="{% static "css/images/loading-spinner.gif" %}"></div>
+
+    <div class="hidden main">
+        {% if boat.videos.all %}
+        <section class="mosaic">
+            {% for video in boat.videos.all %}
+            <div class="img-container">
+                <span class="gallery-btn-play no-pointer-events">
+                    <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" tabindex="-1" id="play">
+                        <polygon class="fill" points="1,0 20,10 1,20"></polygon>
+                    </svg>
+                </span>
+                <a href="#video/{{ video.id }}">
+                    <img class="video-item" alt="video"
+                         data-full-video="{{ video.video_external_url }}"
+                         data-video-id="{{ video.vimeo_video_code }}"
+                         src="{% if video.thumbnail %}{{ video.thumbnail|thumbnail_url:'video' }}
+                         {% else %}{% static "common/images/default_thumbnail_365px_345px.jpg" %}{% endif %}"
+                         data-url="{{ view.request.build_absolute_uri }}#video/{{ video.id }}"
+                         data-caption="{{ current_site }}"
+                         data-picture="{{ view.request.scheme }}://{{ view.request.get_host }}{% if video.thumbnail %}{{ video.thumbnail|thumbnail_url:'video' }}{% else %}{% static "common/images/default_thumbnail_365px_345px.jpg" %}{% endif %}"
+                    />
+                </a>
+                </div>
+            {% endfor %}
+        </section>
+        {% else %}
+        <div class="main-content">
+            <h2 class="text-center">Coming soon</h2>
+        </div>
+        {% endif%}
+    </div>
+</div>
+
+<!-- Modal -->
+{% include 'boats/detail/partials/video_modal.html' %}

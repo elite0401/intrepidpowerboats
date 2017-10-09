@@ -1,0 +1,14 @@
+{% load i18n el_pagination_tags custom_pagination_tags %}
+
+{% paginate 5 entry_list %}
+<div class="article-item">
+    {% for object in entry_list %}
+      <p>{{ object.created_at.date|date:"F j, Y" }}</p>
+      <h3>{{ object.title }}</h3>
+      <p>{{ object.description|striptags|truncatechars:150 }}</p>
+      <a href="{% url 'common:article' object.pk object.title|slugify %}"
+         class="pull-right">{% trans "Read More" %}</a>
+      <hr/>
+    {% endfor %}
+</div>
+{% more %}

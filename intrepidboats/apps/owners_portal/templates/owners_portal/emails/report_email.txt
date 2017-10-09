@@ -1,0 +1,6 @@
+{% load i18n %}
+
+{% trans "We have a new report for you!" %}
+Hey {{ user.first_name|default:user.email }}, we've got some exciting news on your Intrepid!
+We’ve been busy building it and we wanted to share where we are in the process.
+Just <a href="http://{{ site }}{{ dashboard_url }}">click here</a> to check out the latest on your boat.

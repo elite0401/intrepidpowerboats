@@ -1,0 +1,15 @@
+{% load i18n %}
+
+<ul class="gallery bxslider">
+  {% for sub_gallery in gallery %}
+    <li>
+      <div class="gallery-closed">
+        <section class="mosaic mosaic-2">
+          {% for media in sub_gallery %}
+            {% include "owners_portal/partials/gallery_mosaic_item.html" with media=media %}
+          {% endfor %}
+        </section>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

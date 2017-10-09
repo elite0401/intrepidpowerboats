@@ -1,0 +1,12 @@
+{% load i18n %}
+
+{% blocktrans %}
+A new applicant resume has been submitted:
+
+First name: {{ first_name }}
+Last name: {{ last_name }}
+Email: {{ email }}
+{% endblocktrans %}
+{% if phone_number %}Phone: {{ phone_number }}{% endif %}
+{% if resume_url %}Resume: {{ domain }}{{ resume_url }}{% endif %}
+{% if additional_notes %}Additional notes: {{ additional_notes }}{% endif %}

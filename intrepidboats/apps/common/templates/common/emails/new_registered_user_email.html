@@ -1,0 +1,10 @@
+<div>
+    <p>
+        There is a new registered user:
+            Username: {{ user.username }}
+            Email: {{ user.email }}
+            First Name: {{ user.first_name|default_if_none:'-' }}
+            Last Name: {{ user.last_name|default_if_none:'-' }}
+        See: <a href="http://{{ site }}{{ admin_url }}"></a>
+    </p>
+</div>

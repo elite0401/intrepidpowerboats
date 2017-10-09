@@ -1,0 +1,23 @@
+{
+  "extends": "eslint:recommended",
+  "plugins": [
+    "standard",
+    "promise"
+  ],
+  "env": {
+    "browser": true,
+    "jquery": true
+  },
+  "globals": {
+    "FB": true,
+    "Cookies": true,
+    "Urls": true,
+    "Spinner": true,
+    "Vimeo": true,
+    "django": true,
+    "videojs": true
+  },
+  "rules": {
+    "no-undef": "off"
+  }
+}

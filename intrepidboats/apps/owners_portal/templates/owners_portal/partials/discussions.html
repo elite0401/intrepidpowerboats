@@ -1,0 +1,27 @@
+{% load i18n %}
+<h3 class="text-uppercase">{% trans "active discussions" %}</h3>
+<div class="p-relative">
+    <div class="gradient"></div>
+    <table width="100%" class="table table-hover active-discussions">
+        <thead>
+        <tr class="text-capitalize">
+            <th>{% trans "topics" %}</th>
+            <th>{% trans "poster" %}</th>
+            <th>{% trans "forum" %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for topic in last_topics %}
+
+            <tr>
+                <td>> {{ topic.subject }}</td>
+                <td><a href="#">{{ topic.poster }}</a></td>
+                <td>{{ topic.forum }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+<div class="gradient bottom"></div>
+

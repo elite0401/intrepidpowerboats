@@ -1,0 +1,20 @@
+{% load static i18n %}
+<ul class="bxslider-after">
+    {% for boat in boats %}
+        <li>
+            <div class="item-container">
+                <h4>{{ boat.title }}</h4>
+                <a href="{% url "boats:boat_detail" group_pk=boat.model_group_id slug=boat.slug %}">
+                    <img src="{{ boat.thumbnail.url }}" class="img-responsive"></a>
+                <ul class="list bulleted fs-xxsmall">
+                    <li>{{ boat.standard_fuel }}</li>
+                    <li>{{ boat.beam }}</li>
+                    <li>{{ boat.length }}</li>
+                    <li>{{ boat.water }}</li>
+                </ul>
+                <a href="{% url "boats:boat_detail" group_pk=boat.model_group_id slug=boat.slug %}"
+                   class="button primary block text-uppercase">{% trans "visit model page" %}</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

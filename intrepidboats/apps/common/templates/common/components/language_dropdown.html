@@ -1,0 +1,39 @@
+{% load i18n sekizai_tags static %}
+
+<ul class="nav nav-top-right">
+
+  <li><label class="text-uppercase">{% trans "language" %}</label>
+
+  <li class="dropdown">
+    <a href="#" id="language-button" class="dropdown-toggle text-uppercase">
+      Select<span class="caret"></span>
+    </a>
+    <ul id="language-list" class="dropdown-menu">
+      <li><div id="google_translate_element"></div></li>
+    </ul>
+  </li>
+
+  <li>
+    <div class="button primary text-uppercase text-right">
+      <a href="{% url "owners_portal:owners_portal" %}">{% trans "owner's portal" %}</a>
+      {% if show_login_logout %}
+        {% if request.user.is_authenticated %}
+          <p><a href="{% url "common:logout" %}">{% trans "logout" %}</a></p>
+        {% else %}
+          <p><a href="{% url "common:login" %}">{% trans "login" %}</a></p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </li>
+
+</ul>
+
+{% addtoblock "js" %}
+  <script>
+    $(document).ready(function () {
+      $('#language-button').on('click', function () {
+        $(this).parent().toggleClass('open');
+      });
+    });
+  </script>
+{% endaddtoblock %}

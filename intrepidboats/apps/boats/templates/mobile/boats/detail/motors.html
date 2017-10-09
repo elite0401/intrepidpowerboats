@@ -1,0 +1,27 @@
+{% load i18n staticfiles cms_tags menu_tags thumbnail %}
+
+<div role="tabpanel" class="tab-pane fade {% if is_motors %}in active{% endif %}" id="motors">
+  <div class="main">
+    <div class="main-content">
+      <h2>MOTOR OPTIONS FOR YOUR <span class="txt-green">{{ boat.title }}:</span></h2>
+
+      {% for motor_selection in motor_selections %}
+        {% with motor=motor_selection.motor %}
+          {% render_model_block motor %}
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <img src="{{ instance.image|thumbnail_url:'mobile' }}" class="img-responsive">
+              </div>
+              <div class="col-sm-12">
+                <h3>{{ instance.title }}</h3>
+                {{ instance.description|safe }}
+              </div>
+            </div>
+          {% endrender_model_block %}
+          <div class="gradient"></div>
+        {% endwith %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>

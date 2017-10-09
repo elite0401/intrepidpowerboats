@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <!--build:css css/styles.min.css-->
+  <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <!--endbuild-->
+</head>
+
+<body class="home">
+  <div class="container-fluid">
+    <!-- Sidebar -->
+    <div class="nav-sidebar">
+      <div id="sidebar-content" class="sidebar-content">
+        <div class="brand">
+          <div class="flex flex-space-between">
+            <a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <img src="images/ico-menu.svg" class="img-responsive" alt="Open Menu"></a>
+            <a href="index.html"><img src="images/intrepid-powerboats.svg" class="img-responsive logo" alt="Intrepid Powerboats"></a>
+          </div>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+          <ul class="nav">
+            <li>
+              <a href="all-models.html">
+                <div>ALL MODELS</div>
+              </a>
+            </li>
+            <img src="images/bg-nav-home.jpg" class="img-responsive img-sidebar">
+            <li>
+              <div class="nav-boat"></div>
+            </li>
+            <li>
+              <a href="intrepid-difference.html">
+                <div>INTREPID DIFFERENCE</div>
+              </a>
+            </li>
+            <li>
+              <a href="owners-portal.html">
+                <div>OWNER’S PORTAL</div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div>GEAR</div>
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                <div>CONTACT</div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div>PRE-OWNED</div>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-icon">
+            <li>
+              <a href="all-models.html"><img src="images/ico-boats.svg" class="img-responsive">
+              <span>models</span></a>
+            </li>
+            <li>
+              <a href="owners-portal.html"><img src="images/ico-portal.svg" class="img-responsive">
+                <span>owner's <br />portal</span></a>
+            </li>
+            <li>
+              <a href=""><img src="images/ico-gallery.svg" class="img-responsive">
+                <span>gallery</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Sidebar -->
+    <!-- Main page -->
+      <div class="navbar">
+        <div class="main">
+          <ul class="nav-top">
+            <li>
+              <div class="dropdown">
+                <a href="" type="button" data-toggle="dropdown" class="nav-link">
+                  NEWSLETTER SIGN UP
+                  <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu form-newsletter">
+                  <a href="#" class="button close gray">x</a>
+                  <p>Stay up to date with all the latest Intrepid information! In our newsletter you'll hear from the President of Intrepid, Ken Clinton, as well as other team members.</p>
+                  <p>Please enter your email address below:</p>
+                  <div class="form dark">
+                    <input type="text" placeholder="First name" class="input">
+                    <input type="text" placeholder="Last name" class="input">
+                    <input type="text" placeholder="Email adress" class="input">
+                    <div class="text-right">
+                      <a href="#" class="button primary">Submit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="whats-new.html" class="nav-link">WHAT’S NEW</a></li>
+            <li><a href="events.html" class="nav-link">EVENTS</a></li>
+          </ul>
+          <ul class="nav-top-right">
+            <li><label>LANGUAGE</label> <a href="">ENG <span class="caret"></span></a></li>
+            <li><a href="owners-portal.html" class="button primary">OWNER’S PORTAL</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-icon-right">
+        <ul class="nav-icon">
+          <li>
+            <a href="all-models.html"><img src="images/ico-boats.svg" class="img-responsive">
+              <span>models</span></a>
+            </li>
+            <li>
+              <a href="owners-portal.html"><img src="images/ico-portal.svg" class="img-responsive">
+                <span>owner's <br />portal</span></a>
+              </li>
+              <li>
+                <a href=""><img src="images/ico-gallery.svg" class="img-responsive">
+                  <span>gallery</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- ./Main page -->
+        </div>
+        <div class="nav-mobile">
+          <div class="page-header">
+            SELECT LANGUAGE
+          </div>
+        </div>
+        <div class="bg-mobile"></div>
+
+  <!--build:js js/main.min.js -->
+  <script src="js/lib/a-library.js"></script>
+  <script src="js/lib/another-library.js"></script>
+  <script src="js/main.js"></script>
+  <!-- endbuild -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap/bootstrap.min.js"></script>
+  <script>
+  $('.navbar-toggle').click( function() {
+    $("#sidebar-content").toggleClass("on");
+  } );
+  </script>
+</body>
+
+</html>

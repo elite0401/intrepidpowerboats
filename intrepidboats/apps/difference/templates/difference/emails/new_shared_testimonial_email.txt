@@ -1,0 +1,7 @@
+{% load i18n %}
+
+{% blocktrans %}
+An user has uploaded a new video for a testimonial.
+You can view it from:
+{% endblocktrans %}
+http://{{ site }}{{ admin_url }}

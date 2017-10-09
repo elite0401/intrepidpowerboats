@@ -1,0 +1,43 @@
+{% load i18n staticfiles cms_tags partition.tags sekizai_tags %}
+
+<div role="tabpanel" class="tab-pane fade features{% if is_features %} in active{% endif %}" id="features">
+    <div class="loading-spinner"><img src="{% static "css/images/loading-spinner.gif" %}"></div>
+
+    <div class="hidden main">
+        <div class="main-content">
+            <div class="row">
+              {% for row in boat.general_features.all|rows:2 %}
+                <div class="col-sm-6">
+                  {% for feature in row %}
+                    {% render_model_block feature %}
+                      <h4>{{ instance.title }}</h4>
+                        <ul>{% for item in instance.boatgeneralfeatureitem_set.all %}
+                            <li>
+                                {% if item.thumbnail %}
+                                    <div class="preview"
+                                         data-thumbnail="{{ item.thumbnail.url }}">{{ item.description }}</div>
+                                {% elif item.vimeo_id %}
+                                    <div class="preview" data-vimeo="{{ item.vimeo_id }}">{{ item.description }}</div>
+                                {% else %}
+                                    {{ item.description }}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% endrender_model_block %}
+                  {% endfor %}
+                </div>
+              {% endfor %}
+            </div>
+            {% render_model_add boat_models.general_feature %}
+        </div>
+    </div>
+</div>
+
+{% addtoblock "css" %}
+	<link href="{% static 'boats/css/tooltip.css' %}" rel="stylesheet">
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+    <script src="{% static "js/tooltip.js" %}"></script>
+{% endaddtoblock %}

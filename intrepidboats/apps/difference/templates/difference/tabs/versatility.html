@@ -1,0 +1,22 @@
+{% load cms_tags static i18n %}
+
+<div role="tabpanel" class="tab-pane fade tab-versatility" id="versatility">
+  <div class="header-image">
+    <img src="{% static "difference/images/header-versatility.jpg" %}" class="img-responsive">
+  </div>
+  <div class="main">
+    <div class="main-content">
+      <h2>{% trans "Versatility" %}</h2>
+
+      <div class="row">
+        <div class="col-sm-5">
+          {% placeholder "Versatility (Left column)" %}
+        </div>
+        <div class="col-sm-5 col-sm-offset-1">
+          {% placeholder "Versatility (Right column)" %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

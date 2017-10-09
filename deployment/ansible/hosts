@@ -1,0 +1,13 @@
+[testing]
+104.131.102.252 ansible_ssh_user=root
+
+[staging]
+138.197.72.21 ansible_ssh_user=root
+
+[production]
+104.236.31.21 ansible_ssh_user=root
+
+[webservers:children]
+testing
+staging
+production

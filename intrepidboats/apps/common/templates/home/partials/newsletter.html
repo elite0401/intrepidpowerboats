@@ -1,0 +1,65 @@
+{% load i18n static sekizai_tags %}
+
+{% if mobile %}
+<div class="dropdown">
+    <a id="open-newsletter-modal" href="" type="button" data-toggle="modal" data-target="#form-newsletter" class="nav-link">
+        {% trans "NEWSLETTER SIGN UP" %}
+        <span class="caret"></span>
+    </a>
+</div>
+{% addtoblock "root_html" %}
+<div class="modal fade" id="form-newsletter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog newsletter-modal" role="document">
+    <div class="modal-content generic-popup ">
+      <div class="modal-body">
+        <a href="#" class="button close dark close-button" data-dismiss="modal"> </a>
+        <p>{% blocktrans %}Stay up to date with all the latest Intrepid information! In our newsletter you'll
+            hear from the President of Intrepid, Ken Clinton, as well as other team members.{% endblocktrans %}</p>
+        <div id="newsletter">
+            <p>{% blocktrans %}Please enter your email address below:{% endblocktrans %}</p>
+            <form action="{% url "common:newsletter" %}" class="form dark" method="post">{% csrf_token %}
+                {{ newsletter_form.first_name }}
+                {{ newsletter_form.last_name }}
+                {{ newsletter_form.email }}
+                <div class="text-right">
+                    <input type="submit" value="{% trans "Submit" %}" class="button primary"/>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endaddtoblock %}
+
+{% else %}
+
+<div class="dropdown">
+    <a id="open-newsletter-modal" href="" type="button" data-toggle="dropdown" class="nav-link">
+        {% trans "NEWSLETTER SIGN UP" %}
+        <span class="caret"></span>
+    </a>
+    <div class="dropdown-menu form-newsletter" id="form-newsletter">
+        <a href="#" class="button close gray">x</a>
+        <p>{% blocktrans %}Stay up to date with all the latest Intrepid information! In our newsletter you'll
+            hear from the President of Intrepid, Ken Clinton, as well as other team members.{% endblocktrans %}</p>
+        <div id="newsletter">
+            <p>{% blocktrans %}Please enter your email address below:{% endblocktrans %}</p>
+            <form action="{% url "common:newsletter" %}" class="form dark" method="post">{% csrf_token %}
+                {{ newsletter_form.first_name }}
+                {{ newsletter_form.last_name }}
+                {{ newsletter_form.email }}
+                <div class="text-right">
+                    <input type="submit" value="{% trans "Submit" %}" class="button primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% addtoblock "js" %}
+  <script src="{% static "common/js/csrftoken.js" %}"></script>
+  <script src="{% static "common/js/newsletter.js" %}"></script>
+{% endaddtoblock %}

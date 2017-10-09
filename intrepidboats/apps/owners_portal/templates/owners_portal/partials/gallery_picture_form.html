@@ -1,0 +1,42 @@
+{% load i18n %}
+
+<form class="form dark" id="share-picture-form" action="{% url "owners_portal:upload_picture" %}" method="post"
+      enctype="multipart/form-data">{% csrf_token %}
+  <div class="stroked-container">
+
+    <!--div class="border-bottom">
+      Select a photo to upload
+      <input required="required" type="file" name="image" id="upload-image">
+      <label for="upload-image" class="pull-right">{% trans "Select" %}</label>
+    </div-->
+    <div class="border-bottom">
+      <div class="row">
+          <div class="col-sm-6 col-xs-7 text-right">
+              <span class="instruction">Select a photo to upload</span>
+          </div>
+          <div class="col-sm-6 col-xs-5">
+              <div class="box js">
+                <input required="required" type="file" name="image" id="upload-image" class="inputfile inputfile-white">
+                  <label for="upload-image"><span>{% trans "Select" %}</span></label>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <h4>Now choose who gets to see it</h4>
+    <div class="pl3">
+      <div class="radiobutton">
+        <input type="radio" name="is_public" class="form-control" id="photo-public" value="True">
+        <label for="photo-public">Share this photo with the community</label>
+      </div>
+      <div class="radiobutton">
+        <input type="radio" name="is_public" class="form-control" id="photo-private" value="False" checked="checked">
+        <label for="photo-private">Keep this photo private</label>
+      </div>
+    </div>
+
+    <textarea placeholder="Add a comment about this photo" class="input" name="comment" required></textarea>
+
+  </div>
+  <input type="submit" class="button primary small pull-right mt2 text-uppercase" value="{% trans "Upload" %}">
+</form>

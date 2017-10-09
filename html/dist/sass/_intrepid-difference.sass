@@ -1,0 +1,61 @@
+.intrepid-difference
+  .main
+  h2
+    text-align: center
+    margin-bottom: 35px
+    margin-top: 0
+  .img-signature
+    max-width: 150px
+    float: right
+    margin-top: 2rem
+  img
+    margin-bottom: 2rem
+  .tab-content
+    .main-content
+      padding-top: 3rem
+.nav-tabs
+  display: flex
+  justify-content: center
+  font-size: $fs-xxsmall
+  border: none
+  font-family: $gotham
+  text-transform: uppercase
+  li
+    a
+      border-bottom: 3px solid transparent
+      padding: 10px 15px 6px
+      box-sizing: border-box
+      -moz-box-sizing: border-box
+      -webkit-box-sizing: border-box
+      border-radius: 0
+      color: $c-alternative-light
+  li.active
+    background: none !important
+    border: none !important
+    a
+      background: none !important
+      border: none
+      border-bottom: 3px solid $c-green
+      &:focus, &:hover, &:active
+        background: none
+        border: none
+        border-bottom: 3px solid $c-green
+.tab-craftsmanship
+  background: url(/images/bg-craftmanship.jpg) no-repeat
+  padding-bottom: 600px
+  background-position: bottom right
+  @include respond-to(wide-screens)
+    background-size: 1100px 1200px
+  @include respond-to(medium-screens)
+    background-size: 1100px 1200px
+
+.tab-testimonials
+  .bx-wrapper
+    margin-bottom: 0
+    .bx-pager
+      text-align: right
+      padding: 0
+    .bx-default-pager
+      a
+        text-indent: 999999px
+

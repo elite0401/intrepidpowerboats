@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-24 09:59-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: intrepidboats/apps/contact/admin.py:14
+msgid "Download"
+msgstr ""
+
+#: intrepidboats/apps/contact/admin.py:16
+msgid "No attachment"
+msgstr ""
+
+#: intrepidboats/apps/contact/admin.py:18
+#: intrepidboats/apps/contact/models.py:54
+msgid "resume"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:9
+msgid "job title"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:10
+msgid "job description"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:13
+msgid "job description plugin"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:14
+msgid "job description plugins"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:21
+msgid "title"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:28
+msgid "full name"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:29
+msgid "occupation"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:30
+#: intrepidboats/apps/contact/models.py:42
+msgid "phone number"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:31
+#: intrepidboats/apps/contact/models.py:41
+msgid "email"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:32
+msgid "image"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:39
+msgid "first name"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:40
+msgid "last name"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:50
+msgid "job applicant"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:51
+msgid "job applicants"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:53
+msgid "additional notes"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:62
+msgid "inquiry"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:63
+msgid "inquiries"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:65
+msgid "comments"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:72
+msgid "General inquiry"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:73
+msgid "Sales"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:74
+msgid "General boat information"
+msgstr ""
+
+#: intrepidboats/apps/contact/models.py:77
+msgid "inquiry type"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:15
+#: intrepidboats/apps/contact/templates/contact/careers.html:30
+#: intrepidboats/apps/contact/templates/contact/contact.html:38
+msgid "EMPLOYMENT AT INTREPID"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:24
+#: intrepidboats/apps/contact/templates/contact/contact.html:26
+msgid "Intrepid powerboats"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:27
+msgid ""
+"Interested in working for Intrepid? Check out our job listings below and "
+"complete the form\n"
+"          to send us your information. If you’re a fit, we’ll be in touch!"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:33
+#: intrepidboats/apps/contact/templates/contact/contact.html:45
+msgid "* Denotes Required Fields"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:36
+#: intrepidboats/apps/contact/templates/contact/contact.html:48
+msgid "FIRST NAME"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:37
+#: intrepidboats/apps/contact/templates/contact/contact.html:49
+msgid "LAST NAME"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:38
+#: intrepidboats/apps/contact/templates/contact/contact.html:50
+msgid "EMAIL ADDRESS"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:39
+#: intrepidboats/apps/contact/templates/contact/contact.html:51
+msgid "PHONE"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:42
+msgid "ATTACH YOUR RESUME / CV"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:47
+msgid "ADDITIONAL NOTES (OPTIONAL)"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/careers.html:51
+#: intrepidboats/apps/contact/templates/contact/contact.html:65
+msgid "SEND"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/contact.html:15
+msgid "CONTACT"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/contact.html:30
+msgid ""
+"Complete the form below to reach us about <strong>SALES, GENERAL BOAT "
+"INFORMATION</strong>\n"
+"          or just a <strong>GENERAL INQUIRY</strong>."
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/contact.html:36
+msgid "Interested in working for Intrepid? Check out"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/contact.html:42
+msgid "CONTACT US"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/contact.html:54
+msgid "GENERAL INQUIRY"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/contact.html:55
+msgid "SALES"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/contact.html:56
+msgid "GENERAL BOAT QUESTION"
+msgstr ""
+
+#: intrepidboats/apps/contact/templates/contact/contact.html:61
+msgid "QUESTIONS OR COMMENTS"
+msgstr ""
+
+#: intrepidboats/apps/contact/views.py:28
+msgid "Your inquiry has been received. We will reply to you shortly."
+msgstr ""
+
+#: intrepidboats/apps/contact/views.py:70
+msgid "Information sent successfully!"
+msgstr ""

@@ -1,0 +1,124 @@
+{% load i18n staticfiles %}
+<div role="tabpanel" class="tab-pane fade {% if is_build_a_boat %}in active{% endif %}" id="build-a-boat">
+    <div class="loading-spinner"><img src="{% static "css/images/loading-spinner.gif" %}"></div>
+
+    <div class="hidden main">
+        <!-- Inline progress list! -->
+        <ol class="progress-list inline-progress-list text-uppercase">
+            <li class="inline-item hull-item" id="hull-inline"><a href="#" class="link-collapse">{% trans "hull " %}</a>
+            </li>
+            <li class="inline-item motor-item" id="motor-inline"><a href="#"
+                                                                    class="link-collapse">{% trans "motor" %}</a></li>
+            <li class="inline-item other-features-item" id="features-inline"><a href="#"
+                                                                                class="link-collapse">{% trans "other features" %}</a>
+            </li>
+            <li class="share-btn">
+                <!-- Button trigger modal -->
+                <button disabled id="build-a-boat-share-button" class="button secondary active text-uppercase" data-toggle="modal"
+                        data-target="#shareModal">
+                    {% trans "share" %}
+                </button>
+            </li>
+            <button id="share-success-message" hidden disabled>
+                <h4>
+                    Your creation has been shared!
+                </h4>
+            </button>
+        </ol>
+        <div class="boat-container">
+            <span class="hidden">
+                <!-- Preload images for correct boat rendering -->
+                <img src="{{ boat.base.url }}" alt="">
+                <img src="{{ boat.hull.url }}" alt="">
+                <img src="{{ boat.logo.url }}" alt="">
+                {% for feature in features %}
+                    {% for option in feature.options.all %}
+                        {% if option.default %}
+                            <img src="{{ option.image.url }}" alt="">
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+            </span>
+            <canvas id="built-boat"
+                    width="1000" height="434"
+                    data-boat-slug="{{ boat.slug }}"
+
+                    data-boat-logo="{{ boat.logo.url }}"
+                    data-boat-base="{{ boat.base.url }}"
+                    data-boat-hull="{{ boat.hull.url }}"
+                    {% for feature in features %}
+                        {% for option in feature.options.all %}
+                            {% if option.default %}
+                    data-boat-{{ feature.template_middle_kind }}="{{ option.image.url }}"
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    class="img-responsive"></canvas>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content share-modal">
+                    <div class="clearfix">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h2 id="myModalLabel">{% trans "SHARE YOUR CREATION" %}</h2>
+                        <p>Choose one of the following options:</p>
+                        <div>
+                            <form action="#" class="form-inline mb2 pl4 form dark" id="select-share">
+                                <div class="radiobutton">
+                                    <input type="radio" name="form_option" class="form-control" id="sendByEmail" value="send_by_email"> <label for="sendByEmail">{% trans "Please email the boat I created just to me." %}</label>
+                                </div>
+                                <div class="radiobutton">
+                                    <input type="radio" name="form_option" class="form-control" id="sendToSalesPerson" value="send_to_sales_person">
+                                     <label for="sendToSalesPerson">{% trans "Please email the boat I created to me and Intrepid, and have a salesperson give me a call." %}</label>
+                                </div>
+                                <div class="radiobutton">
+                                    <input type="radio" name="form_option" class="form-control" id="shareOnFacebook" value="share_on_facebook"/>
+                                     <label for="shareOnFacebook">{% trans "Please share the boat I created on my facebook newsfeed." %}</label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="share-panel hidden" id="send_by_email">
+                            {% include "boats/detail/partials/built_boat_email_form.html" %}
+                        </div>
+                        <div class="share-panel hidden" id="send_to_sales_person">
+                            {% include "boats/detail/partials/built_boat_email_to_sales_form.html" %}
+                        </div>
+                        <div class="share-panel hidden" id="share_on_facebook">
+                            {% include "boats/detail/partials/share_on_facebook_form.html" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress list options! -->
+        {% include "boats/detail/partials/progress_list_options.html" %}
+    </div>
+
+    <div class="hidden floating-pane col-sm-3">
+        <!-- Left progress list! -->
+        {% include "boats/detail/partials/progress_list.html" %}
+    </div>
+    <!-- Progress list contents! -->
+    <div class="hidden col-sm-9 progress-list-contents hidden">
+        <div class="row progress-list-content" id="motor-content">
+            {% for motor_selection in motor_selections %}
+                {% with motor_selection.motor as motor %}
+                    <div class="hidden content-item mt6 content-item-{{ motor.id }}">
+                        <div class="col-sm-3 col-sm-offset-1 motor-image">
+                            <img class="img-responsive" src="{{ motor.image.url }}" alt="">
+                        </div>
+                        <div class="col-sm-7 motor-description pl6">
+                          <h3>{{ motor.title }}</h3>
+                          {{ motor.description|safe }}
+                        </div>
+                    </div>
+                {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
+
+</div>

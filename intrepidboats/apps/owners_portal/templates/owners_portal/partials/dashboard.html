@@ -1,0 +1,149 @@
+{% load staticfiles i18n thumbnail %}
+
+<div role="tabpanel" class="tab-pane fade tab-dashboard" id="dashboard">
+
+  <div class="main">
+    <div class="main-content">
+
+      {% if request.user.is_authenticated %}
+
+        <!-- owner -->
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="row gotham">
+              <div class="col-xs-4">
+                {% if user.profile.profile_picture %}
+                  <img src="{{ user.profile.profile_picture|thumbnail_url:'profile-picture' }}" class="img-responsive">
+                {% endif %}
+              </div>
+              <div class="col-xs-8">
+                <div class="intro">
+                  <h4>{% trans "hello" %}! {{ user.get_full_name|default:user.email }}</h4>
+                  <p class="text-uppercase">{% trans "welcome back to your personal owner's portal" %}</p>
+                  <hr>
+                  <div>
+                    <button type="button" class="text-uppercase btn-link boat-settings-button" data-toggle="modal"
+                            data-target="#AccountSettingsModal">
+                      {% trans "account settings" %}
+                    </button>
+                  </div>
+                  {% if last_boat %}
+                    <div>
+                      <button type="button"
+                              class="text-uppercase btn-link boat-settings-button"
+                              data-toggle="modal"
+                              data-target="#myBoatDetailsModal">
+                        {% trans "my boat details" %}
+                      </button>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if last_boat %}
+            <div class="col-sm-7 text-right boat-name text-uppercase">
+              {% trans "boat name" %}: <span class="boat-name-text fs-xbig text-uppercase">{{ last_boat.name }}</span>
+              <a href="#" class="superscript" data-toggle="modal" data-target="#EditBoatNameModal">
+                {% trans "edit" %}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+        <!-- ./owner -->
+
+        {% if last_boat and last_boat.active_step %}
+          <!-- timeline -->
+          <div class="mb4 clearfix">
+            <img src="{{ last_boat.design.url }}" class="img-responsive pull-right boat-design">
+          </div>
+
+          <ol class="timeline clearfix">
+            {% for step in last_boat.steps.all %}
+              <li class="{% if forloop.first %}first
+                                       {% elif forloop.last %}last
+                                       {% else %}mid{% endif %}">
+                <span class="circle {% if step.active %}active{% endif %}"></span>
+                <span class="line"></span>
+                <span class="txt-content">
+                  <h4 class="text-uppercase">{{ step.title }}</h4>
+                  <p>{{ step.start_date|date:"N d" }}</p>
+                  <p>{{ step.start_date|date:"o" }}</p>
+                </span>
+              </li>
+            {% endfor %}
+
+          </ol>
+
+          <!-- ./timeline -->
+          {% with last_boat.active_step as active_step %}
+            <h2>Pure craftsmanship</h2>
+            {% if active_step %}
+              <ul class="boatImagesSlider">
+                {% for asset in active_step.assets.all %}
+                  <li>
+                    <a href="{{ asset.asset_url }}" data-toggle="lightbox"
+                       class="step-asset" data-gallery="steps-gallery">
+                      {%if asset.vimeo_video_code %}
+                      <span class="gallery-btn-play no-pointer-events">
+                        <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" tabindex="-1" id="play">
+                          <polygon class="fill" points="1,0 20,10 1,20"></polygon>
+                        </svg>
+                      </span>
+                      {% endif %}
+                      <img src="{{ asset.image.url }}" class="img-responsive"/>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+              <h3 class="form-heading text-uppercase">{{ active_step.phase.title }}: {{ active_step.title }}</h3>
+              <div class="row mt6">
+                <div class="col-sm-6">
+                  {{ active_step.phase.description|safe }}
+                </div>
+                <div class="col-sm-5 col-sm-offset-1">
+                  <div class="flex">
+                    <span class="circle date">
+                        {{ active_step.start_date|date:"N" }}
+                      <div class="num">{{ active_step.start_date|date:"d" }}</div>
+                    </span>
+                    <span>
+                    {% for step in last_boat.steps.all %}
+                      <h4>{{ step.title }}</h4>
+                      {% if step.pk == active_step.pk %}
+                        <p>{{ step.description|safe }}</p>
+                      {% endif %}
+                    {% endfor %}
+                    </span>
+                  </div>
+                  {% include "owners_portal/stepfeedback_form.html" with step=active_step %}
+                </div>
+              </div>
+            {% else %}
+
+            {% endif %}
+          {% endwith %}
+
+        {% endif %}
+
+        {% include "owners_portal/partials/account_settings_modal.html" %}
+
+        {% if survey %}
+          {% include "owners_portal/partials/survey_modal.html" with survey=survey %}
+        {% endif %}
+
+        {% if last_boat %}
+          {% include "owners_portal/partials/boat_details_modal.html" %}
+        {% endif %}
+
+      {% else %}
+
+        <p>Please <a href="{% url 'common:login' %}">log-in</a> or <a href="{% url 'common:register' %}">sign up</a>
+            to create an account to enjoy all the tools in our Owner’s Portal.</p>
+
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+

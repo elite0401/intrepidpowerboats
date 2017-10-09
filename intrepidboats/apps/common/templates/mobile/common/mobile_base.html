@@ -1,0 +1,38 @@
+{% extends "common/layout_base.html" %}
+{% load staticfiles js_reverse sekizai_tags cms_tags %}
+
+{% block site %}
+
+  {% addtoblock "css" %}
+    <link rel="stylesheet" href="{% static 'mobile/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'mobile/css/devartis.css' %}">
+  {% endaddtoblock %}
+
+  {% include "mobile/common/components/side_bar.html" with side_bar_closed="true" %}
+  
+  <div class="container-fluid">
+    {% block content %}{% endblock %}
+      {% block footer %}
+          <hr>
+          <footer>
+              <p>Copyright © 2017 Intrepid Powerboats.</p>
+              <p>All Rights Reserved.</p>
+              <a href="{% url 'common:terms_of_use' %}">
+                  Privacy Policy
+              </a>
+              |
+              {% page_url 'contact' as contact_page %}
+
+              <a href="{% if contact_page %}{{ contact_page }}{% else %}#{% endif %}">
+                  Contact Us
+              </a>
+              |
+              {% page_url 'intrepid-difference' as difference_page %}
+              <a href="{% if difference_page %}{{ difference_page }}{% else %}#{% endif %}">
+                  About Us
+              </a>
+          </footer>
+      {% endblock %}
+  </div>
+
+{% endblock site %}

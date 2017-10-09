@@ -1,0 +1,89 @@
+{% load i18n staticfiles cms_tags %}
+
+<div role="tabpanel" class="tab-pane fade {% if is_about %}in active{% endif %}" id="about">
+
+    <div class="loading-spinner"><img src="{% static "css/images/loading-spinner.gif" %}"></div>
+
+    <div class="header-image">
+    <div class="interior-gallery" hidden="hidden">
+      <ul class="interior-bxslider">
+        {% for photo in boat.about.interior_gallery %}
+          <li><img src="{{ photo.image.url }}" class="img-responsive"></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="exterior-gallery">
+      <ul class="exterior-bxslider">
+        {% for photo in boat.about.exterior_gallery %}
+          <li><img src="{{ photo.image.url }}" class="img-responsive"></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="cabin-gallery" hidden="hidden">
+      <ul class="cabin-bxslider">
+        {% for photo in boat.about.cabin_gallery %}
+          <li><img src="{{ photo.image.url }}" class="img-responsive"></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+    <div class="main hidden">
+    <div class="main-content wide">
+      {% if not boat.about %}
+        {% render_model_add boat_models.about %}
+      {% else %}
+        {% render_model_add boat_models.about_image %}
+      {% endif %}
+      <div class="row">
+        <div class="col-sm-4 model-gallery-pager">
+          <div id="interior-pager" class="bx-pager">
+            <div class="interior-gallery" hidden="hidden">
+              {% with galleries=interior_galleries carousel_id="interior-carousel" %}
+                {% include 'boats/detail/partials/thumbnails_carousel.html' %}
+              {% endwith %}
+            </div>
+
+              <div id="exterior-pager" class="exterior-gallery bx-pager">
+                {% with galleries=exterior_galleries carousel_id="exterior-carousel" %}
+                  {% include 'boats/detail/partials/thumbnails_carousel.html' %}
+                {% endwith %}
+              </div>
+
+            <div id="cabin-pager" class="bx-pager">
+              <div class="cabin-gallery" hidden="hidden">
+                {% with galleries=cabin_galleries carousel_id="cabin-carousel" %}
+                  {% include 'boats/detail/partials/thumbnails_carousel.html' %}
+                {% endwith %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          {% render_model_block boat.about %}
+            <h3>{{ instance.title }}</h3>
+            {{ instance.description|safe }}
+          {% endrender_model_block %}
+        </div>
+        <div class="col-sm-2 buttons-stroked text-uppercase">
+          {% if boat.about.brochure %}
+            <a href="{{ boat.about.brochure.url }}" target="_blank" download class="button primary stroked">
+              {% trans "download brochure" %}
+            </a>
+          {% endif %}
+
+          {% page_url 'contact' as contact_page %}
+          <a href="{% if contact_page %}{{ contact_page }}{% else %}#{% endif %}"
+             class="button primary stroked">
+            {% trans "contact a sales representative" %}
+          </a>
+
+          {% if boat.about.virtual_tour_link %}
+            <a class="button primary stroked" href="{{ boat.about.virtual_tour_link }}" target="_blank">
+              {% trans "virtual tour" %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

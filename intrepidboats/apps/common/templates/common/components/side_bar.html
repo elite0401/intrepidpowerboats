@@ -1,0 +1,80 @@
+{% load staticfiles i18n cms_tags %}
+<!-- Sidebar -->
+<div class="nav-sidebar">
+  <div class="sidebar-content {% if not side_bar_closed %}on{% endif %}" id="sidebar-content">
+
+    <div class="brand">
+      <div class="flex flex-space-between">
+        <a class="navbar-toggle {% if side_bar_closed %}collapsed{% endif %}" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+           aria-controls="navbar" role="button">
+        </a>
+        <a class="navbar-intrepid-logo" href="{% url "common:home" %}">
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse {% if not side_bar_closed %}in{% endif %}" id="navbar">
+      <ul class="nav">
+        <li>
+          {% url 'boats:all_boats' as all_boats_page %}
+          <a href="{% if all_boats_page %}{{ all_boats_page }}{% else %}#{% endif %}">
+            <div>{% trans "ALL MODELS" %}</div>
+          </a>
+        </li>
+        <img src="{% static "common/images/bg-nav-home.jpg" %}" class="img-responsive img-sidebar"/>
+        <li>
+          <div class="nav-boat"></div>
+        </li>
+        <li>
+          {% page_url 'intrepid-difference' as difference_page %}
+          <a href="{% if difference_page %}{{ difference_page }}{% else %}#{% endif %}">
+            <div>{% trans "INTREPID DIFFERENCE" %}</div>
+          </a>
+        </li>
+        <li>
+          <a href="{% url "owners_portal:owners_portal" %}">
+            <div>{% trans "OWNER’S PORTAL" %}</div>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://intrepidpowerboatsgear.us">
+            <div>{% trans "GEAR" %}</div>
+          </a>
+        </li>
+        <li>
+          {% page_url 'contact' as contact_page %}
+          <a href="{% if contact_page %}{{ contact_page }}{% else %}#{% endif %}">
+            <div>{% trans "CONTACT" %}</div>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="{{ settings.PRE_OWNED_EXTERNAL_LINK }}">
+            <div>{% trans "PRE OWNED" %}</div>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav-icon">
+        <li>
+          <a href="{% if all_boats_page %}{{ all_boats_page }}{% else %}#{% endif %}">
+            <img src="{% static "common/images/ico-boats.svg" %}" class="img-responsive">
+            <span>{% trans "models" %}</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url "owners_portal:owners_portal" %}">
+            <img src="{% static "common/images/ico-portal.svg" %}" class="img-responsive">
+            <span>{% blocktrans %}owner's <br/>portal{% endblocktrans %}</span>
+          </a>
+        </li>
+        <li>
+            {% page_url 'contact' as contact_page %}
+            <a href="{% if contact_page %}{{ contact_page }}{% else %}#{% endif %}">
+                <img src="{% static "common/images/ico-contact.svg" %}" class="img-responsive ico-contact">
+                <span>{% blocktrans %}contact{% endblocktrans %}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Sidebar -->

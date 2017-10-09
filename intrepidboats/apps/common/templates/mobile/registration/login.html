@@ -1,0 +1,66 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block meta_og_title %}Log In - Intrepid Powerboats{% endblock %}
+
+{% block section %}Log in - {% endblock %}
+{% block content %}
+
+    <div class="main">
+      <header class="text-center">
+        <h1>OWNER’S PORTAL</h1>
+        <div class="gradient"> </div>
+      </header>
+
+      {% if next %}
+        {% if user.is_authenticated %}
+          <p class="signin-intro">Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+        {% else %}
+          <p class="signin-intro">Please sign in or <a href="{% url 'common:register' %}" class="txt-green">register</a> to create an account to enjoy all the tools in our owner’s portal.</p>
+        {% endif %}
+      {% endif %}
+
+      <div class="login-container form">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <h3>{% trans "Login" %}</h3>
+            {% if form.errors %}
+              <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+          </div>
+        </div>
+
+    <form method="post" action="{% url 'common:login' %}">
+      {% csrf_token %}
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+                {{ form.username|attr:"placeholder:USERNAME"|add_class:"input" }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+                {{ form.password|attr:"placeholder:password"|add_class:"input" }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2 text-right">
+                <input type="submit" class="button primary mb2 mt2" value="SIGN IN" />
+                <input type="hidden" name="next" value="{{ next }}" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2 text-right">
+                <a href="{% url 'common:register' %}" class="tt-uppercase">{% trans "Aren't registered yet?" %}</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2 text-right">
+            <a href="{% url 'common:password_reset' %}" class="tt-uppercase">{% trans "Lost password?" %}</a>
+              </div>
+            </div>
+    </form>
+  </div>
+  </div>
+{% endblock %}

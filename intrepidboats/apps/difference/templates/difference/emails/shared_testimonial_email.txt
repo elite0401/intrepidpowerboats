@@ -1,0 +1,13 @@
+{% load i18n %}
+
+{% trans "New testimonial:" %}
+
+Name: {{ name }}
+Email: {{ email }}
+Title: {{ title }}
+Message: {{ message }}
+{% if file_url %}
+File: {{ file_url }}
+{% endif %}
+
+Edit in admin: {{ admin_url }}

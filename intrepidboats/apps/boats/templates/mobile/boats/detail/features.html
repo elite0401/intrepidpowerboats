@@ -1,0 +1,24 @@
+{% load i18n staticfiles cms_tags partition.tags %}
+
+<div role="tabpanel" class="tab-pane fade features{% if is_features %} in active{% endif %}" id="features">
+  <div class="main">
+    <div class="main-content">
+      <div class="row">
+        {% for feature in boat.general_features.all %}
+          <div class="col-sm-12">
+            {% render_model_block feature %}
+              <h4>{{ instance.title }}</h4>
+                <ul>{% for item in instance.boatgeneralfeatureitem_set.all %}
+                    <li>
+                        {{ item.description }}
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endrender_model_block %}
+          </div>
+        {% endfor %}
+      </div>
+      {% render_model_add boat_models.general_feature %}
+    </div>
+  </div>
+</div>

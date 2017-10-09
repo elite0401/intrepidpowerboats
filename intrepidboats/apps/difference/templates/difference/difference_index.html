@@ -1,0 +1,50 @@
+{% extends 'common/desktop_base.html' %}
+{% load cms_tags static i18n sekizai_tags %}
+
+{% block body_classes %}page intrepid-difference{% endblock body_classes %}
+{% block section %}The Intrepid difference - {% endblock %}
+{% block content %}
+
+    <div class="main">
+        {% include "common/components/language_navbar.html" %}
+        <header class="text-center section-nav">
+            <h1>{% trans "THE INTREPID DIFFERENCE" %}</h1>
+            <div class="gradient">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation">
+                        <a href="#about" aria-controls="about" role="tab" data-toggle="tab">{% trans "ABOUT" %}</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#one-of-a-kind" aria-controls="one-of-a-kind" role="tab"
+                           data-toggle="tab">{% trans "ONE OF A KIND" %}</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#versatility" aria-controls="versatility" role="tab"
+                           data-toggle="tab">{% trans "VERSATILITY" %}</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#craftsmanship" aria-controls="craftsmanship" role="tab"
+                           data-toggle="tab">{% trans "CRAFTSMANSHIP" %}</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-content">
+        {% include "difference/tabs/about.html" %}
+        {% include "difference/tabs/one_of_a_kind.html" %}
+        {% include "difference/tabs/versatility.html" %}
+        {% include "difference/tabs/craftmanship.html" %}
+    </div>
+
+    {% addtoblock "js" %}
+        <script src="{% static "js/custom/tabs_behaviour.js" %}"></script>
+        <script src="{% static "difference/js/testimonials_upload.js" %}"></script>
+        <script src="{% static "difference/js/drawSliders.js" %}"></script>
+    {% endaddtoblock %}
+
+{% endblock content %}
+
+

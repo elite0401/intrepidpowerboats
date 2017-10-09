@@ -1,0 +1,3 @@
+Hey {{ name }}, here's your boat creation. Everything looks great and we’d love to help you turn your virtual
+masterpiece into a reality you can enjoy for years to come. So just give us a call anytime you’re ready. Until
+then, click here (http://{{ site }}{{ image_url }}) and check out the Intrepid you created!

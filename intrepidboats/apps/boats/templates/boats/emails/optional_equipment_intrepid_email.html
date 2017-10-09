@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<h1>{% trans "A user has chosen optional equipment" %}</h1>
+<div>
+    <div>
+        <p>
+            {{ first_name }} {{ last_name }} asked for us to call him/her on {{ phone_number }}.<br>
+            Email: {{ email }}<br>
+            Boat model: {{ boat_model }}<br>
+            Equipment:<br>
+        </p>
+        <ul>
+            {% for equipment in equipment_list %}
+                <li>{{ equipment }}</li>
+            {% empty %}
+                (No equipment)
+            {% endfor %}
+        </ul>
+    </div>
+</div>

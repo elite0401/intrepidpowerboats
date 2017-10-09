@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-24 09:59-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: intrepidboats/apps/difference/cms_plugins.py:10
+msgid "Testimonial"
+msgstr ""
+
+#: intrepidboats/apps/difference/cms_plugins.py:19
+msgid "Testimonial video"
+msgstr ""
+
+#: intrepidboats/apps/difference/cms_plugins.py:26
+msgid "Intrepid Difference Section"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:10
+#: intrepidboats/apps/difference/models.py:31
+msgid "Title"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:11
+msgid "First paragraph"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:12
+msgid "Extra paragraphs"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:19
+msgid "Movie URL"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:32
+msgid "Image"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:33
+msgid "Section Text"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:40
+msgid "first name"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:41
+msgid "last name"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:42
+msgid "email"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:43
+msgid "text"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:45
+msgid "approved"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:46
+msgid "file"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:49
+msgid "shared testimonial"
+msgstr ""
+
+#: intrepidboats/apps/difference/models.py:50
+msgid "shared testimonials"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/cms/testimonial.html:17
+msgid "See more +"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/difference_index.html:13
+msgid "THE INTREPID DIFFERENCE"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/difference_index.html:18
+#: intrepidboats/apps/difference/templates/difference/tabs/about.html:6
+msgid "ABOUT"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/difference_index.html:21
+msgid "ONE OF A KIND"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/difference_index.html:24
+msgid "VERSATILITY"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/difference_index.html:27
+msgid "CRAFTSMANSHIP"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/shared_testimonials/form.html:5
+msgid "First name"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/shared_testimonials/form.html:6
+msgid "Last name"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/shared_testimonials/form.html:7
+msgid "Email address"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/shared_testimonials/form.html:8
+msgid "image or video"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/shared_testimonials/form.html:9
+msgid "Your message"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/shared_testimonials/form.html:11
+msgid "Submit"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/tabs/about.html:11
+msgid "owner privileges"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/tabs/about.html:22
+msgid "testimonials"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/tabs/about.html:34
+msgid "share your testimonial with us"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/tabs/about.html:37
+msgid "Let us know what you think of your Intrepid!"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/tabs/craftmanship.html:11
+msgid "Craftsmanship"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/tabs/one_of_a_kind.html:11
+msgid "One of a kind"
+msgstr ""
+
+#: intrepidboats/apps/difference/templates/difference/tabs/versatility.html:9
+msgid "Versatility"
+msgstr ""
+
+#: intrepidboats/apps/difference/views.py:13
+msgid "Thank you!"
+msgstr ""

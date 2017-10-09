@@ -1,0 +1,137 @@
+{% extends "common/desktop_base.html" %}
+{% load static i18n sekizai_tags forum_permission_tags %}
+
+{% if site_metadata.owners_portal_description %}
+    {% block meta_description %}
+        {{ site_metadata.owners_portal_description }}
+    {% endblock %}
+{% endif %}
+
+{% if site_metadata.owners_portal_og_title %}
+    {% block meta_og_title %}
+        {{ site_metadata.owners_portal_og_title }}
+    {% endblock %}
+{% endif %}
+
+{% if site_metadata.owners_portal_og_description %}
+    {% block meta_og_description %}
+        {{ site_metadata.owners_portal_og_description }}
+    {% endblock %}
+{% endif %}
+
+{% block body_classes %}page owners-portal{% endblock body_classes %}
+
+{% block content %}
+
+    <div class="main">
+      {% include "common/components/language_navbar.html" with show_login_logout=True %}
+
+      <header class="text-center section-nav">
+        <h1 class="text-uppercase">{% trans "owner's portal" %}</h1>
+        <div class="gradient">
+
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation">
+              <a href="{% url "owners_portal:owners_portal" %}" class="text-uppercase">
+                {% trans "my dashboard" %}
+              </a>
+            </li>
+            <li role="presentation" class="active">
+              <a href="#forum" aria-controls="forum" role="tab" data-toggle="tab" class="text-uppercase">
+                {% trans "forum" %}
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="{% url "owners_portal:gallery" %}" class="text-uppercase">
+                {% trans "gallery" %}
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </header>
+    </div>
+
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active tab-forum" id="forum">
+        <div class="main">
+          <div class="main-content">
+
+            {# search bar #}
+            <div class="row">
+              <form class=" form-inline forum-search" role="search" action="{% url 'forum_search:search' %}">
+                <div class="form-group col-sm-6 col-md-7">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="{% trans 'Search...' %}" name="q">
+                    <div class="input-group-btn">
+                      <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <a href="{% url 'forum_search:search' %}" class="btn btn-link">{% trans "Advanced search" %}</a>
+                </div>
+              </form>
+            </div>
+
+            {# user settings #}
+            {% if request.user.is_authenticated %}
+              <p class="text-left mt2">
+                <strong>{{ request.user.username }}</strong>
+                (<a href="{% url 'forum_member:profile_update' %}">{% trans "Edit profile" %}</a>)
+              </p>
+            {% endif %}
+
+            {# breadcrumbs #}
+            <div class="row">
+              <div class="col-xs-12">
+                {% block breadcrumb %}{% include "machina/partials/breadcrumb.html" %}{% endblock breadcrumb %}
+                <div class="pull-right controls-link-wrapper">
+                  {% if not request.user.is_anonymous %}
+                    <a href="{% url 'forum_member:user_subscriptions' %}" class="btn btn-link">
+                      <i class="fa fa-bookmark-o ">&nbsp;</i>{% trans "Subscriptions" %}
+                    </a>
+                    <a href="{% url 'forum_member:user_posts' request.user.id %}" class="btn btn-link">
+                      <i class="fa fa-comments-o ">&nbsp;</i>{% trans "View my messages" %}
+                    </a>
+                  {% endif %}
+                  {% get_permission 'can_access_moderation_queue' request.user as can_access_moderation_queue %}
+                  {% if can_access_moderation_queue %}
+                    <a href="{% url 'forum_moderation:queue' %}" class="btn btn-link">
+                      <i class="fa fa-gavel">&nbsp;</i>{% trans "Moderation queue" %}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            {# messages #}
+            <div class="row">
+              <div class="col-xs-12">
+                <br />
+                {% block messages %}{% include "machina/partials/messages.html" %}{% endblock messages %}
+              </div>
+            </div>
+
+            {% block forum_content %}{% endblock %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% addtoblock "css" %}
+    {% block css %}{% endblock css %}
+    {% block extra_css %}{% endblock extra_css %}
+  {% endaddtoblock %}
+
+  {% addtoblock "js" %}
+    {% block js %}{% endblock js %}
+    <script src="{% static "machina/js/links_target_blank.js" %}"></script>
+    <script>
+      $('.dropdown-toggle').dropdown()
+    </script>
+    {% block extra_js %}{% endblock extra_js %}
+  {% endaddtoblock %}
+
+{% endblock content %}

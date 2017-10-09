@@ -1,0 +1,45 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block section %}Recover your password - {% endblock %}
+{% block content %}
+    <div class="navbar">
+      <div class="main">
+          {% include "common/components/language_dropdown.html" %}
+      </div>
+    </div>
+    <div class="main">
+      <header class="text-center">
+        <h1>OWNER’S PORTAL</h1>
+        <div class="gradient"> </div>
+      </header>
+      <div class="login-container form">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3>{% trans "Recover your password" %}</h3>
+
+                    <p>
+                        {% trans "Enter your email address and we'll send you instructions " %}
+                        {% trans "on how to get a new one." %}
+                    </p>
+
+                    {% if form.email.errors %}
+                        <p>{% trans "Please enter a valid email address" %}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <form method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                            {{ form.email|attr:"placeholder:Email address"|add_class:"input" }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text-right">
+                            <input type="submit" class="button primary mt2 mb2 tt-uppercase" value='RESET PASSWORD'/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+Hey {{ name }}, here's your boat creation. Everything looks great and we’d love to help you turn your virtual
+masterpiece into a reality you can enjoy for years to come. We’ll have a salesperson contact you directly soon
+but in the meantime, click here (http://{{ site }}{{ image_url }}) to check it out!

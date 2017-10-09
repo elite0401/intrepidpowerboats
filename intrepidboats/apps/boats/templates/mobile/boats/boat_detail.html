@@ -1,0 +1,111 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load staticfiles i18n sekizai_tags %}
+
+{% block meta_description %}{{ object.description|truncatewords:27 }}{% endblock %}
+{% block meta_og_title %}{{ object.title }} - Intrepid Powerboats{% endblock %}
+{% block meta_og_image %}{{ object.thumbnail.url }}{% endblock %}
+{% block meta_og_description %}{{ object.description|truncatewords:40 }}{% endblock %}
+
+{% block body_classes %}page all-models{% endblock %}
+{% block section %}{{ object.title }} - {% endblock %}
+{% block content %}
+  <div class="main">
+    <header class="text-center section-nav">
+
+      <div class="custom-select page-title block primary dropdown">
+        <div class="dropdown-toggle" id="other-models" data-toggle="dropdown">
+          <h1>
+            <span>{{ object.title }}</span>
+            <span class="chevron-down" aria-hidden="true"></span>
+          </h1>
+        </div>
+        <ul class="dropdown-menu" aria-labelledby="other-models">
+          {% for model in all_models %}
+            <li><a href="{% url "boats:boat_detail" group_pk=model.model_group.pk slug=model.slug %}">
+              {{ model.title }}
+            </a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="custom-select sub-section block">
+        <div class="gradient">
+          <ul class="nav nav-tabs" role='tablist'>
+            <li role='presentation' class='dropdown'>
+              <a href="#" class="dropdown-toggle" aria-controls='model-tabs-contents' id='model-tabs'
+                 data-toggle='dropdown'>
+                <h2>
+                  <span class="tab-title">{% trans "SELECT" %} </span>
+                  <span class="chevron-down" aria-hidden="true"></span>
+                </h2>
+              </a>
+              <ul class='dropdown-menu' aria-labelledby='difference-tabs' id='model-tabs-contents'>
+
+                <li><a href="#about" aria-controls="about" role="tab" data-toggle="tab">
+                    {% trans "about" %}
+                </a></li>
+
+                <li><a href="#features" aria-controls="features" role="tab" data-toggle="tab">
+                    {% trans "features" %}
+                </a></li>
+
+                <li><a href="#deck-plan" aria-controls="deck-plan" role="tab" data-toggle="tab">
+                    {% trans "deck plan" %}
+                </a></li>
+
+                <li><a href="#motors" aria-controls="motors" role="tab" data-toggle="tab">
+                    {% trans "motors" %}
+                </a></li>
+
+                <li><a href="#optional-equipment" aria-controls="optional-equipment" role="tab" data-toggle="tab">
+                    {% trans "optional equipment" %}
+                </a></li>
+
+                <li><a href="#video" aria-controls="video" role="tab" data-toggle="tab">
+                    {% trans "video" %}
+                </a></li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </header>
+  </div>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+    {% include "boats/detail/about.html" %}
+
+    {% include "boats/detail/features.html" %}
+
+    {% include "boats/detail/deck_plan.html" %}
+
+    {% include "boats/detail/motors.html" %}
+
+    {% include "boats/detail/optional_equipment.html" %}
+
+    {% include "boats/detail/video.html" %}
+
+  </div>
+
+    {% addtoblock "css" %}
+        <link rel="stylesheet" href="{% static 'boats/css/select-css.css' %}">
+        <link rel="stylesheet" href="{% static 'boats/css/select-css-compat.css' %}">
+        <link rel="stylesheet" href="{% static 'css/jquery.bxslider.min.css' %}">
+    {% endaddtoblock %}
+
+    {% addtoblock "js" %}
+        <script src="{% static "js/jquery.bxslider.min.js" %}"></script>
+        <script src="{% static "boats/js/about.js" %}"></script>
+        <script src="{% static "js/custom/video_player.js" %}"></script>
+        <script src="{% static "js/custom/video_element.js" %}"></script>
+        <script src="{% static "boats/js/boat_videos.js" %}"></script>
+        <script src="{% static "js/custom/mobile_tabs_behaviour.js" %}"></script>
+        <script src="{% static "boats/js/tabs_behaviour.js" %}"></script>
+    {% endaddtoblock "js" %}
+
+{% endblock content %}
+

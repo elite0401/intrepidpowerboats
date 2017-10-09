@@ -1,0 +1,173 @@
+{% load staticfiles i18n boat_tags sekizai_tags thumbnail %}
+
+<div role="tabpanel" class="tab-pane fade gallery" id="gallery">
+
+  {% with gallery_header=request.user.profile.gallery_header %}
+    <div class="header-image">
+      {% if gallery_header %}
+        <img src="{{ gallery_header|thumbnail_url:'header' }}" style="width: 100%;" class="img-responsive">
+      {% else %}
+        <img src="{% static "owners_portal/images/bg-gallery.jpg" %}" class="img-responsive">
+      {% endif %}
+    </div>
+  {% endwith %}
+
+  <div class="main">
+    <div class="main-content text-center">
+      <h3 class="text-uppercase">{% trans "my gallery" %}</h3>
+      <p class="intro text-uppercase">
+        {% trans "share your dreams and adventures" %}<br>
+        {% trans "with the intrepid community" %}
+      </p>
+
+      {% if request.user.is_authenticated %}
+        <div class="boat-name flex centered">
+          {% if last_boat %}
+            <div class="text-uppercase mt1">
+              {% trans "boat name" %}: <span class="boat-name-text fs-xbig">{{ last_boat.name }}</span>
+              <a href="#" class="superscript" data-toggle="modal" data-target="#EditBoatNameModal">
+                {% trans "edit" %}
+              </a>
+            </div>
+          {% endif %}
+          <!-- Button trigger modal -->
+          <a data-toggle="modal" data-target="#galleryUploadModal" href="#" class="upload-link">
+            <span class="circle big">+</span>
+          <span class="txt text-uppercase">
+            <strong>{% trans "upload" %}</strong><br> {% trans "new photo or video" %}
+          </span>
+          </a>
+        </div>
+      {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <div>
+                    <button id="upload-success-message" disabled>
+                        <h4>{{ message }}</h4>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+  </div>
+
+  <div id="community-shares" style="display: none;">
+    {% include "owners_portal/partials/gallery_mosaic.html" with gallery=community_shares visibility='public' %}
+  </div>
+
+  {% if request.user.is_authenticated %}
+    <div id="my-stuff">
+    {% include "owners_portal/partials/gallery_mosaic.html" with gallery=my_stuff visibility='private' %}
+    </div>
+  {% endif %}
+
+  <div class="col-sm-6 text-uppercase">
+    <a href="#" id="my-stuff-button" class="button primary {% if not user.is_authenticated %}disabled{% endif %}">
+      {% trans "my stuff" %}
+    </a>
+    <a href="#" id="community-shares-button" class="button primary stroked">{% trans "community shares" %}</a>
+  </div>
+
+  <hr>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="galleryUploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content generic-popup upload-photo-modal">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h2 class="modal-title text-uppercase" id="myModalLabel">{% trans "Upload your photo or video" %}</h2>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="upform-container clearfix">
+              <h3>{% trans "Video" %}</h3>
+
+              <form class="form dark" id="create-ticket" action="{% url "owners_portal:create_ticket" %}" method="post">
+                {% csrf_token %}
+
+                <div class="stroked-container">
+
+                  <div class="border-bottom">Prepare a video to upload</div>
+
+                  <h4>Now choose who gets to watch it</h4>
+                  <div class="pl3">
+                    <div class="radiobutton">
+                      <input type="radio" name="is_public" class="form-control" id="video-public" value="True">
+                      <label for="video-public">Share this video with the community</label>
+                    </div>
+                    <div class="radiobutton">
+                      <input type="radio" name="is_public" class="form-control" id="video-private" value="False" checked="checked">
+                      <label for="video-private">Keep this video private</label>
+                    </div>
+                  </div>
+                  <textarea placeholder="Add a comment about this video" class="input" name="comment" required></textarea>
+                </div>
+
+                <input type="submit" class="button primary small pull-right mt2 text-uppercase" id="share-video-button"
+                  value="{% trans "Proceed to upload" %}">
+
+              </form>
+
+              <div class="messages-target"></div>
+
+              <div class="form-wrapper">
+                <form class="form dark hidden" method="POST" action="#" id="real-form" enctype="multipart/form-data">
+
+                  <div class="stroked-container">
+                    <div class="row">
+                      <div class="col-sm-6 text-right">
+                        <span class="instruction">Now select a video to upload</span>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="box js">
+                          <input required="required" type="file" name="file_data" id="video"
+                                 class="inputfile inputfile-white">
+                          <label for="video"><span>{% trans "Select" %}</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="button primary small pull-right mt2 text-uppercase" name="submit"
+                          id="real-submit" disabled="disabled">{% trans "upload" %}</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="upform-container clearfix">
+              <h3>{% trans "Photo" %}</h3>
+                <div class="form-wrapper">
+                  {% include "owners_portal/partials/gallery_picture_form.html" %}
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+{% include 'owners_portal/partials/show_media_modal.html' %}
+
+
+{% addtoblock "js" %}
+  <script src="{% static "js/custom-file-input/custom-file-input.js" %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+  <link rel="stylesheet" href="{% static "css/custom-file-input/component.css" %}">
+{% endaddtoblock %}

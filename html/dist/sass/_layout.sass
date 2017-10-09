@@ -1,0 +1,168 @@
+
+body
+  background: $c-bg
+  font-family: 'IntelClear'
+  margin: 0
+  padding: 62px 0 0 0
+
+.home
+  background: black url('../images/bg-home.jpg')
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  @include respond-to(smaller-screens)
+    background-position: 0 100px
+
+.main
+  margin-left: 408px
+  position: relative
+  @include respond-to(smaller-screens)
+    width: 100%
+    margin-left: 0
+  @include respond-to(medium-screens)
+    margin-left: 268px
+  @include respond-to(wide-screens)
+    margin-left: 307px
+  .main
+    margin-left: 0
+
+.navbar
+  margin-top: -70px
+
+.sidebar-open
+  .main
+    margin-left: 0px !important
+
+.main-content
+  padding: 7rem
+  &.wide
+    padding: 2rem 2rem 7rem 0
+  p, label
+    color: $c-mutted
+
+.header-image
+  margin-left: -15px
+  margin-right: -15px
+
+.page
+  background: -moz-linear-gradient(top,  rgba(188,186,182,1) 0%, #eae8e9 80px)
+  background: -webkit-linear-gradient(top,  rgba(188,186,182,1) 0%,#eae8e9 80px)
+  background: linear-gradient(to bottom,  rgba(188,186,182,1) 0%,#eae8e9 80px)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eae8e9', endColorstr='#00bcbab6',GradientType=0 )
+
+.popup-inline
+  background: $c-bg-popup
+  h3
+    background: $c-secondary
+    color: white
+
+hr
+  border: 0
+  height: 0
+  border-top: 1px solid $c-bg-dark
+  margin: 70px 0
+
+
+h1, h2, h3, h4
+  font-family: 'strimalight'
+  text-transform: uppercase
+h1
+  font-size: $fs-xbig
+  margin-bottom: 33px
+h2
+  font-size: $fs-big
+  margin-bottom: 65px
+  line-height: 1.3
+h3
+  font-size: $fs-medium-alt
+  margin-bottom: 30px
+h4
+  font-size: $fs-normal-alt
+  margin-bottom: 20px
+.link, a
+  color: $c-green
+  &:hover
+    color: $c-primary-hover
+
+.intrepid
+  margin-bottom: 22px
+  font-family: "Gotham A", "Gotham B"
+  font-weight: 600
+  font-style: normal
+
+.gradient
+  border: 0
+  height: 38px
+  width: 100%
+  background: -moz-radial-gradient(top, ellipse cover,  rgba(214,211,207,0.65) 0%, rgba(214,211,207,0.65) 1%, rgba(214,211,207,0) 70%)
+  background: -webkit-radial-gradient(top, ellipse cover,  rgba(214,211,207,0.65) 0%,rgba(214,211,207,0.65) 1%,rgba(214,211,207,0) 70%)
+  background: radial-gradient(ellipse at top,  rgba(214,211,207,0.65) 0%,rgba(214,211,207,0.65) 1%,rgba(214,211,207,0) 70%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6d6d3cf', endColorstr='#00d6d3cf',GradientType=1 )
+
+.gradient
+  &.bottom
+    background: -moz-radial-gradient(bottom, ellipse cover,  rgba(214,211,207,1) 0%, rgba(214,211,207,0) 70%, rgba(214,211,207,0) 100%)
+    background: -webkit-radial-gradient(bottom, ellipse cover,  rgba(214,211,207,1) 0%,rgba(214,211,207,0) 70%,rgba(214,211,207,0) 100%)
+    background: radial-gradient(ellipse at bottom,  rgba(214,211,207,1) 0%,rgba(214,211,207,0) 70%,rgba(214,211,207,0) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d3cf', endColorstr='#00d6d3cf',GradientType=1 )
+
+
+
+
+.img-cover
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+
+.p-relative
+  position: relative
+
+.flex
+  display: flex
+  justify-content: flex-start
+  margin: 0
+  &.flex-wrap
+    flex-wrap: wrap
+  &.flex-space-between
+    justify-content: space-between
+  &.centered
+    justify-content: center
+
+.brand
+  .flex
+    &.flex-space-between
+      justify-content: flex-start
+
+.txt-green
+  color: $c-primary
+.link-more
+  text-transform: uppercase
+  color: black
+  &:hover, &:focus
+    text-decoration: none
+    color: $c-gray-darker
+
+body
+  padding-top: 70px
+
+.gotham
+  font-family: $gotham
+
+
+.navbar-toggle
+  display: block
+
+.home
+  .navbar-header
+    float: none
+  .navbar-collapse.collapse
+    display: none!important
+  .navbar-nav
+    float: none!important
+  .navbar-nav
+    li
+      float: none
+  .navbar-collapse.collapse.in
+    display: block !important

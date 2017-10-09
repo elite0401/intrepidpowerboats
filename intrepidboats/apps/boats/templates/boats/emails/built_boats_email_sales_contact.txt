@@ -1,0 +1,13 @@
+{% load i18n %}
+
+{% blocktrans %}
+Hello
+The user {{ name }} has built a boat.
+Contact info:
+{% endblocktrans %}
+
+
+Phone: {{ phone }}
+Email:</strong> {{ email }}
+
+http://{{ site }}{{ image_url }}

@@ -1,0 +1,121 @@
+{% extends "common/desktop_base.html" %}
+{% load static i18n sekizai_tags %}
+
+{% block body_classes %}page all-models{% endblock %}
+{% block section %}All models - {% endblock %}
+{% block content %}
+
+  <!-- Main page -->
+  <div class="main">
+    {% include "common/components/language_navbar.html" %}
+    <header class="text-center section-nav">
+      <div class="sidebar-content on">
+        <h1 class="text-uppercase">{% trans "all models" %}</h1>
+        <div class="gradient"></div>
+      </div>
+    </header>
+  </div>
+
+  <div class="header-image">
+      <section class="mosaic mosaic-3 mosaic-top">
+      {% for group in groups %}
+          <a
+              {% if group.boats.all|length == 1 %}
+                  href="{% url "boats:boat_detail" group_pk=group.boats.first.model_group.pk slug=group.boats.first.slug %}"
+              {% else %}
+                  href="#" data-toggle="modal" data-target="#compareModal" class="show-compare-modal"
+                  data-group-url="{% url "boats:boat_group" pk=group.pk %}" data-group-name="{{ group.title }}"
+              {% endif %}
+          >
+              <div>
+                  <img src="{{ group.show_image.url }}"><span class="text-uppercase">{{ group.title }}</span>
+              </div>
+          </a>
+      {% endfor %}
+    </section>
+  </div>
+
+  <div class="modal fade popup-container" id="compareModal" tabindex="-1" role="dialog"
+       aria-labelledby="compareModal">
+    <div class="modal-dialog popup" role="document">
+      <div class="modal-content compare">
+        <div class="modal-body">
+            <h3><span id="boat-group-title"></span> MODELS</h3>
+          <button type="button" class="button close green" data-dismiss="modal"></button>
+          <div class="popup-modal-content">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="main-content">
+      <div class="row">
+        <div class="col-sm-9">
+          <h2>{% blocktrans %}Craftmanship and design that follow an
+            uncompromising set of specifications. Yours.{% endblocktrans %}</h2>
+
+          <p>
+            {% blocktrans %}Regardless of which Intrepid you choose, it will be built upon a design that reflects
+              each owner's unique and discerning vision. But what is common to each one will be a meticulous
+              attention to detail, highly innovative and thoughtful features from bow to stern and the most
+              advanced and highest quality materials and processes implemented at every stage of construction.
+              At Intrepid, we don't build boats the way they could be. We build boats the way they
+              should be.{% endblocktrans %}
+          </p>
+
+        </div>
+        <div class="col-sm-3">
+          <div class="compare-box">
+            <h3 class="text-capitalize">{% trans "compare models" %}</h3>
+            <p>{% trans "Find the best one for you" %}.</p>
+            <a href="#" data-group-url="{% url "boats:boat_list" %}"
+               data-toggle="modal" data-target="#compareModal"
+               class="show-compare-modal button primary small text-uppercase"
+               data-group-name="all">
+              {% trans "compare models" %}
+            </a>
+          </div>
+          <br>
+          <div class="compare-box">
+            <h3 class="text-capitalize">{% trans "full line Brochure" %}</h3>
+            <a href="/media/boat_brochures/Intrepid-Brochure.pdf"
+               target="_blank" download 
+               class="show-compare-modal button primary small text-uppercase"
+               data-group-name="all">
+              {% trans "download now" %}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="flex">
+        {% for group in model_groups %}
+          <ul class="list">
+            <li class="list-title text-uppercase">{{ group.title }}</li>
+            {% for boat in group.boats.all %}
+              <li>
+                <a href="{% url "boats:boat_detail" group_pk=group.pk slug=boat.slug %}">{{ boat.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+  <!-- ./Main page -->
+
+    <div id="loading-compare-boat-models" style="display: none;">
+        <div id="loading-compare-boat-models-inner">
+            <img src="{% static 'css/images/loader.gif' %}">
+        </div>
+    </div>
+
+  {% addtoblock "js" %}
+    <script src="{% static "boats/js/all_models.js" %}"></script>
+  {% endaddtoblock "js" %}
+{% endblock %}

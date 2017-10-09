@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.1.2/jquery.bxslider.css"/>
+    <link rel="stylesheet" href="/static/common/css/styles.css">
+    <link rel="stylesheet" href="/static/common/css/devartis.css">
+    <link rel=icon href="/static/common/images/favicon.ico">
+</head>
+
+<body class="page errorpage">
+
+<div class="container-fluid">
+    <div class="nav-sidebar">
+        <div class="sidebar-content on">
+            <div class="brand">
+                <div class="flex flex-space-between">
+                    <a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                       aria-controls="navbar">
+                        <img src="/static/common/images/ico-menu.svg" class="img-responsive" alt="Open Menu">
+                    </a>
+                    <a href="/">
+                        <img src="/static/common/images/intrepid-powerboats.svg"
+                             class="img-responsive logo" alt="Intrepid Powerboats">
+                    </a>
+                </div>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav">
+                    <li>
+                        <a href="/boats/">
+                            <div>ALL MODELS</div>
+                        </a>
+                    </li>
+                    <img src="/static/common/images/bg-nav-home.jpg" class="img-responsive img-sidebar"/>
+                    <li>
+                        <div class="nav-boat"></div>
+                    </li>
+                    <li>
+
+                        <a href="/intrepid-difference/">
+                            <div>INTREPID DIFFERENCE</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/owners_portal/">
+                            <div>OWNER’S PORTAL</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.intrepidpowerboatsgear.com/">
+                            <div>GEAR</div>
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="/contact/">
+                            <div>CONTACT</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank"
+                           href="http://www.yachtworld.com/core/listing/cache/pl_search_results.jsp?ywo=intrepidse&amp;ps=50&amp;type=&amp;new=&amp;luom=126&amp;hosturl=intrepidse&amp;page=broker&amp;slim=broker&amp;lineonly">
+                            <div>PRE OWNED</div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav-icon">
+                    <li>
+                        <a href="/boats/">
+                            <img src="/static/common/images/ico-boats.svg" class="img-responsive">
+                            <span>models</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/owners_portal/">
+                            <img src="/static/common/images/ico-portal.svg" class="img-responsive">
+                            <span>owner's <br/>portal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/owners_portal/#gallery">
+                            <img src="/static/common/images/ico-gallery.svg" class="img-responsive">
+                            <span>owner's <br/>gallery</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main hidden-xs">
+        <div class="navbar">
+            <div class="main">
+            </div>
+        </div>
+        <header class="text-center">
+            <div class="sidebar-content on">
+                <h1 class="text-uppercase">intrepid</h1>
+                <div class="gradient"></div>
+            </div>
+        </header>
+    </div>
+
+    <div class="main">
+        <div class="main-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="text-center">
+                        <span class="txt-green" style="font-size: 200%">500</span>
+                        Internal server error
+                    </h2>
+                    <ul class="nav-icon">
+                        <li>
+                            <a href="/boats/">
+                                <img src="/static/common/images/ico-boats-green.svg" class="img-responsive">
+                                <span>models</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/owners_portal/">
+                                <img src="/static/common/images/ico-portal-green.svg" class="img-responsive">
+                                <span>owner's <br/>portal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/owners_portal/#gallery">
+                                <img src="/static/common/images/ico-gallery-green.svg" class="img-responsive">
+                                <span>owner's <br/>gallery</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+    this.Urls = (function () {
+        var Urls = {};
+        var self = {url_patterns: {}};
+        var _get_url = function (url_pattern) {
+            return function () {
+                var _arguments, index, url, url_arg, url_args, _i, _len, _ref, _ref_list, match_ref, provided_keys, build_kwargs;
+                _arguments = arguments;
+                _ref_list = self.url_patterns[url_pattern];
+                if (arguments.length == 1 && typeof(arguments[0]) == "object") {
+                    var provided_keys_list = Object.keys(arguments[0]);
+                    provided_keys = {};
+                    for (_i = 0; _i < provided_keys_list.length; _i++)
+                        provided_keys[provided_keys_list[_i]] = 1;
+                    match_ref = function (ref) {
+                        var _i;
+                        if (ref[1].length != provided_keys_list.length)
+                            return false;
+                        for (_i = 0; _i < ref[1].length && ref[1][_i] in provided_keys; _i++);
+                        return _i == ref[1].length;
+                    }
+                    build_kwargs = function (keys) {
+                        return _arguments[0];
+                    }
+                } else {
+                    match_ref = function (ref) {
+                        return ref[1].length == _arguments.length;
+                    }
+                    build_kwargs = function (keys) {
+                        var kwargs = {};
+                        for (var i = 0; i < keys.length; i++) {
+                            kwargs[keys[i]] = _arguments[i];
+                        }
+                        return kwargs;
+                    }
+                }
+                for (_i = 0; _i < _ref_list.length && !match_ref(_ref_list[_i]); _i++);
+                if (_i == _ref_list.length)
+                    return null;
+                _ref = _ref_list[_i];
+                url = _ref[0], url_args = build_kwargs(_ref[1]);
+                for (url_arg in url_args) {
+                    var url_arg_value = url_args[url_arg];
+                    if (url_arg_value === undefined || url_arg_value === null) {
+                        url_arg_value = '';
+                    } else {
+                        url_arg_value = url_arg_value.toString();
+                    }
+                    url = url.replace("%(" + url_arg + ")s", url_arg_value);
+                }
+                return '/' + url;
+            };
+        };
+        var name, pattern, url, url_patterns, _i, _len, _ref;
+        url_patterns = [['boats:about', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/about/', ['group_pk', 'slug',]]],], ['boats:all_boats', [['boats/', []]],], ['boats:boat_detail', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/', ['group_pk', 'slug',]]],], ['boats:boat_group', [['boats/boat_groups/%(pk)s/', ['pk',]]],], ['boats:boat_list', [['boats/boats/', []]],], ['boats:build_a_boat', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/build_a_boat/', ['group_pk', 'slug',]]],], ['boats:built_boat_email', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/built\u002Dboat\u002Demail/', ['group_pk', 'slug',]]],], ['boats:built_boat_share', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/built\u002Dboat\u002Dshare/', ['group_pk', 'slug',]]],], ['boats:colorize', [['boats/%(slug)s/build_a_boat/%(image)s/color/%(color)s', ['slug', 'image', 'color',]]],], ['boats:compare_all_boats', [['boats/boats/compare/', []]],], ['boats:compare_boats', [['boats/boat_groups/%(pk)s/boats/compare/', ['pk',]]],], ['boats:deck\u002Dplan', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/deck\u002Dplan/', ['group_pk', 'slug',]]],], ['boats:features', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/features/', ['group_pk', 'slug',]]],], ['boats:motors', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/motors/', ['group_pk', 'slug',]]],], ['boats:optional\u002Dequipment', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/optional\u002Dequipment/', ['group_pk', 'slug',]]],], ['boats:video', [['boats/boat_groups/%(group_pk)s/boats/%(slug)s/video/', ['group_pk', 'slug',]]],], ['common:activate_lang', [['activate_lang/', []]],], ['common:article', [['article/%(pk)s/%(title)s', ['pk', 'title',]]],], ['common:error', [['error/', []]],], ['common:events', [['events/', []]],], ['common:home', [['', []]],], ['common:login', [['login/', []]],], ['common:logout', [['logout/', []]],], ['common:newsletter', [['newsletter_subscribe/', []]],], ['common:password_change', [['password_change/', []]],], ['common:password_change_done', [['password_change/done/', []]],], ['common:password_reset', [['password/reset/', [],], ['password_reset/', []]],], ['common:password_reset_complete', [['password/done/', [],], ['reset/done/', []]],], ['common:password_reset_confirm', [['password/reset/%(uidb64)s/%(token)s/', ['uidb64', 'token',],], ['reset/%(uidb64)s/%(token)s/', ['uidb64', 'token',]]],], ['common:password_reset_done', [['password/reset/done/', [],], ['password_reset/done/', []]],], ['common:register', [['register/', []]],], ['common:what\u002Dis\u002Dnew', [['what\u002Dis\u002Dnew/', []]],], ['owners_portal:change_notification', [['owners_portal/steps/%(step_pk)s/notify_change/', ['step_pk',]]],], ['owners_portal:complete_ticket', [['owners_portal/complete_ticket/%(ticket_id)s/', ['ticket_id',]]],], ['owners_portal:create_ticket', [['owners_portal/create_ticket/', []]],], ['owners_portal:edit_boat_name', [['owners_portal/edit_boat_name/%(pk)s/', ['pk',]]],], ['owners_portal:owners_portal', [['owners_portal/', []]],], ['owners_portal:step_feedback', [['owners_portal/steps/%(pk)s/feedback/', ['pk',]]]]];
+        self.url_patterns = {};
+        for (_i = 0, _len = url_patterns.length; _i < _len; _i++) {
+            _ref = url_patterns[_i], name = _ref[0], pattern = _ref[1];
+            self.url_patterns[name] = pattern;
+            url = _get_url(name);
+            Urls[name] = url;
+            Urls[name.replace(/-/g, '_')] = url;
+        }
+        return Urls;
+    })();
+</script>
+
+</body>
+
+</html>

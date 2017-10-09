@@ -1,0 +1,11 @@
+{% load i18n %}
+<form action="{% url "owners_portal:edit_boat_name" pk=last_boat.pk %}" method="post"
+      class="form dark form-boat-name">{% csrf_token %}
+
+  <input id="boat-name" name="name" type="text" class="input required" value="{{ last_boat.name }}" required>
+
+  <div class="text-right">
+    <input type="submit" value="{% trans "Apply" %}" class="button primary w-auto "/>
+  </div>
+
+</form>

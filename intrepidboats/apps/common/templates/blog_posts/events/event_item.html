@@ -1,0 +1,22 @@
+{% load i18n el_pagination_tags custom_pagination_tags %}
+
+{% paginate 5 entry_list %}
+<div class="article-item">
+  {% for object in entry_list %}
+    <div class="row">
+      <div class="col-sm-5">
+        <img src="{{ object.image.url }}" class="img-responsive">
+      </div>
+      <div class="col-sm-7">
+        <h3>{{ object.title }}</h3>
+{#        <p class="c-primary">{{ object.date.date|date:"m.d.y" }}</p>#}
+        {{ object.description|safe }}
+          <a href="{{ object.external_link }}" target="_blank" class="button primary small text-uppercase pull-right">
+              {% trans "more" %}
+          </a>
+      </div>
+    </div>
+    <hr/>
+  {% endfor %}
+</div>
+{% more %}

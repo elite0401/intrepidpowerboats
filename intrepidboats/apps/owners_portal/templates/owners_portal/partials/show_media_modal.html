@@ -1,0 +1,17 @@
+{% load static %}
+
+<div class="modal fade" id="showMediaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body full-media">
+                <div class="gallery-display"></div>
+                <button type="button" class="button close-media white-close close-button" data-dismiss="modal"></button>
+            </div>
+            <div class="share-container">
+                <a href="" class="gallery-share-button">
+                    <img src="{% static "boats/images/share.svg" %}" alt="share"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

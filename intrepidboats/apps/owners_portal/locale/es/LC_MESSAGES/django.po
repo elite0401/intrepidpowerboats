@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-18 10:51-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: intrepidboats/apps/owners_portal/models.py:13
+msgid "uploader"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:14
+msgid "ticket id"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:15
+msgid "uri"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:16
+msgid "vimeo user"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:17
+msgid "upload link secure"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:18
+msgid "complete uri"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:19
+msgid "completed"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:20
+msgid "approved"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:25
+msgid "shared video"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/models.py:26
+msgid "shared videos"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/base.html:14
+msgid "owner's portal"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/base.html:21
+msgid "my dashboard"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/base.html:25
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/discussions.html:10
+msgid "forum"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/base.html:28
+msgid "gallery"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:15
+msgid "hello"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:16
+msgid "welcome back to your personal owner's portal"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:18
+msgid "account settings"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:19
+msgid "my boat details"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:25
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:12
+msgid "boat name"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:25
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:12
+msgid "dream catcher"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:26
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:13
+msgid "edit"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:40
+msgid "order data"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:49
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:58
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:76
+msgid "build phase"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:67
+msgid "delivery date"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:76
+msgid "the mechanics"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:105
+msgid "send us any feedback or questions"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/dashboard.html:108
+msgid "submit"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/discussions.html:2
+msgid "active discussions"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/discussions.html:8
+msgid "topics"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/discussions.html:9
+msgid "poster"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:8
+msgid "my gallery"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:9
+msgid "share your dreams and adventures"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:10
+msgid "with the intrepid community"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:17
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:92
+msgid "upload"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:17
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:78
+msgid "new photo or video"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:45
+msgid "my stuff"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:46
+msgid "community shares"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:82
+msgid "video upload"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:101
+msgid "I want to share"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:111
+msgid "picture"
+msgstr ""
+
+#: intrepidboats/apps/owners_portal/templates/owners_portal/partials/gallery.html:118
+msgid "close"
+msgstr ""

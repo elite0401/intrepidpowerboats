@@ -1,0 +1,73 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load static i18n thumbnail sekizai_tags %}
+
+{% block meta_description %}{{ article.description|truncatewords:27 }}{% endblock %}
+{% block meta_og_title %}{{ article.title|title }} - What's new - Intrepid Powerboats{% endblock %}
+{% block meta_og_image %}{{ article.image.url }}{% endblock %}
+{% block meta_og_description %}{{ article.description|truncatewords:40 }}{% endblock %}
+
+{% block body_classes %}page events{% endblock body_classes %}
+{% block section %}{{ article.title|title }} - What's new - {% endblock %}
+
+{% block content %}
+
+    <div class="main">
+        <header class="text-center section-nav">
+          <h1>{% trans "what's new" %}</h1>
+          <div class="gradient"></div>
+        </header>
+    </div>
+
+    <div class="header-image">
+        {% if article.video %}
+            <div class="article-detail-video-container">
+                        <span class="gallery-btn-play no-pointer-events">
+                            <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" tabindex="-1" id="play">
+                                <polygon class="fill" points="1,0 20,10 1,20"></polygon>
+                            </svg>
+                        </span>
+                <a href="#video">
+                    <img class="video-item" alt="video"
+                         data-full-video="{{ article.video.video_external_url }}"
+                         data-video-id="{{ article.video.vimeo_video_code }}"
+                         src="{% if article.video.thumbnail %}{{ article.video.thumbnail|thumbnail_url:'mobile' }}
+                                 {% else %}{% static "common/images/default_thumbnail_365px_345px.jpg" %}{% endif %}"
+                         data-url="{{ view.request.build_absolute_uri }}#video"
+                         data-caption="{{ current_site }}"
+                         data-picture="{{ view.request.scheme }}://
+
+
+                                 {{ view.request.get_host }}{% if article.video.thumbnail %}{{ article.video.thumbnail|thumbnail_url:'mobile' }}{% else %}{% static "common/images/default_thumbnail_365px_345px.jpg" %}{% endif %}"
+                    />
+                </a>
+            </div>
+        {% elif article.image %}
+            <img src="{{ article.image|thumbnail_url:'mobile' }}" class="img-responsive">
+        {% endif %}
+    </div>
+  
+    <div class="main">
+      <div class="main-content">
+        <p>{{ article.created_at.date|date:"F j, Y" }}</p>
+        <h3>{{ article.title }}</h3>
+        {{ article.description|safe }}
+        <a href="{% url 'common:what-is-new' %}" class="button primary uppercase mt4">{% trans "Back to list" %}</a>
+      </div>
+    </div>
+
+    {% include 'boats/detail/partials/video_modal.html' %}
+
+    {% addtoblock "js" %}
+        <script src="{% static "js/custom/video_player.js" %}"></script>
+        <script src="{% static "js/custom/video_element.js" %}"></script>
+        <script src="{% static "boats/js/boat_videos.js" %}"></script>
+        <script>
+            $(document).ready(function () {
+                $('.close-button').click(function () {
+                    history.pushState("", document.title, window.location.pathname + window.location.search);
+                });
+            });
+        </script>
+    {% endaddtoblock %}
+
+{% endblock content %}

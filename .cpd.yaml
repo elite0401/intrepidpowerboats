@@ -1,0 +1,9 @@
+languages:
+  - python
+files:
+  - "intrepidboats/**/*.py"
+exclude:
+  - "**/migrations/*"
+  - "*/**/tests/**/*"
+  - "**/settings/*"
+  

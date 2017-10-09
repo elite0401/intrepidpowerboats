@@ -1,0 +1,12 @@
+<div>
+    <p>Sender info:</p>
+    <p>
+        First name: {{ inquiry.first_name }}
+        Last name: {{ inquiry.last_name }}
+        {% if inquiry.phone_number %}
+            Phone number: {{ inquiry.phone_number }}
+        {% endif %}
+        Email address: {{ inquiry.email }}
+    </p>
+    <p>{{ inquiry.comments }}</p>
+</div>

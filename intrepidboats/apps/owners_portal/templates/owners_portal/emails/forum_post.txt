@@ -1,0 +1,16 @@
+{% if is_edit %}
+    {{ who_saved.get_full_name|default:who_saved.email }} edited
+    {% if who_saved != who_posted %}
+        {{ who_posted.get_full_name|default:who_posted.email }}'s
+    {% else %}
+        her/his own
+    {% endif %}
+    post
+{% else %}
+    New post by {{ who_posted.get_full_name|default:who_posted.email }}
+{% endif %}
+
+Subject: {{ subject }}
+Content: {{ content }}
+
+You can remove it here: {{ deletion_url }}

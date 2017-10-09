@@ -1,0 +1,9 @@
+{% extends "common/layout_base.html" %}
+{% block site %}
+  <div class="container-fluid">
+    {% block content %}
+      {% include "common/components/side_bar.html" with side_bar_closed="true" %}
+      {% block main %}{% endblock main %}
+    {% endblock content %}
+  </div>
+{% endblock site %}

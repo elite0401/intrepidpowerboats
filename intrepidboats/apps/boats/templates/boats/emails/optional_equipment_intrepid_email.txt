@@ -1,0 +1,12 @@
+{% load i18n %}
+
+{% blocktrans %}
+{{ first_name }} {{ last_name }} asked for us to call him/her on {{ phone_number }}.
+Email: {{ email }}
+Boat model: {{ boat_model }}
+Equipment:{% endblocktrans %}
+{% for equipment in equipment_list %}
+{{ equipment }}
+{% empty %}
+(No equipment)
+{% endfor %}

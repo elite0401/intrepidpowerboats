@@ -1,0 +1,64 @@
+{% extends "common/desktop_base.html" %}
+{% load staticfiles i18n sekizai_tags cms_tags %}
+
+{% block body_classes %}
+    thank-you-page page
+{% endblock body_classes %}
+
+{% block site %}
+
+    <div class="container-fluid">
+
+        {% include "common/components/side_bar.html" with side_bar_closed="true" %}
+        <div class="main navbar-container">
+            <div class="navbar">
+                <div class="main">
+                    {% include "common/components/language_dropdown.html" %}
+                </div>
+            </div>
+            <header class="text-center section-nav">
+                <h1></h1>
+            </header>
+        </div>
+        <div class="gradient"></div>
+    </div>
+
+
+    <div class="text-center">
+        <h1>{% block thank_you_title %}{% endblock %}</h1>
+    </div>
+
+    <div class="text-center">
+        <p>{% block thank_you_paragraph %}{% endblock %}</p>
+    </div>
+
+    <div class="img-container">
+        <img src="{% block thank_you_image %}{% endblock %}">
+    </div>
+
+    <div class="social-networks">
+        <div class="text-center">
+            <p>
+                Can't get enough Intrepid? Follow us and tap into all the latest inside information about your next
+                Intrepid.
+            </p>
+        </div>
+        <div class="social-network-buttons text-center">
+            <a class="social-network-button" href="https://www.instagram.com/intrepidpowerboats/" target="_blank">
+                <img src="{% static 'common/images/inst-button.png' %}">
+            </a>
+            <a class="social-network-button" href="https://www.facebook.com/intrepidpowerboat/" target="_blank">
+                <img src="{% static 'common/images/fb-button.png' %}">
+            </a>
+            <a class="social-network-button" href="https://twitter.com/IntrepidBoats" target="_blank">
+                <img src="{% static 'common/images/tw-button.png' %}">
+            </a>
+        </div>
+    </div>
+
+    {% addtoblock "css" %}
+        <link rel="stylesheet" href="{% static 'common/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'common/css/devartis.css' %}">
+    {% endaddtoblock %}
+
+{% endblock site %}

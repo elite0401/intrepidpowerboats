@@ -1,0 +1,124 @@
+{% extends "common/desktop_base.html" %}
+{% load staticfiles i18n sekizai_tags %}
+
+{% block meta_description %}{{ object.description|truncatewords:27 }}{% endblock %}
+{% block meta_og_title %}{{ object.title }} - Intrepid Powerboats{% endblock %}
+{% block meta_og_image %}{{ object.thumbnail.url }}{% endblock %}
+{% block meta_og_description %}{{ object.description|truncatewords:40 }}{% endblock %}
+
+{% block body_classes %}page all-models{% endblock %}
+{% block section %}{{ object.title }} - {% endblock %}
+{% block content %}
+  <div class="main">
+    {% include "common/components/language_navbar.html" %}
+    <header class="text-center section-nav">
+      <div class="flex centered">
+        <h1>{{ object.title }} &nbsp;</h1>
+
+        <div class="custom-select primary dropdown">
+          <div class="dropdown-toggle" id="other-models" data-toggle="dropdown">
+            {% trans "Other models" %}
+          </div>
+          <ul class="dropdown-menu" aria-labelledby="other-models">
+        {% for model in all_models %}
+            <li><a href="{% url "boats:boat_detail" group_pk=model.model_group.pk slug=model.slug %}">
+              {{ model.title }}
+            </a></li>
+        {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+      <div class="gradient">
+        <!-- Nav tabs -->
+        <ul class="nav nav-bar nav-tabs text-uppercase" role="tablist">
+          <li role="presentation" class="{% if is_about %}active{% endif %}">
+            <a href="#about" aria-controls="about" role="tab" data-toggle="tab">
+              {% trans "about" %}
+            </a>
+          </li>
+          <li role="presentation" class="{% if is_features %}active{% endif %}">
+            <a href="#features" aria-controls="features" role="tab" data-toggle="tab">
+              {% trans "features" %}
+            </a>
+          </li>
+          <li role="presentation" class="{% if is_deck_plan %}active{% endif %}">
+            <a href="#deck-plan" aria-controls="deck-plan" role="tab" data-toggle="tab">
+              {% trans "deck plan" %}
+            </a>
+          </li>
+          <li role="presentation" class="{% if is_motors %}active{% endif %}">
+            <a href="#motors" aria-controls="motors" role="tab" data-toggle="tab">
+              {% trans "motors" %}
+            </a>
+          </li>
+          <li role="presentation" class="{% if is_optional_equipment %}active{% endif %}">
+            <a href="#optional-equipment" aria-controls="optional-equipment" role="tab" data-toggle="tab">
+              {% trans "optional equipment" %}
+            </a>
+          </li>
+          <li role="presentation" class="{% if is_build_a_boat %}active{% endif %}">
+            <a href="#build-a-boat" aria-controls="build-a-boat" role="tab" data-toggle="tab">
+              {% trans "build a boat" %}
+            </a>
+          </li>
+          <li role="presentation" class="{% if is_video %}active{% endif %}">
+            <a href="#video" aria-controls="video" role="tab" data-toggle="tab">
+              {% trans "video" %}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+    {% include "boats/detail/about.html" %}
+
+    {% include "boats/detail/features.html" %}
+
+    {% include "boats/detail/deck_plan.html" %}
+
+    {% include "boats/detail/motors.html" %}
+
+    {% include "boats/detail/optional_equipment.html" %}
+
+    {% include "boats/detail/build_a_boat.html" %}
+
+    {% include "boats/detail/video.html" %}
+
+  </div>
+
+    {% addtoblock "css" %}
+        <link rel="stylesheet" href="{% static 'boats/css/select-css.css' %}">
+        <link rel="stylesheet" href="{% static 'boats/css/select-css-compat.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.colorpickersliders.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/jquery.bxslider.min.css' %}">
+        <style>
+            .cp-hslsaturation {
+                display: none;
+            }
+        </style>
+    {% endaddtoblock %}
+
+    {% addtoblock "cdn_js" %}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/tinycolor/0.11.1/tinycolor.min.js"></script>
+    {% endaddtoblock %}
+
+    {% addtoblock "js" %}
+        <script src="{% static "js/bootstrap.colorpickersliders.min.js" %}"></script>
+        <script src="{% static "boats/js/canvas_boat.js" %}"></script>
+        <script src="{% static "boats/js/boat_color_picker.js" %}"></script>
+        <script src="{% static "js/jquery.bxslider.min.js" %}"></script>
+        <script src="{% static "boats/js/about.js" %}"></script>
+        <script src="{% static "js/custom/video_player.js" %}"></script>
+        <script src="{% static "js/custom/video_element.js" %}"></script>
+        <script src="{% static "boats/js/boat_videos.js" %}"></script>
+        <script src="{% static "js/jquery.waitforimages.min.js" %}"></script>
+        <script src="{% static "js/custom/tabs_behaviour.js" %}"></script>
+        <script src="{% static "boats/js/tabs_behaviour.js" %}"></script>
+    {% endaddtoblock "js" %}
+{% endblock content %}
+

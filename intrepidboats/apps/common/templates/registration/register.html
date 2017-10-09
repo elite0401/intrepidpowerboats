@@ -1,0 +1,93 @@
+{% extends "common/desktop_base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
+{% block meta_og_title %}Register - Intrepid Powerboats{% endblock %}
+
+{% block section %}Register - {% endblock %}
+{% block content %}
+    <div class="navbar">
+      <div class="main">
+          {% include "common/components/language_dropdown.html" %}
+      </div>
+    </div>
+    <div class="main">
+      <header class="text-center">
+        <h1>OWNER’S PORTAL</h1>
+        <div class="gradient"> </div>
+      </header>
+      <div class="login-container form">
+
+        <h3 class="ta-center">{% trans "Register to create an owner's portal account" %}</h3>
+
+    <form method="post" action="{% url 'common:register' %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6">
+                <div>{{ form.first_name|attr:"placeholder:FIRST NAME"|add_class:"input" }}</div>
+                <div>{{ form.first_name.errors }}</div>
+            </div>
+            <div class="col-sm-6">
+                <div>{{ form.last_name|attr:"placeholder:LAST NAME"|add_class:"input" }}</div>
+                <div>{{ form.last_name.errors }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                    <div>{{ form.email|attr:"placeholder:EMAIL ADDRESS"|add_class:"input" }}</div>
+                    <div>{{ form.email.errors }}</div>
+            </div>
+            <div class="col-sm-6">
+                    <div>{{ form.email_repeat|attr:"placeholder:CONFIRM EMAIL ADDRESS"|add_class:"input" }}</div>
+                    <div>{{ form.email_repeat.errors }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                    <div>{{ form.username|attr:"placeholder:USERNAME"|add_class:"input" }}</div>
+                    <div>{{ form.username.errors }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                    <div>{{ form.password|attr:"placeholder:PASSWORD"|add_class:"input" }}</div>
+                    <div>{{ form.password.errors }}</div>
+            </div>
+            <div class="col-sm-6">
+                    <div>{{ form.password_repeat|attr:"placeholder:CONFIRM PASSWORD"|add_class:"input" }}</div>
+                    <div>{{ form.password_repeat.errors }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="checkbox">
+                    <input type="checkbox" value="terms" id="terms" name="terms" required>
+                    <label for="terms">I AGREE TO THE <a href="{% url 'common:terms_of_use' %}">TERMS OF USE</a></label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 recaptcha-container">
+                {{ form.captcha }}
+                <div>{{ form.captcha.errors }}</div>
+            </div>
+            <div class="col-sm-6 text-right">
+                <input type="submit" class="button primary mt2 mb2" value="{% trans "SUBMIT" %}"/>
+            </div>
+        </div>
+
+        {% if form.errors %}
+            {% for error in form.non_field_errors %}
+                <strong>{{ error|escape }}</strong>
+            {% endfor %}
+        {% endif %}
+
+    </form>
+    </div>
+    </div>
+{% endblock content %}

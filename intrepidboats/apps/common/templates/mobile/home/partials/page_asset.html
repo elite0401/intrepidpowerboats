@@ -1,0 +1,5 @@
+{% load staticfiles thumbnail %}
+
+{% if not page_asset.vimeo_video_code %}
+    <li style="background-image: url('{{ page_asset.image|thumbnail_url:'mobile' }}');"></li>
+{% endif %}

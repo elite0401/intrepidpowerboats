@@ -1,0 +1,97 @@
+.form
+  .input,
+  .button
+    width: 100%
+.input
+  background: $c-white
+  color: $c-gray-tope
+  height: 40px
+  margin-bottom: 10px
+  padding: 14px
+  border: none
+  box-shadow: 0 4px 4px rgba(0,0,0,0.35) inset
+  font-family: $gotham
+  font-weight: 300
+  &::-webkit-input-placeholder
+    color: $c-gray-tope
+  &:-moz-placeholder
+    color: $c-gray-tope
+  &::-moz-placeholder
+    color: $c-gray-tope
+  &:-ms-input-placeholder
+    color: $c-gray-tope
+  &.textarea
+    height: inherit
+  &.small
+    height: 3.4rem
+    text-transform: uppercase
+  &textarea
+    resize: none
+    width: 100%
+    display: inline-block
+
+.form.dark
+  .input
+    background: $c-gray
+    box-shadow: none
+    &::-webkit-input-placeholder
+      color: white
+    &:-moz-placeholder
+      color: white
+    &::-moz-placeholder
+      color: white
+    &:-ms-input-placeholder
+      color: white
+  a
+    padding: 4px 10px
+    border: none
+.radio,
+.checkbox
+  position: relative
+  display: block
+  margin-top: 10px
+  margin-bottom: 10px
+  label
+    min-height: 2.2rem
+    padding-left: 3rem
+    margin-bottom: 0
+    font-weight: normal
+    cursor: pointer
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"]
+  position: absolute
+  margin-left: -3rem
+  margin-top: 0
+  height: 2.2rem
+  width: 2.2rem
+
+.custom-select
+  background: $c-primary
+  color: white
+  font-family: $gotham
+  display: block
+  position: relative
+  overflow: visible
+  text-transform: uppercase
+  height: 42px
+  &::after
+    border-top: 7px solid white
+  &:hover
+    background: $c-primary-hover
+    color: white
+  &:focus
+    color: white
+  select
+    border-radius: 0
+    border-color: $c-primary
+    height: 42px
+    font-size: 12px
+    &:focus
+      border-color: $c-primary-hover
+  select:-moz-focusring
+    text-shadow: 0 0 0 #fff
+
+
+
+
+

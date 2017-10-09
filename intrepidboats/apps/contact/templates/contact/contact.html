@@ -1,0 +1,113 @@
+{% extends 'common/desktop_base.html' %}
+{% load cms_tags i18n static sekizai_tags %}
+
+{% block body_classes %}page contact{% endblock body_classes %}
+{% block section %}Contact - {% endblock %}
+{% block content %}
+
+    <div class="main">
+        {% include "common/components/language_navbar.html" %}
+
+        <header class="text-center section-nav">
+            <h1>{% trans "CONTACT" %}</h1>
+            <div class="gradient"></div>
+        </header>
+    </div>
+
+    <div class="header-image">
+        <img src="{% static "contact/images/header-contact.jpg" %}" class="img-responsive">
+    </div>
+
+    <div class="main">
+        <div class="main-content">
+            <h2>{% trans "Intrepid powerboats" %}</h2>
+
+            <p>
+                <img src="{% static "contact/images/intrepid-powerboats-green.svg" %}"
+                     class="img-responsive pull-left mr4 logo-intrepid">
+                {% blocktrans %}Complete the form below to reach us about
+                    <strong>SALES, GENERAL BOAT INFORMATION</strong>
+                    or just a <strong>GENERAL INQUIRY</strong>.{% endblocktrans %}
+            </p>
+
+            {% page_url 'careers' as careers_page %}
+            <p class="mb7">
+                {% trans "Interested in working for Intrepid? Check out" %}
+                <a href="{% if careers_page %}{{ careers_page }}{% else %}#{% endif %}" class="link">
+                    {% trans "EMPLOYMENT AT INTREPID" %}
+                </a>
+            </p>
+
+            <h3 class="form-heading">{% trans "CONTACT US" %}</h3>
+            <div class="form-container-bg form">
+                <form method="post" action="{% url "contact:send_inquiry" %}">{% csrf_token %}
+                    <p class="mutted">{% trans "* Denotes Required Fields" %}</p>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <input name="first_name" type="text" class="input required"
+                                   placeholder="* {% trans "FIRST NAME" %}" maxlength="255" required>
+                            <input name="last_name" type="text" class="input required"
+                                   placeholder="* {% trans "LAST NAME" %}" maxlength="255" required>
+                            <input name="email" type="email" class="input required"
+                                   placeholder="* {% trans "EMAIL ADDRESS" %}" maxlength="255" required>
+                            <input name="phone_number" type="tel" class="input" placeholder="{% trans "PHONE" %}" maxlength="255">
+                            <div class="custom-select primary block bevel hidden">
+                                <select id="inquiry_select" name="inquiry_type">
+                                    <option value="I">* {% trans "GENERAL INQUIRY" %}</option>
+                                    <option value="S">{% trans "SALES" %}</option>
+                                    <option value="B">{% trans "GENERAL BOAT QUESTION" %}</option>
+                                </select>
+                            </div>
+                            <div class="custom-select primary dropdown">
+                                <div class="dropdown-toggle unselectable-text" id="inquiry_type" data-toggle="dropdown"
+                                     aria-expanded="false">
+                                </div>
+                                <ul class="dropdown-menu" aria-labelledby="inquiry_type">
+                                    <li><a data-value="I" class="unselectable-text">* GENERAL INQUIRY</a></li>
+                                    <li><a data-value="S" class="unselectable-text">SALES</a></li>
+                                    <li><a data-value="B" class="unselectable-text">GENERAL BOAT QUESTION</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <textarea name="comments" placeholder="{% trans "QUESTIONS OR COMMENTS" %}" class="input"
+                                      required></textarea>
+                        </div>
+                    </div>
+                    <div class="text-right mt1 mb1">
+                        <input type="submit" value="{% trans "SEND" %}" class="button primary w-auto"/>
+                    </div>
+                </form>
+            </div>
+
+            <hr/>
+
+            <div class="contact-list">
+
+                {% placeholder "Headquarters information" %}
+
+                <div class="row">
+
+                    <div class="col-sm-5">
+                        {% placeholder "Employees (Left column)" %}
+                    </div>
+
+                    <div class="col-sm-5 col-sm-offset-2">
+                        {% placeholder "Employees (Right column)" %}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {% addtoblock "css" %}
+        <link rel="stylesheet" href="{% static "boats/css/select-css.css" %}">
+    {% endaddtoblock %}
+
+    {% addtoblock "js" %}
+        <script src="{% static "contact/js/dropdown_toggle.js" %}"></script>
+    {% endaddtoblock %}
+{% endblock content %}
+

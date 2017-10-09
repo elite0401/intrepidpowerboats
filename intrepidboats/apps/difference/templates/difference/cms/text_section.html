@@ -1,0 +1,19 @@
+{% load sekizai_tags cms_tags %}
+
+<div class="item">
+    {% if instance.child_plugin_instances|length > 1 %}
+    <div class="mt2 versatility-image-slider">
+        <ul class="bxslider text-overlay">
+    {% else %}
+        <div class="hide-li-bullets">
+    {% endif %}
+            {% for plugin in instance.child_plugin_instances %}
+                {% render_plugin plugin %}
+            {% endfor %}
+    {% if instance.child_plugin_instances|length > 1 %}
+        </ul>
+    {% endif %}
+    </div>
+    <h3>{{ instance.title }}</h3>
+  {{ instance.section_text|safe }}
+</div>

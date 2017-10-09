@@ -1,0 +1,33 @@
+{% load i18n %}
+<form action="{% url "boats:compare_all_boats" %}" method="get" class="compare-boats">
+
+    <div class="alert alert-danger hidden error-message"
+         role="alert">{% trans "You must first select at least 2 models to compare" %}</div>
+
+    <div class="col-sm-5 col-sm-offset-2">
+        <h4>{% trans "compare" %}</h4>
+        {% for boat in boats|slice:"::2" %}
+          <div class="checkbox">
+            <input type="checkbox" value="{{ boat.pk }}" id="{{ boat.pk }}" name="comparing_boats">
+            <label for="{{ boat.pk }}">{{ boat.title }}</label>
+          </div>
+          <a href="{% url "boats:boat_detail" group_pk=boat.model_group.pk slug=boat.slug %}"
+             class="button primary small text-uppercase">{% trans "visit model page" %}</a>
+        {% endfor %}
+    </div>
+    <div class="col-sm-5">
+        <h4>{% trans "compare" %}</h4>
+        {% for boat in boats|slice:"1::2" %}
+          <div class="checkbox">
+            <input type="checkbox" value="{{ boat.pk }}" id="{{ boat.pk }}" name="comparing_boats">
+            <label for="{{ boat.pk }}">{{ boat.title }}</label>
+          </div>
+          <a href="{% url "boats:boat_detail" group_pk=boat.model_group.pk slug=boat.slug %}"
+             class="button primary small text-uppercase">{% trans "visit model page" %}</a>
+        {% endfor %}
+    </div>
+    <span class="clearfix"></span>
+    <div class="text-center mb2 mt2">
+        <button type="submit" class="button primary text-uppercase">{% trans "compare models" %}</button>
+    </div>
+</form>

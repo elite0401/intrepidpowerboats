@@ -1,0 +1,7 @@
+{% load i18n %}
+
+{% blocktrans %}
+The user {{ user.username }} has uploaded a new video.
+You can approve it from:
+{% endblocktrans %}
+http://{{ site }}{{ admin_url }}

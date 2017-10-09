@@ -1,0 +1,17 @@
+{% extends "admin/change_form.html" %}
+{% load js_reverse i18n static %}
+
+{% block object-tools-items %}
+    {{ block.super }}
+    <a href="#" data-step-id="{{ original.pk }}" class="link notify-new-report">{% trans "Notify change" %}</a>
+    <form id="send-change-notification" class="hidden" action="{% url "owners_portal:change_notification"  step_pk=original.pk %}">
+        {% csrf_token %}
+    </form>
+{% endblock object-tools-items %}
+
+
+{% block admin_change_form_document_ready %}
+    {{ block.super }}
+    <script type="text/javascript" charset="utf-8">{% js_reverse_inline %}</script>
+    <script type="text/javascript" src="{% static 'owners_portal/js/send_report_changes.js' %}"></script>
+{% endblock %}

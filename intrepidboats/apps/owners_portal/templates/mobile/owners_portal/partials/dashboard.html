@@ -1,0 +1,105 @@
+{% load staticfiles i18n thumbnail %}
+
+<div role="tabpanel" class="tab-pane fade tab-dashboard" id="dashboard">
+
+  <div class="main">
+    <div class="main-content">
+
+      {% if request.user.is_authenticated %}
+
+        {% if last_boat and last_boat.active_step %}
+
+          <!-- ./timeline -->
+          {% with last_boat.active_step as active_step %}
+            {% if active_step %}
+              <div class="header-image">
+                <ul class="boatImagesSlider">
+                  {% for asset in active_step.assets.all %}
+                    <li>
+                      <a href="{{ asset.asset_url }}" data-toggle="lightbox"
+                         class="step-asset" data-gallery="steps-gallery">
+                      {%if asset.vimeo_video_code %}
+                      <span class="gallery-btn-play no-pointer-events">
+                        <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" tabindex="-1" id="play">
+                          <polygon class="fill" points="1,0 20,10 1,20"></polygon>
+                        </svg>
+                      </span>
+                      {% endif %}
+                        <img src="{{ asset.image|thumbnail_url:'mobile' }}" class="img-responsive"/>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+
+              <ol class="timeline clearfix">
+                {% for step in last_boat.steps.all %}
+                  <li class="{% if forloop.first %}first
+                                           {% elif forloop.last %}last
+                                           {% else %}mid{% endif %}">
+                    <span class="circle {% if step.active %}active{% endif %}"></span>
+                    <span class="line"></span>
+                    <span class="txt-content">
+                      <h4 class="text-uppercase">{{ step.title }}</h4>
+                      <p>{{ step.start_date|date:"N d" }}</p>
+                      <p>{{ step.start_date|date:"o" }}</p>
+                    </span>
+                  </li>
+                {% endfor %}
+              </ol>
+
+              <h3 class="form-heading text-uppercase">{{ active_step.phase.title }}: {{ active_step.title }}</h3>
+
+              <h2>Pure craftsmanship</h2>
+
+              <div class="row mt6">
+                <div class="col-sm-12">
+                  {{ active_step.phase.description|safe }}
+                </div>
+
+                <div class="mb4 clearfix"></div>
+
+                <div class="col-sm-10 col-sm-offset-1">
+                  <div class="flex">
+                    <span class="circle date">
+                        {{ active_step.start_date|date:"N" }}
+                      <div class="num">{{ active_step.start_date|date:"d" }}</div>
+                    </span>
+                    <span>
+                    {% for step in last_boat.steps.all %}
+                      <h4>{{ step.title }}</h4>
+                      {% if step.pk == active_step.pk %}
+                        <p>{{ step.description|safe }}</p>
+                      {% endif %}
+                    {% endfor %}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb4 clearfix"></div>
+
+              <div class="col-sm-12">
+                {% include "owners_portal/stepfeedback_form.html" with step=active_step %}
+              </div>
+            {% else %}
+
+            {% endif %}
+          {% endwith %}
+
+        {% endif %}
+
+        {% if last_boat %}
+          {% include "owners_portal/partials/boat_details_modal.html" %}
+        {% endif %}
+
+      {% else %}
+
+        <p>Please <a href="{% url 'common:login' %}">log-in</a> or <a href="{% url 'common:register' %}">sign up</a>
+          to create an account to enjoy all the tools in our Owner’s Portal.</p>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+

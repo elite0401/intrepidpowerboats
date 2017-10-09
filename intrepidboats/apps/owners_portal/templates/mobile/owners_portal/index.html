@@ -1,0 +1,90 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load staticfiles i18n sekizai_tags %}
+
+{% if site_metadata.owners_portal_description %}
+    {% block meta_description %}
+        {{ site_metadata.owners_portal_description }}
+    {% endblock %}
+{% endif %}
+
+{% if site_metadata.owners_portal_og_title %}
+    {% block meta_og_title %}
+        {{ site_metadata.owners_portal_og_title }}
+    {% endblock %}
+{% endif %}
+
+{% if site_metadata.owners_portal_og_description %}
+    {% block meta_og_description %}
+        {{ site_metadata.owners_portal_og_description }}
+    {% endblock %}
+{% endif %}
+
+{% block body_classes %}page owners-portal{% endblock body_classes %}
+{% block section %}Owner's Portal - {% endblock %}
+{% block content %}
+
+  <div class="main">
+
+    <header class="text-center section-nav">
+
+      <h1 class="text-uppercase">{% trans "owner's portal" %}</h1>
+
+      <div class="gradient">
+        <ul class="nav nav-tabs" role='tablist'>
+          <li role=presentation class=dropdown>
+            <a href="#" class="dropdown-toggle" aria-controls='owners-tabs-contents' id='owners-tabs'
+               data-toggle='dropdown'><h2>
+              <span class="tab-title">{% trans "SELECT" %} </span>
+              <span class="chevron-down" aria-hidden="true"></span>
+            </h2></a>
+            <ul class='dropdown-menu' aria-labelledby='owners-tabs' id='owners-tabs-contents'>
+
+              <li><a href="#dashboard" aria-controls="dashboard" role="tab" data-toggle="tab" class="text-uppercase">
+                {% trans "my dashboard" %}
+              </a></li>
+
+              <li><a href="{% url "forum:index" %}" aria-controls="forum" role="tab" class="text-uppercase">
+                {% trans "forum" %}
+              </a></li>
+
+              <li><a href="#gallery" aria-controls="gallery" role="tab" data-toggle="tab">
+                {% trans "gallery" %}
+              </a></li>
+
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </header>
+  </div>
+
+    <div class="tab-content">
+
+        {% include "owners_portal/partials/dashboard.html" %}
+
+        {% include "owners_portal/partials/gallery.html" %}
+
+    </div>
+
+    {% include "owners_portal/partials/edit_boat_name_modal.html" %}
+
+    {% addtoblock "js" %}
+        <script src="{% static "js/custom/mobile_tabs_behaviour.js" %}"></script>
+        <script src="{% static "js/custom/video_player.js" %}"></script>
+        <script src="{% static "js/custom/video_element.js" %}"></script>
+        <script src="{% static "owners_portal/js/common_gallery_presentation.js" %}"></script>
+        <script src="{% static "mobile/owners_portal/js/gallery_presentation.js" %}"></script>
+        <script src="{% static "owners_portal/js/gallery_video_uploading.js" %}"></script>
+        <script src="{% static "owners_portal/js/dashboard.js" %}"></script>
+        <script src="{% static "owners_portal/js/boat_name_change.js" %}"></script>
+    {% endaddtoblock %}
+    {% addtoblock "cdn_js" %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.js"></script>
+    {% endaddtoblock %}
+    {% addtoblock "cdn_css" %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.css" />
+    {% endaddtoblock %}
+
+{% endblock content %}
+

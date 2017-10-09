@@ -1,0 +1,13 @@
+{% load i18n %}
+
+{% blocktrans %}
+Hey {{ first_name }}, here's the list of options you're interested in for your {{ boat_model }}.
+We’re excited you’re interested in building an Intrepid. And even more excited that we can help you make it unlike
+any other Intrepid on the water. So hang tight. A salesperson will reach out to you shortly to help.
+{% endblocktrans %}
+
+{% for equipment in equipment_list %}
+{{ equipment }}
+{% empty %}
+(No equipment)
+{% endfor %}

@@ -1,0 +1,20 @@
+<h1>
+    {% if is_edit %}
+        {{ who_saved.get_full_name|default:who_saved.email }} edited
+        {% if who_saved != who_posted %}
+            {{ who_posted.get_full_name|default:who_posted.email }}'s
+        {% else %}
+            her/his own
+        {% endif %}
+        post
+    {% else %}
+        New post by {{ who_posted.get_full_name|default:who_posted.email }}
+    {% endif %}
+</h1>
+<div>
+    <ul>
+        <li>Subject: {{ subject }}</li>
+        <li>Content: {{ content.rendered }}</li>
+    </ul>
+    <p>You can remove it <a href="{{ deletion_url }}">here</a></p>
+</div>

@@ -1,0 +1,51 @@
+{% extends "common/desktop_base.html" %}
+{% load static i18n el_pagination_tags sekizai_tags %}
+
+{% if site_metadata.whats_new_description %}
+    {% block meta_description %}
+        {{ site_metadata.whats_new_description }}
+    {% endblock %}
+{% endif %}
+
+{% if site_metadata.whats_new_og_title %}
+    {% block meta_og_title %}
+        {{ site_metadata.whats_new_og_title }}
+    {% endblock %}
+{% endif %}
+
+{% if site_metadata.whats_new_og_description %}
+    {% block meta_og_description %}
+        {{ site_metadata.whats_new_og_description }}
+    {% endblock %}
+{% endif %}
+
+{% block body_classes %}page events{% endblock body_classes %}
+{% block section %}What's new - {% endblock %}
+{% block content %}
+
+    <!-- Main page -->
+    <div class="main">
+        {% include "common/components/language_navbar.html" %}
+        <header class="text-center section-nav">
+            <h1>{% trans "what's new" %}</h1>
+            <div class="gradient"></div>
+        </header>
+    </div>
+
+    <div class="header-image">
+        <img src="{% static "common/images/bg-whats-new.jpg" %}" class="img-responsive">
+    </div>
+
+    <div class="main">
+        <div class="main-content">
+            {% include page_template %}
+        </div>
+    </div>
+    <!-- ./Main page -->
+    {% addtoblock "js" %}
+        {% block js %}{% endblock %}
+        <script src="{% static "common/js/blog_posts.js" %}"></script>
+        <script src="{{ STATIC_URL }}el-pagination/js/el-pagination.js"></script>
+        <script>$.endlessPaginate();</script>
+    {% endaddtoblock %}
+{% endblock content %}

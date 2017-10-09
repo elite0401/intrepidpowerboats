@@ -1,0 +1,22 @@
+{% load staticfiles js_reverse sekizai_tags cms_tags %}
+
+<div id="desktop-footer">
+    <hr id="desktop-footer-hr">
+    <footer>
+        <p>Copyright © 2017 Intrepid Powerboats. All Rights Reserved.</p>
+        <a href="{% url 'common:terms_of_use' %}">
+            Privacy Policy
+        </a>
+        |
+        {% page_url 'contact' as contact_page %}
+
+        <a href="{% if contact_page %}{{ contact_page }}{% else %}#{% endif %}">
+            Contact Us
+        </a>
+        |
+        {% page_url 'intrepid-difference' as difference_page %}
+        <a href="{% if difference_page %}{{ difference_page }}{% else %}#{% endif %}">
+            About Us
+        </a>
+    </footer>
+</div>

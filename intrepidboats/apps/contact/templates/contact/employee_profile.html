@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-4">
+    {% if instance.image %}
+      <img src="{{ instance.image.url }}" alt="{{ instance.full_name }}" class="img-responsive img-contact">
+    {% endif %}
+  </div>
+  <div class="col-xs-8">
+    <h4>{{ instance.full_name }}</h4>
+    <p>{{ instance.occupation }}</p>
+    <p>{{ instance.phone_number }}</p>
+    <a href="mailto:{{ instance.email }}" class="link">{{ instance.email }}</a>
+  </div>
+</div>

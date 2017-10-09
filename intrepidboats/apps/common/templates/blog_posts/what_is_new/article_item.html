@@ -1,0 +1,27 @@
+{% load i18n el_pagination_tags custom_pagination_tags static sekizai_tags %}
+
+{% paginate 5 entry_list %}
+<div class="article-item">
+    {% for object in entry_list %}
+    <div class="row">
+        <div class="col-sm-5">
+            {% if object.video %}
+                <img src="{{ object.video.thumbnail.url }}" class="img-responsive">
+            {% elif object.image %}
+                <img src="{{ object.image.url }}" class="img-responsive">
+            {% endif %}
+        </div>
+        <div class="col-sm-7">
+            <h3>{{ object.title }}</h3>
+            <p class="c-primary">{{ object.created_at.date|date:"m.d.y" }}</p>
+            <p>{{ object.description|striptags|truncatechars:150 }}</p>
+            <a href="{% url 'common:article' object.pk object.title|slugify %}"
+               class="button primary text-uppercase pull-right small">{% trans "read more" %}</a>
+        </div>
+    </div>
+    <hr/>
+    {% endfor %}
+</div>
+    {% include 'boats/detail/partials/video_modal.html' %}
+
+{% more %}

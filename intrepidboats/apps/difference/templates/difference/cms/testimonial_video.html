@@ -1,0 +1,15 @@
+{% load i18n sekizai_tags cms_js_tags %}
+{% load static from staticfiles %}
+
+{% addtoblock "js" %}
+  <script src="{% static "js/lity.min.js" %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+  <link href="{% static "css/lity.min.css" %}" rel="stylesheet">
+{% endaddtoblock %}
+
+<div class="img-container">
+  <a href="{{ instance.movie_url }}" class="btn-play" data-lity></a>
+  <img src="{{ instance.thumbnail_url }}" class="img-responsive">
+</div>

@@ -1,0 +1,75 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load static i18n sekizai_tags thumbnail %}
+
+{% block section %}All models - {% endblock %}
+
+{% block body_classes %}page all-models{% endblock %}
+
+{% block content %}
+
+  <!-- Main page -->
+  <div class="main">
+    <header class="text-center section-nav">
+      <div class="sidebar-content on">
+        <h1 class="text-uppercase">{% trans "all models" %}</h1>
+      </div>
+    </header>
+  </div>
+
+  <div class="header-image">
+    <section class="mosaic-top">
+      {% for group in groups %}
+        <div>
+          <img src="{{ group.show_image|thumbnail_url:'mobile' }}"/>
+          <div class="custom-select primary dropdown">
+
+              <div class="dropdown-toggle">{{ group.title }}</div>
+
+            <ul class="dropdown-menu" aria-labelledby="{{ group.pk }}-models">
+              {% for model in group.boats.all %}
+                  <li class="all-models-boat-model-li">
+                      <a href="{% url "boats:boat_detail" group_pk=model.model_group.pk slug=model.slug %}">
+                          {{ model.title }}
+                      </a>
+                  </li>
+              {% endfor %}
+            </ul>
+
+          </div>
+        </div>
+      {% endfor %}
+    </section>
+  </div>
+
+  <div class="main">
+    <div class="main-content">
+      <h2>{% blocktrans %}Craftmanship and design that follow an
+        uncompromising set of specifications. Yours.{% endblocktrans %}</h2>
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            {% blocktrans %}Regardless of which Intrepid you choose, it will be built upon a design that reflects
+              each owner's unique and discerning vision. But what is common to each one will be a meticulous
+              attention to detail, highly innovative and thoughtful features from bow to stern and the most
+              advanced and highest quality materials and processes implemented at every stage of construction.
+              At Intrepid, we don't build boats the way they could be. We build boats the way they
+              should be.{% endblocktrans %}
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- ./Main page -->
+
+  {% addtoblock "js" %}
+      <script src="{% static "boats/js/all_models.js" %}"></script>
+      <script>
+          $(document).ready(function () {
+              $('.custom-select.primary.dropdown').on('click', function () {
+                  $(this).toggleClass('open');
+              });
+          });
+      </script>
+  {% endaddtoblock "js" %}
+{% endblock %}

@@ -1,0 +1,260 @@
+// Namespacing conventions:
+
+// c-          for colors
+// bg-         for backgrounds
+// fs-         for font size
+// fw-         for font-weight
+// tt-         for text-transform
+// lh-         for line-height
+// ta-         for text-align
+// va-         for vertical-align
+// of-         for overflow
+// d-          for display
+// pos-        for position
+// f-          for float
+// s-          for sizes
+// w-          for width
+// h-          for height
+// m-          for margins
+// p-          for paddings
+// b-          for borders
+// is-/has-    for states
+
+
+
+
+// Colors
+// Class generator for color and background
+$colors: ("primary": $c-primary, "secondary": $c-secondary, "alternative": $c-alternative, "alternative-light": $c-alternative-light, "alternative-dark": $c-alternative-dark, "white": $c-white, "black": $c-black, "gray-light":$c-gray-ligth, "mutted":$c-mutted )
+
+@each $color, $i in $colors
+  .bg-#{$color}
+    background: #{$i}
+  .c-#{$color}
+    color: #{$i} !important
+
+
+// Fonts Sizes
+// Class generator for font-sizes
+$font-sizes: ("xxsmall": $fs-xxsmall, "xsmall": $fs-xsmall, "small":$fs-small, "normal":$fs-normal, "normal-alt":$fs-normal-alt, "medium":$fs-medium, "medium-alt":$fs-medium-alt, "big": $fs-big, "xbig": $fs-xbig, "huge": $fs-huge)
+
+@each $font-size, $i in $font-sizes
+  .fs-#{$font-size}
+    font-size: #{$i}
+
+
+// Font Weights
+// Class generator for font-weights
+$weights: ("light": 300, "regular":400, "semibold": 500, "bold": 600)
+
+@each $weight, $i in $weights
+  .fw-#{$weight}
+    font-weight: #{$i}
+
+
+// Text Transforms
+// Class generator for text-transforms
+$transforms: none uppercase lowercase capitalize
+
+@each $transform in $transforms
+  .tt-#{$transform}
+    text-transform: #{$transform}
+
+
+// Text Ellipsis
+// Mixin and class generator for ellipsed text
+=ellipsis($width:100%)
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    width: $width
+
+.ellipsis
+  +ellipsis
+
+
+// Line Height
+// Class generator for line-heights
+$line-heights: ("xsmall": 1.4, "small": 2.2, "normal": 2.4, "medium": 3.2, "big": 5.2, "large": 6.8 )
+
+@each $line-height, $i in $line-heights
+  .lh-#{$line-height}
+    line-height: #{$i}rem
+
+
+// Text Align
+// Class generator for text-align
+
+$alignments: left right center
+
+@each $align in $alignments
+  .ta-#{$align}
+    text-align: #{$align}
+
+
+// Vertical Align
+// Class generator for Vertical Align
+$valignments: top middle bottom
+
+@each $valign in $valignments
+  .va-#{$valign}
+    vertical-align: #{$valign}
+
+
+// Overflow
+// Class generator for Overflow
+$overflows: hidden visible scroll
+
+@each $overflow in $overflows
+  .of-#{$overflow}
+    vertical-align: #{$overflow}
+
+
+// Display
+// Class generator for Display
+$displays: block inline inline-block table none
+
+@each $display in $displays
+  .d-#{$display}
+    display: #{$display}
+
+
+// Positions
+// Class generator for position
+$positions: relative absolute fixed
+
+@each $position in $positions
+  .pos-#{$position}
+    position: #{$position}
+
+
+// Floating
+// Class generator for floats
+$floatings: left right both none 
+
+@each $float in $floatings
+  .f-#{$float}
+    float: #{$float}
+
+
+// Sizing - Width in %
+// Class generator for width
+$widths: 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100
+
+@each $w in $widths
+  .w-#{$w}
+    width : round(percentage($w/100))
+
+// Sizing - Height in %
+
+$heights: 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100
+
+@each $h in $heights
+  .h-#{$h}
+    height : round(percentage($h/100))
+
+
+// Margins & Paddings
+// Class generators for margins & paddings
+
+.mauto
+  margin: auto
+
+.m0auto
+  margin: 0 auto
+
+$values: 0 1 2 3 4 5 6 7 8 9 10
+
+@each $m in $values
+  .m#{$m}
+    margin: #{$m}rem
+
+@each $m in $values
+  .mt#{$m}
+    margin-top: #{$m}rem
+
+@each $m in $values
+  .mb#{$m}
+    margin-bottom: #{$m}rem
+
+@each $m in $values
+  .ml#{$m}
+    margin-left: #{$m}rem
+
+@each $m in $values
+  .mr#{$m}
+    margin-right: #{$m}rem
+
+@each $p in $values
+  .p#{$p}
+    padding: #{$p}rem
+
+@each $p in $values
+  .pt#{$p}
+    padding-top: #{$p}rem
+
+@each $p in $values
+  .pb#{$p}
+    padding-bottom: #{$p}rem
+
+@each $p in $values
+  .pl#{$p}
+    padding-left: #{$p}rem
+
+@each $p in $values
+  .pr#{$p}
+    padding-right: #{$p}rem
+
+
+// Borders
+// Mixin for borders
+=border($border-radius, $border-width, $border-color)
+  border-radius: $border-radius;
+  border: $border-width solid $border-color
+
+
+// Selections
+// Helper classes for pointer events
+.is-not-selectable
+  user-select: none
+  cursor: default
+
+.is-clickable
+  @extend .no-select !optional
+  cursor: pointer
+
+.is-not-clickable
+  pointer-events: none
+
+.i-block
+  display: inline-block
+
+.w-auto
+  width: auto !important
+  .button
+    width: auto
+
+.no-wrap
+  white-space: nowrap
+
+// Centering
+// Parent must have a relative position
+.center-x
+  transform: translateX(-50%)
+  position: absolute
+  left: 50%
+
+.center-y
+  transform: translateY(-50%)
+  position: absolute
+  top: 50%
+
+.center-all
+  transform: translate(-50%,-50%)
+  position: absolute
+  top: 50%
+  left: 50%
+
+.avatar
+  border-radius: 50%
+  border: 4px solid $c-alternative-light

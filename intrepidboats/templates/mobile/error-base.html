@@ -1,0 +1,40 @@
+{% extends "common/mobile_base.html" %}
+{% load static i18n sekizai_tags %}
+{% block body_classes %}page errorpage{% endblock %}
+
+{% block content %}
+
+    <div class="main">
+        <div class="main-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="text-center">
+                        <span class="txt-green" style="font-size: 200%">{% block error_code %}{% endblock %}</span>
+                        {% block error_description %}{% endblock %}
+                    </h2>
+                    <ul class="nav-icon">
+                        <li>
+                            <a href="{% if all_boats_page %}{{ all_boats_page }}{% else %}#{% endif %}">
+                                <img src="{% static "common/images/ico-boats-green.svg" %}" class="img-responsive">
+                                <span>{% trans "models" %}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url "owners_portal:owners_portal" %}">
+                                <img src="{% static "common/images/ico-portal-green.svg" %}" class="img-responsive">
+                                <span>{% blocktrans %}owner's <br/>portal{% endblocktrans %}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url "owners_portal:gallery" %}">
+                                <img src="{% static "common/images/ico-gallery-green.svg" %}" class="img-responsive">
+                                <span>{% blocktrans %}owner's <br/>gallery{% endblocktrans %}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

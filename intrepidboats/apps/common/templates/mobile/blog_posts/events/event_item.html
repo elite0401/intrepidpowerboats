@@ -1,0 +1,15 @@
+{% load i18n el_pagination_tags custom_pagination_tags %}
+
+{% paginate 5 entry_list %}
+<div class="article-item">
+  {% for object in entry_list %}
+        <h3>{{ object.title }}</h3>
+{#        <p>{{ object.date.date|date:"F j, Y" }}</p>#}
+
+        <a href="{{ object.external_link }}" target="_blank" class="pull-right">
+            {% trans "Link" %} >
+        </a>
+    <hr/>
+  {% endfor %}
+</div>
+{% more %}

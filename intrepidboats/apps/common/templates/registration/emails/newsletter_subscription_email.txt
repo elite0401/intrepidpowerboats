@@ -1,0 +1,9 @@
+{% load i18n %}
+
+{% blocktrans %}
+New newsletter subscriber:
+
+Email: {{ email }}
+First name: {{ first_name }}
+Last name: {{ last_name }}
+{% endblocktrans %}

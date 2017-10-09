@@ -1,0 +1,85 @@
+{% load i18n staticfiles cms_tags sekizai_tags partition.tags widget_tweaks %}
+
+<div role="tabpanel" class="tab-pane fade optional-equipment {% if is_optional_equipment %}in active{% endif %}"
+     id="optional-equipment">
+  <div class="main">
+    <div class="main-content">
+
+      <h2>{% trans "CREATE A CHECKLIST OF THE OPTIONAL EQUIPMENT YOU’RE INTERESTED IN FOR YOUR" %}
+        <span id="boat-model" class="txt-green">{{ object.title }}</span>:
+      </h2>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="pl4">
+            {% for equipment in object.optional_equipments.all %}
+
+              {% render_model_block equipment %}
+                <div class="checkbox">
+                  <input class="optional_equipment_item" type="checkbox" value="{{ instance.id }}"
+                         id="optional-{{ instance.id }}">
+                  <label for="optional-{{ instance.id }}">{{ instance.description }}</label>
+                </div>
+              {% endrender_model_block %}
+
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      {% render_model_add boat_models.optional_equipment %}
+
+      <h4>{% trans "Email this checklist to an Intrepid salesperson or to yourself for future reference." %}</h4>
+
+      <div class="row">
+          {% if messages %}
+              {% for message in messages %}<span hidden>{{ message }}</span>{% endfor %}
+              <div class="col-sm-6">
+                  <div id="optional-equipment-success-message">
+                      <h4>
+                          Thank you for your interest in the
+                          <span id="boat-model" class="txt-green">
+                              {{ object.title }}
+                          </span>!
+                      </h4>
+                  </div>
+              </div>
+          {% else %}
+
+          <form class="col-sm-12 contact-form">
+
+          <div class="form">
+              {{ optional_equipment_form.equipment.as_hidden }}
+              {{ optional_equipment_form.first_name|add_class:"input"|attr:"placeholder:First name" }}
+              {{ optional_equipment_form.last_name|add_class:"input"|attr:"placeholder:Last name" }}
+              {{ optional_equipment_form.email_address|add_class:"input"|attr:"placeholder:Email address" }}
+              {{ optional_equipment_form.phone_number|add_class:"input"|attr:"placeholder:Phone number" }}
+          </div>
+
+          <div class="pl4 mt4">
+            <div class="checkbox">
+                {{ optional_equipment_form.email_intrepid_also|attr:"id:email-phone" }}
+              <label for="email-phone">
+                {% trans "Please email this list to me and Intrepid, and have an Intrepid salesperson give me a call." %}
+              </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="just-email">
+                <label for="just-email">{% trans "Please email this list just to me." %}</label>
+            </div>
+          </div>
+
+          <div class="mt4">
+              <input id="form-submit" type="submit" value="Submit" class="button primary" disabled>
+          </div>
+
+          </form>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% addtoblock "js" %}
+    <script src="{% static "boats/js/optional_equipment.js" %}"></script>
+{% endaddtoblock %}

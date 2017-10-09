@@ -1,0 +1,396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-24 09:59-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: intrepidboats/apps/boats/admin.py:25
+msgid "images"
+msgstr ""
+
+#: intrepidboats/apps/boats/admin.py:30
+msgid "comparable attributes"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:17
+msgid "boat model group"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:18
+msgid "boat model groups"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:20
+msgid "show image"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:28
+msgid "boat model"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:29
+msgid "boat models"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:31
+msgid "base"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:32
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:5
+msgid "hull"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:33
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:14
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list_options.html:7
+msgid "boot stripe"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:34
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:19
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list_options.html:9
+msgid "boot stripe accent"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:35
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:24
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list_options.html:10
+msgid "sheer stripe"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:36
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:29
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list_options.html:12
+msgid "sheer stripe accent"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:38
+msgid "model group"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:39
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:63
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list_options.html:69
+msgid "logo"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:41
+msgid "thumbnail"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:45
+msgid "standard fuel"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:46
+msgid "beam"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:47
+msgid "length"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:48
+msgid "water"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:59 intrepidboats/apps/boats/models.py:72
+#: intrepidboats/apps/boats/templates/boats/detail/build_a_boat.html:38
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:38
+msgid "motor"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:61 intrepidboats/apps/boats/models.py:82
+#: intrepidboats/apps/boats/models.py:128
+#: intrepidboats/apps/boats/models.py:141
+msgid "image"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:69 intrepidboats/apps/boats/models.py:80
+msgid "motor selection"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:70
+msgid "motors selection"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:73 intrepidboats/apps/boats/models.py:142
+msgid "boat"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:81 intrepidboats/apps/boats/models.py:107
+#: intrepidboats/apps/boats/models.py:127
+msgid "title"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:94
+msgid "top"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:95
+msgid "anchor"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:96
+msgid "bow rail"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:97
+msgid "rub rail"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:98
+msgid "rear closeout"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:99
+msgid "dive door"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:100
+msgid "port lights"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:101
+msgid "ss rub rail insert"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:108
+msgid "kind"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:109
+msgid "available"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:112
+msgid "feature"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:113
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:29
+msgid "features"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:129
+msgid "default"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:130
+msgid "display value"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:140
+msgid "image url"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:155
+msgid "built boat share"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:156
+msgid "built boat shares"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:160
+#: intrepidboats/apps/boats/templates/boats/detail/partials/built_boat_email_form.html:11
+#: intrepidboats/apps/boats/templates/boats/detail/partials/built_boat_email_to_sales_form.html:12
+msgid "name"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:161
+#: intrepidboats/apps/boats/templates/boats/detail/partials/built_boat_email_form.html:6
+#: intrepidboats/apps/boats/templates/boats/detail/partials/built_boat_email_to_sales_form.html:7
+msgid "email"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:163
+#: intrepidboats/apps/boats/templates/boats/detail/partials/built_boat_email_to_sales_form.html:17
+msgid "phone"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:164
+msgid "contact sales"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:167
+msgid "built boat email"
+msgstr ""
+
+#: intrepidboats/apps/boats/models.py:168
+msgid "built boat emails"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/all_models.html:15
+msgid "all models"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/all_models.html:61
+#: intrepidboats/apps/boats/templates/boats/all_models.html:66
+#: intrepidboats/apps/boats/templates/boats/groups/details.html:33
+#: intrepidboats/apps/boats/templates/boats/list.html:32
+msgid "compare models"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/all_models.html:62
+msgid "Find the best one for you"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:25
+msgid "about"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:33
+msgid "deck plan"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:36
+msgid "motors"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:40
+msgid "optional equipment"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:45
+msgid "build a boat"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:49
+msgid "video"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:85
+msgid "next"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:120
+msgid "download brochure"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:121
+msgid "contact a sales representative"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/boat_detail.html:122
+msgid "virtual tour"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/compare.html:16
+#: intrepidboats/apps/boats/templates/boats/groups/details.html:16
+#: intrepidboats/apps/boats/templates/boats/groups/details.html:28
+#: intrepidboats/apps/boats/templates/boats/list.html:16
+#: intrepidboats/apps/boats/templates/boats/list.html:28
+msgid "visit model page"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/build_a_boat.html:37
+msgid "hull "
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/build_a_boat.html:39
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:51
+msgid "other features"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/partials/built_boat_email_form.html:15
+msgid "send to my email"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/partials/built_boat_email_to_sales_form.html:21
+msgid "get in contact with sales"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:9
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list_options.html:6
+msgid "hull color"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:73
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:85
+msgid "share"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:93
+msgid "send by email"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:97
+msgid "send to a sales person"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/partials/progress_list.html:101
+msgid "share on facebook"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/detail/partials/share_on_facebook_form.html:5
+msgid "share on Facebook"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/emails/built_boats_email.html:3
+#: intrepidboats/apps/boats/templates/boats/emails/built_boats_email_sales_contact.html:3
+msgid "Your built boat!"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/emails/built_boats_email.txt:3
+msgid ""
+"\n"
+"Thanks for visiting us!\n"
+"Here you have your built boat (copy this url open it on a browser):\n"
+"\n"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/emails/built_boats_email_sales_contact.html:14
+msgid "see boat"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/emails/built_boats_email_sales_contact.txt:3
+#, python-format
+msgid ""
+"\n"
+"Hello\n"
+"The user %(name)s has built a boat.\n"
+"Contact info:\n"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/groups/details.html:5
+#: intrepidboats/apps/boats/templates/boats/list.html:5
+msgid "You must first select at least 2 models to compare"
+msgstr ""
+
+#: intrepidboats/apps/boats/templates/boats/groups/details.html:8
+#: intrepidboats/apps/boats/templates/boats/groups/details.html:20
+#: intrepidboats/apps/boats/templates/boats/list.html:8
+#: intrepidboats/apps/boats/templates/boats/list.html:20
+msgid "compare"
+msgstr ""
+
+#: intrepidboats/apps/boats/utils.py:10
+msgid "Your boat image"
+msgstr ""
+
+#: intrepidboats/apps/boats/utils.py:36
+msgid "A user has built a boat"
+msgstr ""
+
+#: intrepidboats/apps/boats/views.py:121
+msgid "your email have been sent"
+msgstr ""
+
+#: intrepidboats/apps/boats/views.py:145
+msgid "thanks for sharing!"
+msgstr ""

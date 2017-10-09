@@ -1,0 +1,56 @@
+{% load i18n staticfiles cms_tags sekizai_tags %}
+
+<div role="tabpanel" class="tab-pane fade {% if is_deck_plan %}in active{% endif %}" id="deck-plan">
+    <div class="loading-spinner"><img src="{% static "css/images/loading-spinner.gif" %}"></div>
+
+    <div class="hidden main deck-plan-wrapper">
+        {% if not boat.deck_plan %}
+            {% render_model_add boat_models.deck_plan %}
+        {% endif %}
+
+        {% render_model_block boat.deck_plan %}
+            <img src="{{ instance.image.url }}" class="img-responsive deck-plan-main-img">
+            {% for hotspot in instance.deckplanhotspot_set.all %}
+                <button class="tooltip-button" type="button" data-toggle="popover" data-content="{{ hotspot.text }}"
+                        style="top: calc({{ hotspot.top_percentage }}% - 12px);left: calc({{ hotspot.left_percentage }}% - 12px);position: absolute;"
+                        data-placement="
+                        {% if hotspot.top_percentage < 70 %}bottom
+                        {% else %}top
+                        {% endif %}"
+                        data-clicked="false">
+                    {% if hotspot.number %}
+                        <span>
+                        {{ hotspot.number }}
+                        </span>
+                    {% endif %}
+                </button>
+            {% endfor %}
+        {% endrender_model_block %}
+    </div>
+</div>
+
+{% addtoblock "js" %}
+    <script>
+        $(function () {
+            var $tooltipButtons = $('[data-toggle="popover"]');
+            $tooltipButtons.popover();
+            $tooltipButtons.on('click', function () {
+                var $tooltipButton = $(this);
+                if ($tooltipButton.data('clicked') == false) {
+                    $tooltipButton.data('clicked', true);
+
+                    var $popover = $('#' + $tooltipButton.attr('aria-describedby'));
+                    $popover.append(
+                            '<div class="popover-number">' + $tooltipButton.html() + '</div>'
+                    ).append(
+                            '<div class="popover-close-button"><img src="{% static 'boats/images/deck-plan-close-button.png' %}"></img></div>'
+                    );
+
+                    $popover.find('.popover-close-button').on('click', function () {
+                        $tooltipButton.trigger('click');
+                    })
+                }
+            });
+        });
+    </script>
+{% endaddtoblock "js" %}

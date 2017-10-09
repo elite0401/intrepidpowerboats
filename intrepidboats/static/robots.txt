@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/*
+Disallow: /password/*
+Disallow: /register/*
+Disallow: /login/*
+Disallow: /logout/*
+Sitemap: https://www.intrepidpowerboats.com/sitemap.xml

@@ -1,0 +1,26 @@
+{% extends MACHINA_BASE_TEMPLATE_NAME %}
+{% load static %}
+{% load i18n %}
+{% load forum_permission_tags %}
+
+{% block section %}{% block sub_title %}{% endblock sub_title %} - Forum - {% endblock section %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'machina/css/machina.board_theme.vendor.css' %}" />
+<link rel="stylesheet" href="{% static 'machina/css/machina.board_theme.css' %}" />
+{% endblock css %}
+
+{% block bootstrap3 %}{% endblock bootstrap3 %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static 'js/machina.packages.min.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'js/machina.min.js' %}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+  $(function() {
+    machina.init();
+    {% block onbodyload %}{% endblock onbodyload %}
+  });
+</script>
+{% endblock js %}

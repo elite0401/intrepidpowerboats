@@ -1,0 +1,63 @@
+{% load static cms_tags i18n sekizai_tags thumbnail %}
+
+<li>
+  <div class="row">
+
+    <div class="col-sm-5">
+        {% if instance.testimonial.file %}
+            <img src="{{ instance.testimonial.file.url }}" width="420px" class="img-responsive">
+        {% else %}
+            <div class="img-container">
+                <a class="btn-play" data-toggle="lightbox"
+                   data-remote="//player.vimeo.com/video/{{ instance.testimonial.video_id }}">
+                </a>
+                <img src="
+                {% if instance.testimonial.thumbnail %}
+                  {{ instance.testimonial.thumbnail|thumbnail_url:'testimonial' }}
+                 {% else %}
+                  {% static "common/images/default_thumbnail_420px.jpg" %}
+                 {% endif %}
+                " width="420px" class="img-responsive">
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="col-sm-6">
+      <p>
+        {{ first_half|safe }}
+        {% if see_more %}
+          <span class="collapse text-more" id="read-more-{{ instance.id }}">{{ see_more|safe }}</span>
+          <a role="button" class="link-more read-more-{{ instance.id }}" href="#read-more-{{ instance.id }}"
+             data-toggle="collapse" aria-expanded="false" aria-controls="read-more"  >{% trans "See more +" %}</a>
+        {% endif %}
+      </p>
+      <b class="c-primary">
+        {{ instance.testimonial.first_name }} {{ instance.testimonial.last_name }}
+        {% if instance.testimonial.title %}, {{ instance.testimonial.title }}{% endif %}
+      </b>
+    </div>
+  
+  </div>
+</li>
+
+{% addtoblock "js" %}
+  <script src="{% static "difference/js/readMore.js" %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "cdn_js" %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.js"></script>
+{% endaddtoblock %}
+
+{% addtoblock "cdn_css" %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.css" />
+{% endaddtoblock %}
+
+
+{% addtoblock "js" %}
+  <script>
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  </script>
+{% endaddtoblock %}

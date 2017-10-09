@@ -1,0 +1,71 @@
+{% extends "common/desktop_base.html" %}
+{% load staticfiles i18n sekizai_tags cms_tags %}
+
+{% block body_classes %}
+    home
+{% endblock body_classes %}
+
+{% block site %}
+
+    <div class="container-fluid">
+
+        {% include "common/components/side_bar.html" with side_bar_closed="true" %}
+
+        <div class="navbar">
+            <div class="main">
+                <ul class="nav-top">
+                    <li>{% include "home/partials/newsletter.html" %}</li>
+                    <li><a href="{% url 'common:what-is-new' %}"
+                           class="nav-link text-uppercase">{% trans "what's new" %}</a></li>
+                    <li><a href="{% url 'common:events' %}" class="nav-link text-uppercase">{% trans "events" %}</a>
+                    </li>
+                </ul>
+                {% include "common/components/language_dropdown.html" %}
+            </div>
+        </div>
+
+        <div class="nav-icon-right">
+            <ul class="nav-icon">
+                <li>
+                    {% url 'boats:all_boats' as all_boats_page %}
+                    <a href="{% if all_boats_page %}{{ all_boats_page }}{% else %}#{% endif %}">
+                        <img src="{% static "common/images/ico-boats.svg" %}" class="img-responsive">
+                        <span>{% trans "models" %}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url "owners_portal:owners_portal" %}">
+                        <img src="{% static "common/images/ico-portal.svg" %}" class="img-responsive">
+                        <span>{% blocktrans %}owner's <br/>portal{% endblocktrans %}</span>
+                    </a>
+                </li>
+                <li>
+                    {% page_url 'contact' as contact_page %}
+                    <a href="{% if contact_page %}{{ contact_page }}{% else %}#{% endif %}">
+                        <img src="{% static "common/images/ico-contact.svg" %}" class="img-responsive ico-contact-home">
+                        <span>{% blocktrans %}contact{% endblocktrans %}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    {% addtoblock "cdn_js" %}
+        <script src="//vjs.zencdn.net/5.8.8/video.js"></script>
+    {% endaddtoblock %}
+
+    {% addtoblock "css" %}
+        <link rel="stylesheet" href="{% static 'common/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'common/css/devartis.css' %}">
+        <link rel="stylesheet" href="{% static "common/css/home.css" %}">
+        <style>
+            .home {
+                background: black url(/static/common/images/bg-home.jpg);
+                background-size: auto 100vh;
+                background-repeat: no-repeat;
+                background-position: top center;
+            }
+        </style>
+    {% endaddtoblock %}
+
+{% endblock site %}
+

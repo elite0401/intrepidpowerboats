@@ -1,0 +1,9 @@
+{% load boat_tags cms_tags thumbnail %}
+
+{% for photo in gallery %}
+  {% render_model_block photo %}
+    <a data-slide-index="{{ forloop.counter0 }}" href="" {% if forloop.first %}class="active"{% endif %}>
+      <img src="{{ instance.image|thumbnail_url:'pager-item' }}">
+    </a>
+  {% endrender_model_block %}
+{% endfor %}

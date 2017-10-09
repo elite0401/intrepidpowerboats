@@ -1,0 +1,27 @@
+{% extends "common/desktop_base.html" %}
+{% load i18n %}
+{% block section %}Recover your password - {% endblock %}
+{% block content %}
+    <div class="main">
+      <header class="text-center">
+        <h1>OWNER’S PORTAL</h1>
+        <div class="gradient"> </div>
+      </header>
+      <div class="login-container form">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3>{% trans "Recover your password" %}</h3>
+
+                    <p>
+                        {% trans "We sent you an email with instructions on how to change your password. " %}
+                        {% trans "You should receive it soon." %}
+                    </p>
+
+                    <p>
+                        {% trans "If you don't get the email, make sure that you registered with that email address or check your spam folder." %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

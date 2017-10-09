@@ -1,0 +1,19 @@
+{% extends "common/layout_base.html" %}
+{% load staticfiles js_reverse sekizai_tags cms_tags %}
+
+{% block site %}
+
+  {% addtoblock "css" %}
+    <link rel="stylesheet" href="{% static 'common/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'common/css/devartis.css' %}">
+  {% endaddtoblock %}
+
+  <div class="container-fluid">
+    {% include "common/components/side_bar.html" %}
+    {% block content %}{% endblock %}
+      {% block footer %}
+          {% include "common/components/footer.html" %}
+      {% endblock %}
+  </div>
+
+{% endblock site %}

@@ -1,0 +1,8 @@
+{% load i18n %}
+
+{% trans "There's new feedback" %}
+
+User: {{ user.get_full_name|default:user.email }}
+Step: {{ step }}
+Boat: {{ boat }}
+Comments: {{ comments }}

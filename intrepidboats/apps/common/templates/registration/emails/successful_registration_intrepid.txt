@@ -1,0 +1,10 @@
+{% load i18n %}
+
+{% blocktrans %}
+A new user has registered:
+
+Email: {{ email }}
+First name: {{ first_name }}
+Last name: {{ last_name }}
+Username: {{ username }}
+{% endblocktrans %}

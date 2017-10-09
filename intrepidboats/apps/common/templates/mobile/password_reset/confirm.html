@@ -1,0 +1,40 @@
+{% extends "mobile/common/mobile_base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block section %}Recover your password - {% endblock %}
+{% block content %}
+  <div class="main">
+      <header class="text-center">
+        <h1>OWNER’S PORTAL</h1>
+        <div class="gradient"> </div>
+      </header>
+      <div class="login-container form">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+
+                  {% if validlink %}
+
+                    <h3>{% trans "Enter your new password twice" %}</h3>
+
+                    <form method="post">{% csrf_token %}
+                      {{ form.new_password1.errors }}
+                      <p>{{ form.new_password1|attr:"placeholder:New password"|add_class:"input" }}</p>
+                      {{ form.new_password2.errors }}
+                      <p class="aligned wide">{{ form.new_password2|attr:"placeholder:Confirm password"|add_class:"input" }}</p>
+                      <p class="text-right"><input type="submit" value='Change password' class="button primary" /></p>
+                    </form>
+
+                  {% else %}
+
+                    <p>
+                      {% trans "The password reset link is invalid, probably because it's already been used." %}
+                      {% trans "Ask for another password reset link:" %}
+                    </p>
+                    <a href="{% url 'common:password_reset' %}">{% trans "Reset password" %}</a>
+
+                  {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

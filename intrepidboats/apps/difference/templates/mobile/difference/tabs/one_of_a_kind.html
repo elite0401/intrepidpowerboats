@@ -1,0 +1,22 @@
+{% load cms_tags static i18n %}
+
+<div role="tabpanel" class="tab-pane fade" id="one-of-a-kind">
+
+    <div class="header-image">
+        <img src="{% static "difference/images/header-one-of-a-kind-mobile.jpg"  %}" class="img-responsive">
+    </div>
+
+    <div class="main">
+        <div class="main-content">
+
+            {% placeholder "One of a kind (Left column)" %}
+            {% placeholder "One of a kind (Right column)" %}
+
+            <div class="mt2">
+                <ul class="bxslider text-overlay" id="slider-one-of-a-kind">
+                    {% placeholder "One of a kind (Slider image)" %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

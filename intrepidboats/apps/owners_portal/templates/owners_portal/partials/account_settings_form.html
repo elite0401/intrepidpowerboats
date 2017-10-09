@@ -1,0 +1,44 @@
+{% load i18n %}
+
+<form method="post" action="{% url "owners_portal:account_settings" pk=request.user.profile.pk %}"
+      class="form dark form-account-settings" enctype="multipart/form-data" >{% csrf_token %}
+
+  <input type="text" placeholder="{% trans "First Name" %}" name="first_name" class="input"/>
+  <input type="text" placeholder="{% trans "Last Name" %}" name="last_name" class="input"/>
+
+  <div class="row">
+    <div class="col-xs-9">
+      <p class="instruction">
+        <strong>Customize Your Profile Thumbnail</strong><br>
+        Note: images should be square, optimal dimensions are 206x206 pixels
+      </p>
+    </div>
+    <div class="col-xs-3 text-right">
+      <div class="box js">
+        <input type="file" name="profile_picture" id="profile-picture" class="js inputfile inputfile-white">
+        <label for="profile-picture"><span>{% trans "Select" %}</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-9">
+      <p class="instruction">
+        <strong>Customize Your Gallery Header Image</strong><br>
+        This is the large width image featured in your Owner's Portal Gallery.<br>
+        Note: optimal dimensions are 1280x256 pixels
+      </p>
+    </div>
+    <div class="col-xs-3 text-right">
+      <div class="box js">
+        <input type="file" name="gallery_header" id="gallery-header" class="js inputfile inputfile-white">
+        <label for="gallery-header"><span>{% trans "Select" %}</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-right">
+    <input type="submit" value="{% trans "Save" %}" class="button primary w-auto"/>
+  </div>
+
+</form>

@@ -1,0 +1,209 @@
+.owners-portal
+  h2
+    text-align: center
+  h3
+    text-align: left
+  .tab-dashboard
+    h4
+      font-family: 'strimalight'
+      font-size: $fs-xxsmall
+      margin-bottom: 0
+  .form-heading
+    padding: 0 10px
+    margin-top: 0 !important
+    .input, .button
+      vertical-align: middle
+      height: 30px
+      padding: 4px 10px
+      margin: 5px 4px
+      font-size: $fs-normal-alt
+      line-height: $fs-normal-alt
+  textarea
+    height: 200px
+  .circle
+    &.date
+      background: $c-primary
+      width: 80px
+      height: 80px
+      text-align: center
+      padding: 15px 0
+      color: #c3eee5
+      font-family: $gotham
+      margin-right: 10px
+      .num
+        font-size: $fs-huge
+        margin-top: -8px
+        font-weight: 600
+    &.big
+      width: 60px
+      height: 60px
+      padding: 5px 0
+      background: $c-primary
+      color: #c3eee5
+      text-align: center
+      font-size: $fs-huge
+      &:hover
+        background: $c-primary-hover
+  .upload-link
+    color: $c-gray-darker
+    text-align: left
+    margin-left: 30px
+    .txt
+      line-height: 15px
+      margin-top: 20px
+      display: inline-block
+    .circle
+      margin-right: 10px
+    &:hover
+      text-decoration: none
+      color: black
+      .circle
+        background: $c-primary-hover
+  .forum-title
+    font-family: $gotham
+    font-size: $fs-normal-alt
+    font-weight: 600
+  .forum
+    .table
+      margin-top: 10px
+    h3
+      margin-top: 58px
+      margin-bottom: 52px
+    .p-relative
+      .gradient
+        position: absolute
+  .gallery
+    h3
+      text-align: center
+  .table
+    color: $c-gray-darker
+  .timeline
+    height: 150px
+    list-style: none
+    margin: 0
+    padding: 0
+    display: table
+    table-layout: fixed
+    width: 100%
+    font-weight: 300
+    color: #999
+    font-family: $gotham
+    text-transform: uppercase
+    font-size: $fs-xsmall
+    h4
+      font-size: $fs-xsmall
+    p
+      margin-bottom: 0
+    li
+      float: left
+      width: 25%
+      height: 74px
+      position: relative
+      margin-top: 10px
+      padding-top: 15px
+      text-align: center
+      &.first
+        .line
+          width: 50%
+          float: right
+      &.mid
+        /*text-align: center;*/
+      &.last
+        .line
+          width: 50%
+          float: left
+      .txt-content
+        width: auto
+        text-align: left
+        display: inline-block
+        position: absolute
+        top: 30px
+        left: 50%
+        transform: translateX(-50%)
+      .line
+        border-top: 1px solid $c-bg-dark
+        width: 100%
+        display: inline-block
+        transform: translateY(-5px)
+        vertical-align: top
+
+    .circle
+      position: absolute
+      left: 50%
+      top: 0
+      transform: translateX(-50%)
+      z-index: 10
+      &.active
+        background: $c-primary
+        width: 35px
+        height: 35px
+        margin-top: -8px
+  .button
+    &.white
+      background: white
+      color: $c-primary
+  .boat-name
+    font-family: $gotham
+    .superscript
+      vertical-align: top
+      line-height: 30px
+      margin-left: 5px
+      color: $c-gray-darker
+      &:hover
+        color: $c-primary
+        text-decoration: none
+  .intro
+    font-family: $gotham
+    color: $c-gray-darker
+    margin-bottom: 30px
+    h4
+      margin-bottom: 4px
+    hr
+      margin: 1rem 0
+    p
+      font-family: $gotham
+      color: $c-gray-darker
+      font-size: $fs-xxsmall
+    a
+      color: $c-gray-med
+      font-weight: 600
+
+.gallery
+  div[class^="col-"]
+    padding: 0
+
+.active-discussions
+  th
+    td:first-child
+      &:before
+        content: "\003e"
+        width: 20px
+        height: 15px
+        display: inline-block
+
+.pag
+  font-family: $gotham
+  li
+    display: inline
+  a
+    color: $c-gray-darker
+    position: relative
+    float: left
+    padding: 6px 8px
+    margin-left: -1px
+    line-height: 1.42857143
+    text-decoration: none
+    &:hover
+      color: $c-primary
+  .active
+    a
+      color: $c-primary
+      text-decoration: underline
+
+.circle
+  border-radius: 50%
+  background: $c-bg-dark
+  width: 20px
+  height: 20px
+  display: inline-block
+  flex-shrink: 0
