@@ -5,6 +5,63 @@
 {% block section %}All models - {% endblock %}
 {% block content %}
 
+<style type="text/css">
+  .mosaic-top .group-item {
+    position: relative;
+    color: white;
+  }
+  .mosaic-top .group-item div {
+    background: #019576;
+  }
+  .mosaic-top .group-item span {
+    display: block;
+    pointer-events: none;
+    font-family: "Gotham A", "Gotham B";
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px black;
+    white-space: nowrap;
+    position: relative;
+    bottom: 22px;
+    right: 13px;
+    text-align: right;
+  }
+  .mosaic-top .group-item div .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: table-cell;
+    vertical-align: middle;
+    background: rgba(1, 149, 118, 0.6);
+    display: none;
+  }
+  .mosaic-top .group-item div .overlay ul {
+    transform: translateY(-50%);
+    top: 50%;
+    position: relative;
+  }
+  .mosaic-top .group-item div .overlay ul li {
+    height: 20px;
+    list-style: none;
+    padding-left: 30px;
+  }
+  .mosaic-top .group-item div .overlay ul li a {
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: "Gotham A", "Gotham B";
+    text-transform: uppercase;
+  }
+  .mosaic-top .group-item div .overlay ul li a.show-compare-modal {
+    position: relative;
+    top: 15px;
+  }
+  .mosaic-top .group-item:hover div .overlay {
+    display: block;
+  }
+</style>
+
   <!-- Main page -->
   <div class="main">
     {% include "common/components/language_navbar.html" %}
@@ -19,18 +76,24 @@
   <div class="header-image">
       <section class="mosaic mosaic-3 mosaic-top">
       {% for group in groups %}
-          <a
-              {% if group.boats.all|length == 1 %}
-                  href="{% url "boats:boat_detail" group_pk=group.boats.first.model_group.pk slug=group.boats.first.slug %}"
-              {% else %}
-                  href="#" data-toggle="modal" data-target="#compareModal" class="show-compare-modal"
-                  data-group-url="{% url "boats:boat_group" pk=group.pk %}" data-group-name="{{ group.title }}"
-              {% endif %}
-          >
+          <div class="group-item">
               <div>
                   <img src="{{ group.show_image.url }}"><span class="text-uppercase">{{ group.title }}</span>
+                  <div class="overlay">
+                    <ul>
+                    {% for boat in group.boats.all %}
+                      <li><a href="{% url "boats:boat_detail" group_pk=group.pk slug=boat.slug %}">{{ boat.title }}</a></li>
+                    {% endfor %}
+                    {% if group.boats.all|length == 1 %}
+                    {% else %}
+                      <li>
+                      <a href="#" data-toggle="modal" data-target="#compareModal" class="show-compare-modal" data-group-url="{% url "boats:boat_group" pk=group.pk %}" data-group-name="{{ group.title }}">COMPARE THESE MODELS</a>
+                      </li>
+                    {% endif %}
+                    </ul>
+                  </div>
               </div>
-          </a>
+          </div>
       {% endfor %}
     </section>
   </div>
