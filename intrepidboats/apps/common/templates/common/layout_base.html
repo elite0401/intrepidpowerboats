@@ -144,6 +144,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.close-sidebar').on('click', function(){
+      $('.sidebar-content').removeClass('on');
+    });
+  });
+</script>
 {% render_block "cdn_js" %}
 
 {% compress js %}

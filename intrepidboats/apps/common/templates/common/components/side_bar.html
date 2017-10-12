@@ -1,7 +1,27 @@
 {% load staticfiles i18n cms_tags %}
+<style type="text/css">
+  .close-sidebar {
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 50px;
+    position: absolute;
+    padding: 0px 6px;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    display: none;
+  }
+  .close-sidebar:hover, .close-sidebar:focus, .close-sidebar:active {
+    color: rgba(255,255,255,0.8);
+  }
+  .sidebar-content.on .close-sidebar {
+    display: block;
+  }
+</style>
 <!-- Sidebar -->
 <div class="nav-sidebar">
   <div class="sidebar-content {% if not side_bar_closed %}on{% endif %}" id="sidebar-content">
+    <a data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar" role="button" class="close-sidebar">x</a>
 
     <div class="brand">
       <div class="flex flex-space-between">
