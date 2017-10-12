@@ -5,14 +5,14 @@
     <div class="loading-spinner"><img src="{% static "css/images/loading-spinner.gif" %}"></div>
 
     <div class="header-image">
-    <div class="interior-gallery" hidden="hidden">
+    <div class="interior-gallery">
       <ul class="interior-bxslider">
         {% for photo in boat.about.interior_gallery %}
           <li><img src="{{ photo.image.url }}" class="img-responsive"></li>
         {% endfor %}
       </ul>
     </div>
-    <div class="exterior-gallery">
+    <div class="exterior-gallery" hidden="hidden">
       <ul class="exterior-bxslider">
         {% for photo in boat.about.exterior_gallery %}
           <li><img src="{{ photo.image.url }}" class="img-responsive"></li>
@@ -38,13 +38,13 @@
       <div class="row">
         <div class="col-sm-4 model-gallery-pager">
           <div id="interior-pager" class="bx-pager">
-            <div class="interior-gallery" hidden="hidden">
+            <div class="interior-gallery">
               {% with galleries=interior_galleries carousel_id="interior-carousel" %}
                 {% include 'boats/detail/partials/thumbnails_carousel.html' %}
               {% endwith %}
             </div>
 
-              <div id="exterior-pager" class="exterior-gallery bx-pager">
+              <div id="exterior-pager" class="exterior-gallery bx-pager" hidden="hidden">
                 {% with galleries=exterior_galleries carousel_id="exterior-carousel" %}
                   {% include 'boats/detail/partials/thumbnails_carousel.html' %}
                 {% endwith %}
