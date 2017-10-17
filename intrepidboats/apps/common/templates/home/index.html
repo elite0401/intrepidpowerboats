@@ -92,6 +92,7 @@
         .navbar .main {
             margin-left: 0;
             padding-left: 50px;
+            background: #000;
         }
         .nav-sidebar {
             position: relative;
@@ -115,6 +116,7 @@
         .nav-top {
             margin-top: 15px;
             position: relative;
+            margin-left: 15px;
             left: 0;
             transform: translateX(0);
             -webkit-padding-start: 0;
@@ -150,13 +152,28 @@
         }
         @media only screen and (max-width: 1025px) and (min-width: 768px) {
             .nav-sidebar {
-                width: 252px;
+                width: 302px;
             }
             .nav-sidebar .brand {
-                padding: 10px 20px 15px 0px;
+                padding: 10px 20px 15px 10px;
             }
             .nav-top {
                 transform: translateX(0) !important;
+            }
+            .navbar .main {
+                padding-left: 10px;
+            }
+            .nav-top-right li .button {
+                padding: 26px 0;
+            }
+            .nav-top-right a {
+                padding: 26px 5px !important;
+            }
+            .nav-top-right li label {
+                margin-right: 0;
+            }
+            .nav-top a.nav-link {
+                padding: 9px 3px 4px 0;
             }
         }
     </style>
