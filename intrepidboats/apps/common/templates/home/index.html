@@ -7,13 +7,15 @@
 
 {% block pre_body %}
     {% if page_setting and page_assets %}
-      <span class="home-background" style="display: none">
+      <div class="home-background" style="display: none">
+        <div class="video-wrapper">
         <ul class="bxslider">
           {% for page_asset in page_assets %}
             {% include "home/partials/page_asset.html" with page_asset=page_asset %}
           {% endfor %}
         </ul>
-      </span>
+        </div>
+      </div>
     {% endif %}
 
 {% endblock pre_body %}
@@ -109,9 +111,12 @@
         }
         .brand .navbar-toggle {
             height: 41px !important;
+            position: relative;
+            top: 5px;
         }
         .nav-top a.nav-link {
             border-top: 0;
+            font-weight: bold;
         }
         .nav-top {
             margin-top: 15px;
@@ -125,15 +130,23 @@
             height: 70px;
             line-height: 70px;
             border-right: 1px solid rgba(255,255,255,0.5);
+            font-weight: bold;
         }
         .nav-top-right a {
             padding: 26px 15px !important;
+            font-weight: bold;
         }
         .nav-top-right li .button {
             padding: 26px 13px;
         }
         .sidebar-content.on .close-sidebar {
             display: block;
+        }
+        .video-wrapper {
+            position: absolute;
+        }
+        .home .vjs-tech {
+            top: 0;
         }
 
         @media only screen and (max-width: 1400px) {

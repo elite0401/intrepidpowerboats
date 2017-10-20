@@ -119,6 +119,132 @@
           {% endblock %}"/>
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     {% block extrahead %}{% endblock %}
+    <style type="text/css">
+      .bg-primary, .button.primary {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .button.primary:hover {
+        background: {{ site_metadata.whats_new_og_title }};
+        opacity: 0.8;
+      }
+      .button.primary:hover a {
+        color: #fff;
+      }
+      .nav-sidebar .sidebar-content .nav a, .nav-sidebar .sidebar-content .nav a:focus, .nav-sidebar .sidebar-content .nav a:active {
+        border-right: 11px solid {{ site_metadata.whats_new_og_title }};
+        border-left: 11px solid {{ site_metadata.whats_new_og_title }};
+      }
+      .nav-sidebar .sidebar-content.on,
+      .nav-tabs li.active a:before,
+      .nav-tabs li a:before {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .nav-sidebar .sidebar-content .nav a div, .nav-sidebar .sidebar-content .nav a:focus div, .nav-sidebar .sidebar-content .nav a:active div {
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+      }
+      .compare-box {
+        border: 1px solid {{ site_metadata.whats_new_og_title }};
+      }
+      .set-selector a.on,
+      .set-selector .on::after,
+      .txt-green,
+      .link, a,
+      .link:hover, a:hover,
+      .btn-link {
+        color: {{ site_metadata.whats_new_og_title }};
+      }
+      .carousel-indicators .active {
+        background-color: {{ site_metadata.whats_new_og_title }};
+      }
+      .button.primary.stroked {
+        border-color: {{ site_metadata.whats_new_og_title }};
+      }
+      .custom-select,
+      .custom-select:hover {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .custom-select div {
+        border-color: {{ site_metadata.whats_new_og_title }};
+      }
+      .bx-pager-link:hover {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .tooltip-button,
+      .inputfile-1 + label {
+        background-color: {{ site_metadata.whats_new_og_title }};
+      }
+      .progress-list li.active {
+        color: {{ site_metadata.whats_new_og_title }};
+      }
+      .progress-list li.active:before {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .gallery-btn-play,
+      h3.form-heading {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .mosaic div:hover svg {
+        fill: {{ site_metadata.whats_new_og_title }};
+      }
+      .c-primary, .button.primary.stroked:hover {
+        color: {{ site_metadata.whats_new_og_title }} !important;
+      }
+      .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .bx-wrapper .bx-controls-auto.bx-default-pager a:hover, .bx-wrapper .bx-controls-auto.bx-default-pager a.active {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .button.primary.stroked.green {
+        color: {{ site_metadata.whats_new_og_title }} !important;
+      }
+      .button.primary.stroked:hover {
+        color: #fff !important;
+      }
+      .intrepid-difference .tab-testimonials a:hover {
+        color: {{ site_metadata.whats_new_og_title }};
+      }
+      .inputfile-1:focus + label, .inputfile-1.has-focus + label, .inputfile-1 + label:hover {
+        background-color: {{ site_metadata.whats_new_og_title }};
+        opacity: 0.8;
+      }
+      .forum-search {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .btn-primary {
+        border-color: rgba(255,255,255,0.4);
+        background-color: rgba(255,255,255,0.4);
+      }
+      .btn-primary:hover {
+        border-color: rgba(255,255,255,0.5);
+        background-color: rgba(255,255,255,0.5);
+      }
+      .owners-portal .circle.big {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .owners-portal .upload-link:hover .circle {
+        background: {{ site_metadata.whats_new_og_title }};
+        opacity: 0.6;
+      }
+      .gallery .pag a.active,
+      .pag a:hover {
+        color: {{ site_metadata.whats_new_og_title }};
+      }
+      .mosaic-top .group-item div .overlay a:hover {
+        color: #fff;
+      }
+      .popup h3 {
+        background: {{ site_metadata.whats_new_og_title }};
+      }
+      .button.close.green {
+        background: {{ site_metadata.whats_new_og_title }};
+        border-color: {{ site_metadata.whats_new_og_title }};
+      }
+      .button.close.green:hover {
+        background: {{ site_metadata.whats_new_og_title }};
+        opacity: 0.7;
+      }
+      .set-selector a:hover {
+        color: {{ site_metadata.whats_new_og_title }};
+      }
+    </style>
 </head>
 
 <body class="{% block body_classes %} {% endblock body_classes %}">
@@ -149,7 +275,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     $('.close-sidebar').on('click', function(){
       $('.sidebar-content').removeClass('on');
     });
+    $(window).resize(function() {
+      console.log('resize event');
+      $('.home-background .video-wrapper').css('height', ($(window).height() - 70) + 'px');
+      $('.home-background .video-wrapper').css('width', $(window).width());
+    }).resize();
+    var accent_color = hexToRgbA('{{ site_metadata.whats_new_og_title }}');
+    $('.mosaic-top .group-item div .overlay').css('background', 'rgba('+accent_color+', 0.6)');
+    $('.nav-icon li').hover(function() {
+      $(this).find('img').css('background', 'linear-gradient(to bottom, rgba('+accent_color+', 0.4) 0%, rgba('+accent_color+', 0.1) 100%)');
+      $(this).find('img').css('background', '-webkit-linear-gradient(to bottom, rgba('+accent_color+', 0.4) 0%, rgba('+accent_color+', 0.1) 100%)');
+    },
+    function() {
+      $(this).find('img').css('background', 'transparent');
+    });
   });
+
+function hexToRgbA(hex){
+    var c;
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+        c= hex.substring(1).split('');
+        if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c= '0x'+c.join('');
+        return [(c>>16)&255, (c>>8)&255, c&255].join(',');
+    }
+    throw new Error('Bad Hex');
+}
+
 </script>
 {% render_block "cdn_js" %}
 
