@@ -276,7 +276,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       $('.sidebar-content').removeClass('on');
     });
     $(window).resize(function() {
-      console.log('resize event');
       $('.home-background .video-wrapper').css('height', ($(window).height() - 70) + 'px');
       $('.home-background .video-wrapper').css('width', $(window).width());
     }).resize();
@@ -360,5 +359,12 @@ function hexToRgbA(hex){
 
 </body>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('.interior-selector').trigger('click');
+    }, 500);
+  });
+</script>
 </html>
 
