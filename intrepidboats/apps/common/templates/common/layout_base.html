@@ -364,6 +364,14 @@ function hexToRgbA(hex){
     setTimeout(function(){
       $('.interior-selector').trigger('click');
     }, 500);
+
+    $(document).on('submit', '#contact_form', function(e) {
+      if (grecaptcha.getResponse() == '') {
+        $('.captcha-error').show();
+        return false;
+      }
+    });
+    
   });
 </script>
 </html>

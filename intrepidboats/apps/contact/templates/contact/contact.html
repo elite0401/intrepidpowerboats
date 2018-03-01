@@ -5,6 +5,13 @@
 {% block section %}Contact - {% endblock %}
 {% block content %}
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script type="text/javascript">
+        /*var correctCaptcha = function(response) {
+            alert(response);
+        }*/
+    </script>
+
     <div class="main">
         {% include "common/components/language_navbar.html" %}
 
@@ -40,7 +47,7 @@
 
             <h3 class="form-heading">{% trans "CONTACT US" %}</h3>
             <div class="form-container-bg form">
-                <form method="post" action="{% url "contact:send_inquiry" %}">{% csrf_token %}
+                <form method="post" id="contact_form" action="{% url "contact:send_inquiry" %}">{% csrf_token %}
                     <p class="mutted">{% trans "* Denotes Required Fields" %}</p>
                     <div class="row clearfix">
                         <div class="col-sm-6">
@@ -74,8 +81,14 @@
                                       required></textarea>
                         </div>
                     </div>
-                    <div class="text-right mt1 mb1">
-                        <input type="submit" value="{% trans "SEND" %}" class="button primary w-auto"/>
+                    <div class="row text-right mt1 mb1">
+                        <div class="col-md-6">
+                            <div class="g-recaptcha" data-sitekey="6LcNNiUUAAAAAH8zve9-IzDfQ5UHLCoWqBv2_ln3" data-callback="correctCaptcha"></div>
+                            <span class="captcha-error" style="color:#f00; display: none;">Human verification failed.</span>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" value="{% trans "SEND" %}" class="button primary w-auto"/>
+                        </div>
                     </div>
                 </form>
             </div>
