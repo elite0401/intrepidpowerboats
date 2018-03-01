@@ -314,7 +314,7 @@ PRE_OWNED_EXTERNAL_LINK = "http://www.yachtworld.com/core/listing/cache/pl_searc
                           "ywo=intrepidse&ps=50&type=&new=&" \
                           "luom=126&hosturl=intrepidse&page=broker&slim=broker&lineonly"
 
-GEAR_EXTERNAL_LINK = "https://intrepidpowerboatsgear.us/"
+GEAR_EXTERNAL_LINK = "https://www.intrepidpowerboatsgear.com/"
 
 SETTINGS_EXPORT = [
     'PRE_OWNED_EXTERNAL_LINK',
