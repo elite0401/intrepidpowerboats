@@ -38,3 +38,6 @@ workplace/*
 
 #Forum
 /whoosh_index/
+
+#virtualenv
+env/*
