@@ -122,7 +122,8 @@ class RegistrationView(FormView):
         new_user.first_name = form.cleaned_data['first_name']
         new_user.last_name = form.cleaned_data['last_name']
         new_user.save()
-        ExtraUserData.objects.create(user=new_user)
+        print (form)
+        ExtraUserData.objects.create(user=new_user, phone=form.cleaned_data['phone'])
         new_user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
         login(self.request, new_user)
         return new_user

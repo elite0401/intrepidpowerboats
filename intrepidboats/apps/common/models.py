@@ -141,6 +141,7 @@ class ExtraUserData(models.Model):
                                         blank=True, null=True)
     gallery_header = models.ImageField(upload_to='auth/gallery_headers/', verbose_name=_('Gallery header'),
                                        blank=True, null=True)
+    phone = models.CharField(max_length=20, verbose_name='Phone number')
 
     def __str__(self):
         return str(self.user)

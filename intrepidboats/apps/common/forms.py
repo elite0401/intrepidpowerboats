@@ -21,12 +21,13 @@ class NewsletterForm(forms.ModelForm):
 class UserRegistrationForm(ModelForm):
     password_repeat = forms.CharField(required=True, widget=forms.PasswordInput())
     email_repeat = forms.EmailField(required=True)
-    captcha = NoReCaptchaField()
+    phone = forms.CharField(required=False)
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
 
     def __init__(self, *args, **kwargs):
         is_mobile = kwargs.pop('request').flavour == 'mobile'
         super().__init__(*args, **kwargs)
-        self.fields['captcha'].widget.gtag_attrs = {'data-size': 'compact'} if is_mobile else {}
 
     class Meta:
         model = User
