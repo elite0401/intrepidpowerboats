@@ -10,6 +10,22 @@
 
 {% block section %}Register - {% endblock %}
 {% block content %}
+<style type="text/css">
+    .strong {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .tooltip_content {
+        position: absolute;
+        width: 250px;
+        height: 240px;
+        border: 1px solid #c9c2c0;
+        display: none;
+        padding: 0 10px;
+        margin-top: -20px;
+        background: #eae8e9;
+    }
+</style>
     <div class="navbar">
       <div class="main">
           {% include "common/components/language_dropdown.html" %}
@@ -68,8 +84,8 @@
                 <div class="col-sm-6 recaptcha-container"></div>
             </div>
             <div class="col-sm-6">
-                <p>DO YOU OWN AN INTREPID?</p>
-                <span>YES, MY BOAT DETAILS ARE AS FOLLOWS:</span>
+                <p class="strong">DO YOU OWN AN INTREPID?</p>
+                <p>YES, MY BOAT DETAILS ARE AS FOLLOWS:</p>
                 <div class="row">
                     <div class="col-sm-6">
                         {{ form.intrepid_model|attr:"placeholder:MODEL"|add_class:"input" }}
@@ -86,7 +102,11 @@
                         {{ form.intrepid_hull_id.errors }}
                     </div>
                     <div class="col-sm-6">
-                        <a href="#">WHAT'S THIS?</a>
+                        <a href="javascript:void(0);" class="tip">WHAT'S THIS?</a>
+                        <div class="tooltip_content">
+                            <a href="#" class="hide_tooltip">WHAT'S THIS?</a>
+                            <p>Hull ID Numbers (HIN) are a 12 character series of letters and numbers affixed to your boat that is used to trace a boat's history. The HIN is required by federal law and uniquely identifies a boat the same way a VIN does with a car. Note, a HIN is not the same as a state registration number which is a boat’s version of a license plate.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="checkbox">

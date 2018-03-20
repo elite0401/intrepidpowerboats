@@ -275,6 +275,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     $('.close-sidebar').on('click', function(){
       $('.sidebar-content').removeClass('on');
     });
+    $(document).on('click', '.tip', function() {
+      console.log('abc');
+      $('.tooltip_content').show();
+    });
+    $('.hide_tooltip').on('click', function() {
+      $('.tooltip_content').hide();
+    });
     $(window).resize(function() {
       $('.home-background .video-wrapper').css('height', ($(window).height() - 70) + 'px');
       $('.home-background .video-wrapper').css('width', $(window).width());
@@ -371,7 +378,7 @@ function hexToRgbA(hex){
         return false;
       }
     });
-    
+
   });
 </script>
 </html>
