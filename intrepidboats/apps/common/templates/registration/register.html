@@ -28,17 +28,17 @@
         {% csrf_token %}
         <div class="row">
             <div class="col-sm-6">
-                <div>{{ form.first_name|attr:"placeholder:FIRST NAME"|add_class:"input" }}</div>
+                <div>{{ form.first_name|attr:"placeholder:* FIRST NAME"|add_class:"input" }}</div>
                 <div>{{ form.first_name.errors }}</div>
             </div>
             <div class="col-sm-6">
-                <div>{{ form.last_name|attr:"placeholder:LAST NAME"|add_class:"input" }}</div>
+                <div>{{ form.last_name|attr:"placeholder:* LAST NAME"|add_class:"input" }}</div>
                 <div>{{ form.last_name.errors }}</div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
-                    <div>{{ form.email|attr:"placeholder:EMAIL ADDRESS"|add_class:"input" }}</div>
+                    <div>{{ form.email|attr:"placeholder:* EMAIL ADDRESS"|add_class:"input" }}</div>
                     <div>{{ form.email.errors }}</div>
             </div>
             <div class="col-sm-6">
@@ -48,38 +48,58 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                    <div>{{ form.username|attr:"placeholder:USERNAME"|add_class:"input" }}</div>
-                    <div>{{ form.username.errors }}</div>
-            </div>
-            <div class="col-sm-6">
-                <div>
-                    <!--<input class="input" id="id_phone" maxlength="150" name="phone" placeholder="PHONE" type="text" required="">-->
-                    <div>{{ form.phone|attr:"placeholder:PHONE"|add_class:"input" }}</div>
-                    <div>{{ form.phone.errors }}</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                    <div>{{ form.password|attr:"placeholder:PASSWORD"|add_class:"input" }}</div>
-                    <div>{{ form.password.errors }}</div>
-            </div>
-            <div class="col-sm-6">
-                    <div>{{ form.password_repeat|attr:"placeholder:CONFIRM PASSWORD"|add_class:"input" }}</div>
-                    <div>{{ form.password_repeat.errors }}</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
+                <div>{{ form.phone|attr:"placeholder:* PHONE NUMBER"|add_class:"input" }}</div>
+                <div>{{ form.phone.errors }}</div>
+
+                <div>{{ form.username|attr:"placeholder:USERNAME"|add_class:"input" }}</div>
+                <div>{{ form.username.errors }}</div>
+
+                <div>{{ form.password|attr:"placeholder:PASSWORD"|add_class:"input" }}</div>
+                <div>{{ form.password.errors }}</div>
+
+                <div>{{ form.password_repeat|attr:"placeholder:CONFIRM PASSWORD"|add_class:"input" }}</div>
+                <div>{{ form.password_repeat.errors }}</div>
+
                 <div class="checkbox">
                     <input type="checkbox" value="terms" id="terms" name="terms" required>
                     <label for="terms">I AGREE TO THE <a href="{% url 'common:terms_of_use' %}">TERMS OF USE</a></label>
                 </div>
+
+                <div class="col-sm-6 recaptcha-container"></div>
+            </div>
+            <div class="col-sm-6">
+                <p>DO YOU OWN AN INTREPID?</p>
+                <span>YES, MY BOAT DETAILS ARE AS FOLLOWS:</span>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form.intrepid_model|attr:"placeholder:MODEL"|add_class:"input" }}
+                        {{ form.intrepid_model.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.intrepid_year|attr:"placeholder:YEAR"|add_class:"input" }}
+                        {{ form.intrepid_year.errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form.intrepid_hull_id|attr:"placeholder:HULL ID #"|add_class:"input" }}
+                        {{ form.intrepid_hull_id.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#">WHAT'S THIS?</a>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <span>
+                        {{ form.fan|attr:"id:fan" }}
+                        <label for="fan">NO, I'M A FAN </label>
+                        {{ form.fan.errors }}
+                    </span>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 recaptcha-container">
-            </div>
+            <div class="col-sm-6"></div>
             <div class="col-sm-6 text-right">
                 <input type="submit" class="button primary mt2 mb2" value="{% trans "SUBMIT" %}"/>
             </div>

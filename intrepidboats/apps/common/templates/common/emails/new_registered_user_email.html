@@ -5,6 +5,12 @@
             Email: {{ user.email }}
             First Name: {{ user.first_name|default_if_none:'-' }}
             Last Name: {{ user.last_name|default_if_none:'-' }}
+
+            <br>
+            Own Intrepid: {{ own_intrepid }}
+            Model: {{ model }}
+            Year: {{ year }}
+            Hull ID: {{ hull_id }}
         See: <a href="http://{{ site }}{{ admin_url }}"></a>
     </p>
 </div>

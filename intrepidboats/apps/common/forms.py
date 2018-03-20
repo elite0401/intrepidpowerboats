@@ -24,6 +24,10 @@ class UserRegistrationForm(ModelForm):
     phone = forms.CharField(required=False)
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
+    fan = forms.BooleanField(required=False)
+    intrepid_model = forms.CharField(required=False)
+    intrepid_year = forms.CharField(required=False)
+    intrepid_hull_id = forms.CharField(required=False)
 
     def __init__(self, *args, **kwargs):
         is_mobile = kwargs.pop('request').flavour == 'mobile'

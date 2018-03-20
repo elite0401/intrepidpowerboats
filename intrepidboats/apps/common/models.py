@@ -142,6 +142,10 @@ class ExtraUserData(models.Model):
     gallery_header = models.ImageField(upload_to='auth/gallery_headers/', verbose_name=_('Gallery header'),
                                        blank=True, null=True)
     phone = models.CharField(max_length=20, verbose_name='Phone number')
+    fan = models.BooleanField(default=False, verbose_name=_('Not Own Intrepid'))
+    intrepid_model = models.TextField(blank=True, null=True, verbose_name=_('Intrepid Model'))
+    intrepid_year = models.TextField(blank=True, null=True, verbose_name=_('Intrepid Year'))
+    intrepid_hull_id = models.TextField(blank=True, null=True, verbose_name=_('Intrepid Hull ID'))
 
     def __str__(self):
         return str(self.user)

@@ -112,7 +112,7 @@ class RegistrationView(FormView):
     def form_valid(self, form):
         new_user = self.register(form)
         send_successful_registration_emails(form)
-        send_new_registered_user_email(new_user)
+        send_new_registered_user_email(new_user, form)
         return HttpResponseRedirect(self.get_success_url())
 
     def register(self, form):
@@ -122,8 +122,10 @@ class RegistrationView(FormView):
         new_user.first_name = form.cleaned_data['first_name']
         new_user.last_name = form.cleaned_data['last_name']
         new_user.save()
-        print (form)
-        ExtraUserData.objects.create(user=new_user, phone=form.cleaned_data['phone'])
+        ExtraUserData.objects.create(user=new_user, phone=form.cleaned_data['phone'], fan=form.cleaned_data['fan'],
+                                    intrepid_model=form.cleaned_data['intrepid_model'],
+                                    intrepid_year=form.cleaned_data['intrepid_year'],
+                                    intrepid_hull_id=form.cleaned_data['intrepid_hull_id'])
         new_user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
         login(self.request, new_user)
         return new_user

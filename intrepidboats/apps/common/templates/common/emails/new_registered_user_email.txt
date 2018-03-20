@@ -3,4 +3,9 @@ There is a new registered user:
     Email: {{ user.email }}
     First Name: {{ user.first_name|default_if_none:'-' }}
     Last Name: {{ user.last_name|default_if_none:'-' }}
+
+    Own Intrepid: {{ own_intrepid }}
+    Model: {{ model }}
+    Year: {{ year }}
+    Hull ID: {{ hull_id }}
 See: http://{{ site }}{{ admin_url }}

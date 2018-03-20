@@ -64,7 +64,7 @@ def send_new_newsletter_subscriber_email(newsletter_form):
     )
 
 
-def send_new_registered_user_email(user):
+def send_new_registered_user_email(user, register_form):
     admins = User.objects.filter(is_superuser=True)
     subject = _("New registered user")
     to = admins.values_list('email', flat=True)
@@ -75,7 +75,14 @@ def send_new_registered_user_email(user):
         'user': user,
         'site': site.domain,
         'admin_url': reverse("admin:auth_user_change", args=[user.pk]),
+        'model': register_form.cleaned_data['intrepid_model'],
+        'year': register_form.cleaned_data['intrepid_year'],
+        'hull_id': register_form.cleaned_data['intrepid_hull_id'],
+        'own_intrepid': 'Yes'
     }
+
+    if register_form.cleaned_data['fan']:
+        ctx['own_intrepid'] = 'No'
 
     message = render_to_string(
         'common/emails/new_registered_user_email.txt', ctx)
