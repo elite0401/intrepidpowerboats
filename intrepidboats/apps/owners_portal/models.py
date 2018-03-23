@@ -31,6 +31,8 @@ class UserBoat(TimeStampedModel):
             return self.steps.filter(active=True).get()
         else:
             return None
+    def last_step(self):
+        return self.steps.order_by('start_date').last()
 
 
 class BoatPhase(TimeStampedModel, TitleDescriptionModel):

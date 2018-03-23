@@ -1,5 +1,41 @@
 {% load staticfiles i18n thumbnail %}
 
+<style type="text/css">
+  .step_group {
+    display: none;
+  }
+  .step_group.active {
+    display: block;
+  }
+  .step_group h3.form-heading span {
+    float: right;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    line-height: 1.5;
+    padding: 2px 15px;
+    margin-top: 6px;
+    font-size: 13px;
+    position: relative;
+  }
+  .step_group h3.form-heading span a {
+    color: #fff;
+  }
+  .step_group .order_reports {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border: 1px solid #000;
+    margin-top: 2px;
+    display: none;
+  }
+  .step_group .order_reports ul {
+    margin-top: 10px;
+  }
+  .step_group .order_reports ul li a {
+    color: #337ab7;
+  }
+</style>
+
 <div role="tabpanel" class="tab-pane fade tab-dashboard" id="dashboard">
 
   <div class="main">
@@ -52,7 +88,7 @@
         </div>
         <!-- ./owner -->
 
-        {% if last_boat and last_boat.active_step %}
+        {% if last_boat and last_boat.last_step %}
           <!-- timeline -->
           <div class="mb4 clearfix">
             <img src="{{ last_boat.design.url }}" class="img-responsive pull-right boat-design">
@@ -63,7 +99,7 @@
               <li class="{% if forloop.first %}first
                                        {% elif forloop.last %}last
                                        {% else %}mid{% endif %}">
-                <span class="circle {% if step.active %}active{% endif %}"></span>
+                <span class="circle {% if forloop.last %}active{% endif %}"></span>
                 <span class="line"></span>
                 <span class="txt-content">
                   <h4 class="text-uppercase">{{ step.title }}</h4>
@@ -76,50 +112,71 @@
           </ol>
 
           <!-- ./timeline -->
-          {% with last_boat.active_step as active_step %}
+          {% with last_boat.last_step as last_step %}
             <h2>Pure craftsmanship</h2>
-            {% if active_step %}
-              <ul class="boatImagesSlider">
-                {% for asset in active_step.assets.all %}
-                  <li>
-                    <a href="{{ asset.asset_url }}" data-toggle="lightbox"
-                       class="step-asset" data-gallery="steps-gallery">
-                      {%if asset.vimeo_video_code %}
-                      <span class="gallery-btn-play no-pointer-events">
-                        <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" tabindex="-1" id="play">
-                          <polygon class="fill" points="1,0 20,10 1,20"></polygon>
-                        </svg>
-                      </span>
-                      {% endif %}
-                      <img src="{{ asset.image.url }}" class="img-responsive"/>
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-              <h3 class="form-heading text-uppercase">{{ active_step.phase.title }}: {{ active_step.title }}</h3>
-              <div class="row mt6">
-                <div class="col-sm-6">
-                  {{ active_step.phase.description|safe }}
-                </div>
-                <div class="col-sm-5 col-sm-offset-1">
-                  <div class="flex">
-                    <span class="circle date">
-                        {{ active_step.start_date|date:"N" }}
-                      <div class="num">{{ active_step.start_date|date:"d" }}</div>
-                    </span>
-                    <span>
-                    {% for step in last_boat.steps.all %}
-                      <h4>{{ step.title }}</h4>
-                      {% if step.pk == active_step.pk %}
-                        <p>{{ step.description|safe }}</p>
-                      {% endif %}
+            {% if last_step %}
+
+              {% for step in last_boat.steps.all %}
+
+                <div class="step_group {% if step.pk == last_step.pk %}active{% endif %}" data-pk="{{ step.pk }}">
+                  <ul class="boatImagesSlider">
+                    {% for asset in step.assets.all %}
+                      <li>
+                        <a href="{{ asset.asset_url }}" data-toggle="lightbox"
+                           class="step-asset" data-gallery="steps-gallery">
+                          {%if asset.vimeo_video_code %}
+                          <span class="gallery-btn-play no-pointer-events">
+                            <svg viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" tabindex="-1" id="play">
+                              <polygon class="fill" points="1,0 20,10 1,20"></polygon>
+                            </svg>
+                          </span>
+                          {% endif %}
+                          <img src="{{ asset.image.url }}" class="img-responsive"/>
+                        </a>
+                      </li>
                     {% endfor %}
+                  </ul>
+                  <h3 class="form-heading text-uppercase">{{ step.phase.title }}: {{ step.title }} 
+                    <span>
+                      <a href="javascript:void(0);" class="open_report">GO TO OLDER REPORTS</a>
+                      <div class="order_reports">
+                        <ul>
+                        {% for step_ in last_boat.steps.all %}
+                          <li><a href="javascript:void(0);" class="link_to_report" data-pk="{{ step_.pk }}">{{ step_.start_date|date:"N d, o" }}</a></li>
+                        {% endfor %}
+                        </ul>
+                      </div>
                     </span>
+                  </h3>
+                  <div class="row mt6">
+                    <div class="col-sm-6">
+                      {{ step.phase.description|safe }}
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1">
+                      <div class="flex">
+                        <span class="circle date">
+                            {{ step.start_date|date:"N" }}
+                          <div class="num">{{ step.start_date|date:"d" }}</div>
+                        </span>
+                        <span>
+                          <h4>{{ step.title }}</h4>
+                          <p>{{ step.description|safe}}</p>
+                        </span>
+                        <span style="display: none;">
+                        {% for step_ in last_boat.steps.all %}
+                          <h4>{{ step_.title }}</h4>
+                          {% if step_.pk == step.pk %}
+                            <p>{{ step_.description|safe }}</p>
+                          {% endif %}
+                        {% endfor %}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  {% include "owners_portal/stepfeedback_form.html" with step=active_step %}
+                  {% include "owners_portal/stepfeedback_form.html" with step=step %}
                 </div>
-              </div>
-            {% else %}
+
+                {% endfor %}
 
             {% endif %}
           {% endwith %}

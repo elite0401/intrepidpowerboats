@@ -276,11 +276,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       $('.sidebar-content').removeClass('on');
     });
     $(document).on('click', '.tip', function() {
-      console.log('abc');
       $('.tooltip_content').show();
     });
     $('.hide_tooltip').on('click', function() {
       $('.tooltip_content').hide();
+    });
+    $('.link_to_report').on('click', function() {
+      var pk = $(this).data('pk');
+      $('.step_group').each(function() {
+        $(this).removeClass('active');
+      });
+      $('.step_group[data-pk="' + pk + '"]').addClass('active');
+      $('.order_reports').hide();
+    });
+    $('.open_report').on('click', function() {
+      if ($('.order_reports').css('display') == 'block') {
+        $('.order_reports').hide();
+      } else {
+        $('.order_reports').show();
+      }
     });
     $(window).resize(function() {
       $('.home-background .video-wrapper').css('height', ($(window).height() - 70) + 'px');
