@@ -333,7 +333,7 @@ body.thank-you-page .navbar-intrepid-logo {
     margin: 0 16px;
     vertical-align: top; }
   .nav-top a.nav-link {
-    border-top: 7px solid #01b994;
+    border-top: 7px solid #7b7b7b;
     font-weight: 600;
     line-height: 20px;
     color: white;
@@ -511,7 +511,7 @@ body.thank-you-page .navbar-intrepid-logo {
   padding: 0; }
 
 .nav-sidebar {
-  background: #01b994;
+  background: #000;
   min-height: 70px;
    z-index: 10000;
   }

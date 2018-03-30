@@ -1,5 +1,53 @@
 {% load staticfiles i18n thumbnail %}
 
+<style type="text/css">
+  .boat_content {
+    display: none;
+  }
+  .boat_content.active {
+    display: block;
+  }
+  .header-image {
+    display: none;
+  }
+  .header-image.active {
+    display: block;
+  }
+  h3.boat_content.form-heading {
+    text-align: center;
+  }
+  h3.boat_content.form-heading span {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    line-height: 1.5;
+    padding: 2px 15px;
+    margin-top: 6px;
+    font-size: 13px;
+    position: relative;
+    display: block;
+    width: 210px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  h3.boat_content.form-heading span a {
+    color: #fff;
+  }
+  .boat_content .order_reports {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border: 1px solid #000;
+    margin-top: 2px;
+    display: none;
+  }
+  .boat_content .order_reports ul {
+    margin-top: 10px;
+  }
+  .boat_content .order_reports ul li a {
+    color: #337ab7;
+  }
+</style>
+
 <div role="tabpanel" class="tab-pane fade tab-dashboard" id="dashboard">
 
   <div class="main">
@@ -7,14 +55,16 @@
 
       {% if request.user.is_authenticated %}
 
-        {% if last_boat and last_boat.active_step %}
+        {% if last_boat and last_boat.last_step %}
 
           <!-- ./timeline -->
-          {% with last_boat.active_step as active_step %}
-            {% if active_step %}
-              <div class="header-image">
+          {% with last_boat.last_step as last_step %}
+            {% if last_step %}
+
+              {% for step in last_boat.steps.all %}
+              <div class="header-image boat_content {% if step.pk == last_step.pk %}active{% endif %}" data-pk="{{ step.pk }}">
                 <ul class="boatImagesSlider">
-                  {% for asset in active_step.assets.all %}
+                  {% for asset in step.assets.all %}
                     <li>
                       <a href="{{ asset.asset_url }}" data-toggle="lightbox"
                          class="step-asset" data-gallery="steps-gallery">
@@ -31,30 +81,44 @@
                   {% endfor %}
                 </ul>
               </div>
+              {% endfor %}
 
               <ol class="timeline clearfix">
-                {% for step in last_boat.steps.all %}
+                {% for step__ in last_boat.steps.all %}
                   <li class="{% if forloop.first %}first
                                            {% elif forloop.last %}last
                                            {% else %}mid{% endif %}">
-                    <span class="circle {% if step.active %}active{% endif %}"></span>
+                    <span class="circle {% if forloop.last %}active{% endif %}"></span>
                     <span class="line"></span>
                     <span class="txt-content">
-                      <h4 class="text-uppercase">{{ step.title }}</h4>
-                      <p>{{ step.start_date|date:"N d" }}</p>
-                      <p>{{ step.start_date|date:"o" }}</p>
+                      <h4 class="text-uppercase">{{ step__.title }}</h4>
+                      <p>{{ step__.start_date|date:"N d" }}</p>
+                      <p>{{ step__.start_date|date:"o" }}</p>
                     </span>
                   </li>
                 {% endfor %}
               </ol>
 
-              <h3 class="form-heading text-uppercase">{{ active_step.phase.title }}: {{ active_step.title }}</h3>
-
               <h2>Pure craftsmanship</h2>
 
-              <div class="row mt6">
+              {% for step in last_boat.steps.all %}
+
+              <h3 class="form-heading text-uppercase boat_content {% if forloop.last %}active{% endif %}" data-pk="{{ step.pk }}">{{ step.phase.title }}: {{ step.title }}
+                <span>
+                  <a href="javascript:void(0);" class="open_report">GO TO OLDER REPORTS</a>
+                  <div class="order_reports">
+                    <ul>
+                    {% for step_ in last_boat.steps.all %}
+                      <li><a href="javascript:void(0);" class="mobile_link_to_report" data-pk="{{ step_.pk }}">{{ step_.start_date|date:"N d, o" }}</a></li>
+                    {% endfor %}
+                    </ul>
+                  </div>
+                </span>
+              </h3>
+
+              <div class="row mt6 boat_content {% if forloop.last %}active{% endif %}" data-pk="{{ step.pk }}">
                 <div class="col-sm-12">
-                  {{ active_step.phase.description|safe }}
+                  {{ step.phase.description|safe }}
                 </div>
 
                 <div class="mb4 clearfix"></div>
@@ -62,26 +126,26 @@
                 <div class="col-sm-10 col-sm-offset-1">
                   <div class="flex">
                     <span class="circle date">
-                        {{ active_step.start_date|date:"N" }}
-                      <div class="num">{{ active_step.start_date|date:"d" }}</div>
+                        {{ step.start_date|date:"N" }}
+                      <div class="num">{{ step.start_date|date:"d" }}</div>
                     </span>
                     <span>
-                    {% for step in last_boat.steps.all %}
-                      <h4>{{ step.title }}</h4>
-                      {% if step.pk == active_step.pk %}
-                        <p>{{ step.description|safe }}</p>
+                    {% for step_ in last_boat.steps.all %}
+                      {% if step_.pk == step.pk %}
+                        <h4>{{ step_.title }}</h4>
+                        <p>{{ step_.description|safe }}</p>
                       {% endif %}
                     {% endfor %}
                     </span>
                   </div>
                 </div>
+
+                <div class="col-sm-12">
+                  {% include "owners_portal/stepfeedback_form.html" with step=step %}
+                </div>
               </div>
 
-              <div class="mb4 clearfix"></div>
-
-              <div class="col-sm-12">
-                {% include "owners_portal/stepfeedback_form.html" with step=active_step %}
-              </div>
+              {% endfor %}
             {% else %}
 
             {% endif %}

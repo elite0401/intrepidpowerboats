@@ -289,6 +289,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       $('.step_group[data-pk="' + pk + '"]').addClass('active');
       $('.order_reports').hide();
     });
+    $('.mobile_link_to_report').on('click', function() {
+      var pk = $(this).data('pk');
+      $('.boat_content').each(function() {
+        $(this).removeClass('active');
+      });
+      $('.boat_content[data-pk="' + pk + '"]').addClass('active');
+      $('.order_reports').hide();
+    });
     $('.open_report').on('click', function() {
       if ($('.order_reports').css('display') == 'block') {
         $('.order_reports').hide();
