@@ -11,6 +11,24 @@
 {% block section %}Register - {% endblock %}
 {% block content %}
 
+<style type="text/css">
+  .strong {
+      font-weight: bold;
+      margin-top: 10px;
+  }
+  .tooltip_content {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      border: 1px solid #c9c2c0;
+      display: none;
+      padding: 0 10px;
+      margin-top: -20px;
+      background: #eae8e9;
+      z-index: 9;
+  }
+</style>
+
     <div class="main">
       <header class="text-center">
         <h1>OWNER’S PORTAL</h1>
@@ -24,17 +42,17 @@
         {% csrf_token %}
         <div class="row">
             <div class="col-sm-6">
-                <div>{{ form.first_name|attr:"placeholder:FIRST NAME"|add_class:"input" }}</div>
+                <div>{{ form.first_name|attr:"placeholder:* FIRST NAME"|add_class:"input" }}</div>
                 <div>{{ form.first_name.errors }}</div>
             </div>
             <div class="col-sm-6">
-                <div>{{ form.last_name|attr:"placeholder:LAST NAME"|add_class:"input" }}</div>
+                <div>{{ form.last_name|attr:"placeholder:* LAST NAME"|add_class:"input" }}</div>
                 <div>{{ form.last_name.errors }}</div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
-                    <div>{{ form.email|attr:"placeholder:EMAIL ADDRESS"|add_class:"input" }}</div>
+                    <div>{{ form.email|attr:"placeholder:* EMAIL ADDRESS"|add_class:"input" }}</div>
                     <div>{{ form.email.errors }}</div>
             </div>
             <div class="col-sm-6">
@@ -50,6 +68,12 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
+                <div>{{ form.phone|attr:"placeholder:* PHONE NUMBER"|add_class:"input" }}</div>
+                <div>{{ form.phone.errors }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
                     <div>{{ form.password|attr:"placeholder:PASSWORD"|add_class:"input" }}</div>
                     <div>{{ form.password.errors }}</div>
             </div>
@@ -57,6 +81,44 @@
                     <div>{{ form.password_repeat|attr:"placeholder:CONFIRM PASSWORD"|add_class:"input" }}</div>
                     <div>{{ form.password_repeat.errors }}</div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p class="strong">DO YOU OWN AN INTREPID?</p>
+                <p>YES, MY BOAT DETAILS ARE AS FOLLOWS:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form.intrepid_model|attr:"placeholder:MODEL"|add_class:"input" }}
+                        {{ form.intrepid_model.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.intrepid_year|attr:"placeholder:YEAR"|add_class:"input" }}
+                        {{ form.intrepid_year.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.intrepid_hull_id|attr:"placeholder:HULL ID #"|add_class:"input" }}
+                        {{ form.intrepid_hull_id.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="javascript:void(0);" class="tip">WHAT'S THIS?</a>
+                        <div class="tooltip_content">
+                            <a href="javascript:void(0);" class="hide_tooltip">WHAT'S THIS?</a>
+                            <p>Hull ID Numbers (HIN) are a 12 character series of letters and numbers affixed to your boat that is used to trace a boat's history. The HIN is required by federal law and uniquely identifies a boat the same way a VIN does with a car. Note, a HIN is not the same as a state registration number which is a boat’s version of a license plate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="checkbox">
+              <span>
+                {{ form.fan|attr:"id:fan" }}
+                <label for="fan">NO, I'M A FAN </label>
+                {{ form.fan.errors }}
+              </span>
+            </div>
+          </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
