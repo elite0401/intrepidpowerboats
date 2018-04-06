@@ -53,7 +53,7 @@ class EventAdmin(ModelAdmin):
 class ExtraUserDataInline(admin.TabularInline):
     can_delete = False
     model = ExtraUserData
-    fields = ['profile_picture', 'gallery_header', 'intrepid_hull_id']
+    fields = ['profile_picture', 'gallery_header', 'intrepid_hull_id', 'intrepid_model']
 
     class Media:
         css = {"all": ("css/admin/hide_inline_object_name.css",)}
@@ -66,8 +66,8 @@ class UserAdmin(BaseUserAdmin):
 @admin.register(ExtraUserData)
 class DetailsForStaffAdmin(ModelAdmin):
     model = ExtraUserData
-    fields = ['user', 'purchased_boat_info', 'details_for_staff', 'intrepid_hull_id']
-    list_display = ['user', 'truncated_purchased_boat_info', 'truncated_details_for_staff', 'intrepid_hull_id']
+    fields = ['user', 'purchased_boat_info', 'details_for_staff', 'intrepid_hull_id', 'intrepid_model']
+    list_display = ['user', 'truncated_purchased_boat_info', 'truncated_details_for_staff', 'intrepid_hull_id', 'intrepid_model']
     search_fields = ['user__username']
 
     def get_readonly_fields(self, request, obj=None):
